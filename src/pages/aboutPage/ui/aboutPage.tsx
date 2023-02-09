@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { type FC } from 'react'
+import { useTranslation } from 'react-i18next'
 
-const AboutPage = () => {
-    return (
-        <div>
-            AboutPage
-        </div>
-    );
-};
+const AboutPage: FC = () => {
+  const { t } = useTranslation('about')
+  return (
+		<div>
+			{t('About')}
+		</div>
+  )
+}
 
-export default AboutPage;
+export default AboutPage

@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { type FC } from 'react'
+import { useTranslation } from 'react-i18next'
 
-const MainPage = () => {
-    return (
-        <div>
-            main
-        </div>
-    );
-};
+const MainPage: FC = () => {
+  const { t } = useTranslation()
 
-export default MainPage;
+  return (
+		<div>
+			{t('Main')}
+		</div>
+  )
+}
+
+export default MainPage
