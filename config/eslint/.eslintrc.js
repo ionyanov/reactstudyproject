@@ -1,11 +1,14 @@
 module.exports = {
     env: {
         browser: true,
-        es2021: true
+        es2021: true,
+        jest: true
     },
     extends: [
         'plugin:react/recommended',
-        'standard-with-typescript'
+        'standard-with-typescript',
+        'eslint:recommended',
+        'plugin:@typescript-eslint/recommended'
     ],
     overrides: [],
     parserOptions: {
@@ -13,8 +16,12 @@ module.exports = {
         sourceType: 'module',
         project: ['./tsconfig.json']
     },
+    parser: '@typescript-eslint/parser',
+    root: true,
     plugins: [
-        'react'
+        'react',
+        'i18next',
+        '@typescript-eslint'
     ],
     rules: {
         'react/react-in-jsx-scope': 'off',
@@ -27,7 +34,9 @@ module.exports = {
         '@typescript-eslint/explicit-function-return-type': [1,
             {
                 'allowDirectConstAssertionInArrowFunctions': true
-            }]
+            }],
+        'i18next/no-literal-string': 1,
+        '@typescript-eslint/no-empty-function': [2, {"allow": ["methods"]}]
     },
     globals: {
         _IS_DEV_: true

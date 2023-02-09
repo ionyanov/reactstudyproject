@@ -16,7 +16,7 @@ export const LangSwitcher: FC<LangSwitcherProps> = props => {
   }
 
   return (
-		<div className={classNames(cls.LangSwitcher, {}, [props.className])}>
+		<div className={classNames(cls.langswitcher, {}, [props.className])}>
 			<Button onClick={toggle}>{t(i18n.language === 'ru-RU' ? 'en' : 'ru-RU')}</Button>
 		</div>
   )
