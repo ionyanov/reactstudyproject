@@ -1,4 +1,9 @@
 module.exports = {
+    settings: {
+        react: {
+            version: 'detect'
+        }
+    },
     env: {
         browser: true,
         es2021: true,
@@ -10,11 +15,10 @@ module.exports = {
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended'
     ],
-    overrides: [],
     parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
-        project: ['./tsconfig.json']
+        project: '**/tsconfig.json'
     },
     parser: '@typescript-eslint/parser',
     root: true,
@@ -24,6 +28,10 @@ module.exports = {
         '@typescript-eslint'
     ],
     rules: {
+        indent: ['error', 4],
+        '@typescript-eslint/indent': ['error', 4],
+        'object-curly-spacing': [1, 'never'],
+        '@typescript-eslint/object-curly-spacing': [1, 'never'],
         'react/react-in-jsx-scope': 'off',
         'react/jsx-filename-extension': [1, {extensions: ['.js', '.jsx', '.ts', '.tsx']}],
         'no-tabs': ['error', {allowIndentationTabs: true}],
@@ -31,14 +39,24 @@ module.exports = {
         '@typescript-eslint/strict-boolean-expressions': 'off',
         '@typescript-eslint/no-floating-promises': 'off',
         '@typescript-eslint/naming-convention': 'warn',
+        '@typescript-eslint/no-var-requires': 'off',
         '@typescript-eslint/explicit-function-return-type': [1,
             {
-                'allowDirectConstAssertionInArrowFunctions': true
+                allowDirectConstAssertionInArrowFunctions: true
             }],
-        'i18next/no-literal-string': 1,
-        '@typescript-eslint/no-empty-function': [2, {"allow": ["methods"]}]
+        'i18next/no-literal-string': [2, {
+            markupOnly: true,
+            ignoreAttribute: ['data-testid'],
+        }],
+        '@typescript-eslint/no-empty-function': [2, {allow: ['methods']}]
     },
     globals: {
         _IS_DEV_: true
-    }
+    },
+    overrides: [
+        {
+            files: ['**/src/**/*.test.{ts,tsx}'],
+            rules: {'i18next/no-literal-string': "off"}
+        }
+    ]
 }

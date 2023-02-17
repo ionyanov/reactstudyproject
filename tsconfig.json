@@ -11,12 +11,19 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
-      "*": ["./src/*"]
+      "*": [
+        "./src/*"
+      ]
     }
   },
+  "include": [
+    "src",
+    "config",
+    "webpack.config.ts"
+  ],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
-  },
+  }
 }

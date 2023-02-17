@@ -1,8 +1,8 @@
-import {FC} from "react";
-import {classNames} from "shared/lib/classNames/classNames";
-import cls from './PageError.module.scss';
-import {useTranslation} from "react-i18next";
-import {Button, ThemeButton} from "shared/ui/Button/Button";
+import {type FC} from 'react'
+import {classNames} from 'shared/lib/classNames/classNames'
+import cls from './PageError.module.scss'
+import {useTranslation} from 'react-i18next'
+import {Button} from 'shared/ui/Button/Button'
 
 interface PageErrorProps {
     className?: string
@@ -11,8 +11,8 @@ interface PageErrorProps {
 export const PageError: FC<PageErrorProps> = (props) => {
     const {t} = useTranslation()
 
-    const reloadPage = () => {
-        location.reload();
+    const reloadPage: () => void = () => {
+        location.reload()
     }
 
     return (
@@ -22,5 +22,5 @@ export const PageError: FC<PageErrorProps> = (props) => {
                 {t('Обновить')}
             </Button>
         </div>
-    );
-};
+    )
+}
