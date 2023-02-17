@@ -4,5 +4,8 @@
   "Toggle": "Toggle",
   "Collapse": "Collapse",
   "ru-RU": "Russian",
-  "en": "English"
+  "en": "English",
+  "('Page not found')": "('Page not found')",
+  "('Что-то пошло не так')": "('Что-то пошло не так')",
+  "('Обновить')": "('Обновить')"
 }
