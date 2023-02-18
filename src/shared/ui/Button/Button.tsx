@@ -4,6 +4,7 @@ import {classNames} from 'shared/lib/classNames/classNames'
 
 export enum ThemeButton {
     CLEAR = 'clear',
+    OUTLINE = 'outline'
 }
 
 type ButtonProps = {
@@ -12,7 +13,7 @@ type ButtonProps = {
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 export const Button: FC<ButtonProps> = props => {
-    const {className, children, theme = ThemeButton.CLEAR, ...otherProps} = props
+    const {className, children, theme, ...otherProps} = props
 
     return (
         <button className={classNames(cls.button, {}, [className, cls[theme]])} {...otherProps}>

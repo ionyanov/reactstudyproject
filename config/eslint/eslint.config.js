@@ -46,7 +46,7 @@ module.exports = {
             }],
         'i18next/no-literal-string': [2, {
             markupOnly: true,
-            ignoreAttribute: ['data-testid'],
+            ignoreAttribute: ['data-testid', 'to'],
         }],
         '@typescript-eslint/no-empty-function': [2, {allow: ['methods']}]
     },

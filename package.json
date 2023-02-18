@@ -7,11 +7,15 @@
     "start": "webpack serve --env port=3000",
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
-    "lint:ts": "eslint --config config/eslint/eslint.config.js \"**/*.{ts,tsx}\"",
-    "lint:ts:fix": "eslint --config config/eslint/eslint.config.js \"**/*.{ts,tsx}\" --fix",
-    "lint:scss": "npx stylelint --config config/eslint/.stylelintrc.json \"**/*.scss\"",
-    "lint:scss:fix": "npx stylelint --config config/eslint/.stylelintrc.json \"**/*.scss\" --fix",
-    "unit": "jest --config ./config/jest/jest.config.ts"
+    "lint:ts": "eslint --config ./config/eslint/eslint.config.js \"**/*.{ts,tsx}\"",
+    "lint:ts:fix": "eslint --config ./config/eslint/eslint.config.js \"**/*.{ts,tsx}\" --fix",
+    "lint:scss": "npx stylelint --config ./config/eslint/.stylelintrc.json \"**/*.scss\"",
+    "lint:scss:fix": "npx stylelint --config ./config/eslint/.stylelintrc.json \"**/*.scss\" --fix",
+    "test:unit": "jest --config ./config/jest/jest.config.ts",
+    "test:ui": "npx loki test",
+    "test:ui:ok": "npx loki approve",
+    "storybook": "start-storybook -p 6006 -c ./config/storybook/",
+    "storybook:build": "build-storybook -c ./config/storybook/"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +25,14 @@
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.18.6",
+    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-essentials": "^6.5.16",
+    "@storybook/addon-interactions": "^6.5.16",
+    "@storybook/addon-links": "^6.5.16",
+    "@storybook/builder-webpack5": "^6.5.16",
+    "@storybook/manager-webpack5": "^6.5.16",
+    "@storybook/react": "^6.5.16",
+    "@storybook/testing-library": "^0.0.13",
     "@svgr/webpack": "^6.5.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
@@ -68,6 +80,7 @@
     "i18next": "^22.4.9",
     "i18next-browser-languagedetector": "^7.0.1",
     "i18next-http-backend": "^2.1.1",
+    "loki": "^0.31.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^12.1.5",
@@ -75,5 +88,20 @@
   },
   "jest": {
     "testEnvironment": "jsdom"
+  },
+  "loki": {
+    "configurations": {
+      "chrome.laptop": {
+        "target": "chrome.app",
+        "width": 1366,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": false
+      },
+      "chrome.iphone7": {
+        "target": "chrome.app",
+        "preset": "iPhone 7"
+      }
+    }
   }
 }

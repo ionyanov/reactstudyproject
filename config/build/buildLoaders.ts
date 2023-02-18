@@ -1,12 +1,10 @@
 import type webpack from 'webpack'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import {type BuildOption} from './types/config'
+import {buildCSSLoaders} from "./loaders/buildCSSLoaders";
+import {svgLoader} from "./loaders/svgLoader";
 
-export function BuildLoaders (option: BuildOption): webpack.RuleSetRule[] {
-    const svgLoader: webpack.RuleSetRule = {
-        test: /\.svg$/,
-        use: ['@svgr/webpack']
-    }
+export function BuildLoaders(option: BuildOption): webpack.RuleSetRule[] {
+    const svgLoaderItem: webpack.RuleSetRule = svgLoader()
 
     const fileLoader: webpack.RuleSetRule = {
         test: /\.(png|jpe?g|gif|woff2|woff)$/i,
@@ -23,22 +21,7 @@ export function BuildLoaders (option: BuildOption): webpack.RuleSetRule[] {
         exclude: /node_modules/
     }
 
-    const scssLoader: webpack.RuleSetRule = {
-        test: /\.s[ac]ss$/i,
-        use: [
-            option.isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-            {
-                loader: 'css-loader',
-                options: {
-                    modules: {
-                        auto: (resPath: string) => Boolean(resPath.includes('.module.')),
-                        localIdentName: option.isDev ? '[path][name]__[local]' : '[hash:base64:5]'
-                    }
-                }
-            },
-            'sass-loader'
-        ]
-    }
+    const scssLoader: webpack.RuleSetRule = buildCSSLoaders(option.isDev);
 
     const babelLoader: webpack.RuleSetRule = {
         test: /\.(js|jsx|ts|tsx)$/,
@@ -65,6 +48,6 @@ export function BuildLoaders (option: BuildOption): webpack.RuleSetRule[] {
         babelLoader,
         tsLoader,
         scssLoader,
-        svgLoader
+        svgLoaderItem
     ]
 }
