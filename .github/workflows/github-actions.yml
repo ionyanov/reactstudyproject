@@ -1,0 +1,37 @@
+name: GitHub Actions
+run-name: ${{ github.actor }} is testing out GitHub Actions
+on:
+  push:
+    branches: [ master ]
+  pull-request:
+    branches: [ master ]
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 18.x ]
+    steps:
+      - name: Check out repo's default branch
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+      - name: install modiles
+        run: npm install
+      - name: production build
+        run: npm run build:prod
+
+      - name: linting typescript
+        run: npm run lint:ts
+      - name: linting scss
+        run: npm run lint:scss
+      - name: unit testing
+        run: npm run test:unit
+
+      - name: run storybook
+        run: npm run storybook:build
+      - name: test storybook
+        run: npm run test:storybook

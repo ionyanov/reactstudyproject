@@ -1,5 +1,5 @@
 import {render, screen, waitFor} from '@testing-library/react'
-import {Button, ThemeButton} from 'shared/ui/Button/Button'
+import {Button, ButtonTheme} from 'shared/ui/Button/Button'
 
 describe('Button', () => {
     test('Button exists', () => {
@@ -9,7 +9,7 @@ describe('Button', () => {
     })
 
     test('Has thee clear', () => {
-        render(<Button theme={ThemeButton.CLEAR}>Test</Button>)
+        render(<Button theme={ButtonTheme.CLEAR}>Test</Button>)
 
         waitFor(() => {
             expect(screen.getAllByText('Test')).toHaveClass('clear')

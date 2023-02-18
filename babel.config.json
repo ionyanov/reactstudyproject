@@ -9,12 +9,5 @@
       }
     ]
   ],
-  "plugins": [
-    [
-      "i18next-extract",
-      {
-        "nsSeparator": "~"
-      }
-    ]
-  ]
+  "plugins": []
 }
