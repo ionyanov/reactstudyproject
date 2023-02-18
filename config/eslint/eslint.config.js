@@ -48,7 +48,9 @@ module.exports = {
             markupOnly: true,
             ignoreAttribute: ['data-testid', 'to'],
         }],
-        '@typescript-eslint/no-empty-function': [2, {allow: ['methods']}]
+        '@typescript-eslint/no-empty-function': [2, {allow: ['methods']}],
+        '@typescript-eslint/no-base-to-string': 'off',
+        '@typescript-eslint/consistent-type-assertions': 'off'
     },
     globals: {
         _IS_DEV_: true

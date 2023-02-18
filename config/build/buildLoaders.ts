@@ -1,9 +1,9 @@
 import type webpack from 'webpack'
 import {type BuildOption} from './types/config'
-import {buildCSSLoaders} from "./loaders/buildCSSLoaders";
-import {svgLoader} from "./loaders/svgLoader";
+import {buildCSSLoaders} from './loaders/buildCSSLoaders'
+import {svgLoader} from './loaders/svgLoader'
 
-export function BuildLoaders(option: BuildOption): webpack.RuleSetRule[] {
+export function BuildLoaders (option: BuildOption): webpack.RuleSetRule[] {
     const svgLoaderItem: webpack.RuleSetRule = svgLoader()
 
     const fileLoader: webpack.RuleSetRule = {
@@ -21,7 +21,7 @@ export function BuildLoaders(option: BuildOption): webpack.RuleSetRule[] {
         exclude: /node_modules/
     }
 
-    const scssLoader: webpack.RuleSetRule = buildCSSLoaders(option.isDev);
+    const scssLoader: webpack.RuleSetRule = buildCSSLoaders(option.isDev)
 
     const babelLoader: webpack.RuleSetRule = {
         test: /\.(js|jsx|ts|tsx)$/,

@@ -4,7 +4,7 @@ import {type BuildOption} from './types/config'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer'
 
-export function BuildPlugins(option: BuildOption): webpack.WebpackPluginInstance[] {
+export function BuildPlugins (option: BuildOption): webpack.WebpackPluginInstance[] {
     const plugins = [
         new HtmlWebpackPlugin({
             title: option.isDev ? 'DEV PROJECT' : 'Study project',
@@ -27,5 +27,5 @@ export function BuildPlugins(option: BuildOption): webpack.WebpackPluginInstance
         )
     }
 
-    return plugins;
+    return plugins
 }
