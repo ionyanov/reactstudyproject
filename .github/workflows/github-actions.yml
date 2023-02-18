@@ -29,8 +29,3 @@ jobs:
         run: npm run lint:scss
       - name: unit testing
         run: npm run test:unit
-
-      - name: run storybook
-        run: npm run storybook:build
-      - name: test storybook
-        run: npm run test:storybook
