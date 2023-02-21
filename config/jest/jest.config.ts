@@ -32,5 +32,8 @@ export default {
     testMatch: [
         '<rootDir>src/**/*.(*)@(spec|test).[tj]s?(x)'
     ],
-    testEnvironment: 'jsdom'
+    testEnvironment: 'jsdom',
+    globals: {
+        _IS_DEV_: false
+    }
 }

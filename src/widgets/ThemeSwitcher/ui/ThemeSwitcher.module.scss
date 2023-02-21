@@ -1,3 +1,9 @@
 .themeswitcher {
-  color: red;
+  fill: var(--primary-color-inverted);
+  width: var(--font-line-xl);
+}
+
+.themeicon {
+  width: var(--font-line-xl);
+  height: var(--font-line-xl);
 }

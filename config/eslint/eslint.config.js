@@ -13,7 +13,8 @@ module.exports = {
         'plugin:react/recommended',
         'standard-with-typescript',
         'eslint:recommended',
-        'plugin:@typescript-eslint/recommended'
+        'plugin:@typescript-eslint/recommended',
+        "plugin:react-hooks/recommended"
     ],
     parserOptions: {
         ecmaVersion: 'latest',
@@ -25,7 +26,8 @@ module.exports = {
     plugins: [
         'react',
         'i18next',
-        '@typescript-eslint'
+        '@typescript-eslint',
+        "react-hooks"
     ],
     rules: {
         indent: ['error', 4],
@@ -50,7 +52,10 @@ module.exports = {
         }],
         '@typescript-eslint/no-empty-function': [2, {allow: ['methods']}],
         '@typescript-eslint/no-base-to-string': 'off',
-        '@typescript-eslint/consistent-type-assertions': 'off'
+        '@typescript-eslint/consistent-type-assertions': 'off',
+        'react-hooks/rules-of-hooks': 'error',
+        'react-hooks/exhaustive-deps': 'error',
+        'no-param-reassign': 'off'
     },
     globals: {
         _IS_DEV_: true
@@ -59,6 +64,10 @@ module.exports = {
         {
             files: ['**/src/**/*.test.{ts,tsx}'],
             rules: {'i18next/no-literal-string': "off"}
+        },
+        {
+            files: ['**/src/**/*.stories.{ts,tsx}'],
+            rules: {'max-len': "off"}
         }
     ]
 }
