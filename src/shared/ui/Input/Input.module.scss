@@ -1,0 +1,28 @@
+.InputWrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.placeHolder {
+  margin-right: 5px;
+}
+
+.pls_40 {
+  width: 40%;
+  margin-left: auto;
+  display: flex;
+  justify-content: end;
+}
+
+.pls_60 {
+  width: 40%;
+  margin-left: auto;
+  display: flex;
+  justify-content: end;
+}
+
+.input {
+  flex-grow: 1;
+  padding-left: 3px;
+  padding-right: 3px;
+}

@@ -1,26 +1,35 @@
-import {FC, MouseEventHandler, ReactNode, useCallback, useEffect, useRef, useState} from "react";
-import {classNames} from "shared/lib/classNames/classNames";
-import cls from './Modal.module.scss';
-import {Portal} from "shared/ui/Portal/Portal";
-import {useTheme} from "app/providers/ThemeProvider";
+import {type FC, type MouseEventHandler, type ReactNode, useCallback, useEffect, useRef, useState} from 'react'
+import {classNames} from 'shared/lib/classNames/classNames'
+import cls from './Modal.module.scss'
+import {Portal} from 'shared/ui/Portal/Portal'
+import {useTheme} from 'app/providers/ThemeProvider'
 
 interface ModalProps {
-    className?: string;
-    children?: ReactNode;
-    isOpen?: boolean;
-    onClose?: () => void;
+    className?: string
+    children?: ReactNode
+    isOpen?: boolean
+    onClose?: () => void
+    lazy?: boolean
 }
 
-const ANIMATION_DURATION: number = 300;
+const ANIMATION_DURATION = 300
 
 export const Modal: FC<ModalProps> = (props) => {
     const {
         isOpen = false,
-        onClose
+        onClose,
+        lazy
     } = props
-    const {theme} = useTheme();
-    const [isClosing, setIsClosing] = useState(false);
-    const timeRef = useRef<ReturnType<typeof setTimeout>>();
+    const {theme} = useTheme()
+    const [isClosing, setIsClosing] = useState(false)
+    const [isMounted, setIsMounted] = useState(false)
+    const timeRef = useRef<ReturnType<typeof setTimeout>>()
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true)
+        }
+    }, [isOpen])
 
     const onContentClick: MouseEventHandler<HTMLDivElement> = (e) => {
         e.stopPropagation()
@@ -30,7 +39,7 @@ export const Modal: FC<ModalProps> = (props) => {
         if (onClose) {
             setIsClosing(true)
             timeRef.current = setTimeout(() => {
-                onClose();
+                onClose()
                 setIsClosing(false)
             }, ANIMATION_DURATION)
         }
@@ -48,16 +57,19 @@ export const Modal: FC<ModalProps> = (props) => {
         }
 
         return () => {
-            clearTimeout(timeRef.current);
+            clearTimeout(timeRef.current)
             window.removeEventListener('keydown', onKeyDown)
         }
     }, [isOpen, onKeyDown])
+
+    if (lazy && !isMounted) {
+        return null
+    }
 
     const mods = {
         [cls.opened]: isOpen,
         [cls.isclosing]: isClosing
     }
-
     return (
         <Portal>
             <div className={classNames(cls.Modal, mods, [props.className, theme])}>
@@ -68,5 +80,5 @@ export const Modal: FC<ModalProps> = (props) => {
                 </div>
             </div>
         </Portal>
-    );
-};
+    )
+}

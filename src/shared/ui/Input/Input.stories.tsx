@@ -1,26 +1,24 @@
 import React from 'react'
 import {type ComponentMeta, type ComponentStory} from '@storybook/react'
 
-import {Modal} from './Modal'
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'app/providers/ThemeProvider'
+import {Input} from './Input'
 
 export default {
-    title: 'shared/Modal',
-    component: Modal,
+    title: 'shared/Input',
+    component: Input,
     argTypes: {
         backgroundColor: {control: 'color'}
     },
     args: {
-        children: 'Modal'
+        value: 'Content'
     }
-} as ComponentMeta<typeof Modal>
+} as ComponentMeta<typeof Input>
 
-const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />
+const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />
 
-export const Primary = Template.bind({})
-Primary.args = {isOpen: true}
+export const Light = Template.bind({})
 
 export const Dark = Template.bind({})
-Dark.args = {isOpen: true}
 Dark.decorators = [ThemeDecorator(Theme.DARK)]

@@ -1,26 +1,21 @@
 import React from 'react'
 import {type ComponentMeta, type ComponentStory} from '@storybook/react'
 
-import {Modal} from './Modal'
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'app/providers/ThemeProvider'
+import {LoginForm} from './LoginForm'
 
 export default {
-    title: 'shared/Modal',
-    component: Modal,
+    title: 'features/LoginForm',
+    component: LoginForm,
     argTypes: {
         backgroundColor: {control: 'color'}
-    },
-    args: {
-        children: 'Modal'
     }
-} as ComponentMeta<typeof Modal>
+} as ComponentMeta<typeof LoginForm>
 
-const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />
+const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />
 
-export const Primary = Template.bind({})
-Primary.args = {isOpen: true}
+export const Light = Template.bind({})
 
 export const Dark = Template.bind({})
-Dark.args = {isOpen: true}
 Dark.decorators = [ThemeDecorator(Theme.DARK)]
