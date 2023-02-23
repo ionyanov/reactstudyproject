@@ -26,8 +26,8 @@ Clear.args = {theme: ButtonTheme.CLEAR}
 export const ClearInverted = Template.bind({})
 ClearInverted.args = {theme: ButtonTheme.CLEAR_INVERTED}
 
-export const Outline = Template.bind({})
-Outline.args = {theme: ButtonTheme.OUTLINE}
+export const OutlineM = Template.bind({})
+OutlineM.args = {theme: ButtonTheme.OUTLINE}
 
 export const OutlineL = Template.bind({})
 OutlineL.args = {theme: ButtonTheme.OUTLINE, size: ButtonSize.L}
@@ -55,4 +55,4 @@ export const SquareXL = Template.bind({})
 SquareXL.args = {square: true, children: '>', size: ButtonSize.XL}
 
 export const Disabled = Template.bind({})
-SquareXL.args = {disabled: true}
+Disabled.args = {disabled: true}
