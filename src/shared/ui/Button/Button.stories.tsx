@@ -53,3 +53,6 @@ SquareL.args = {square: true, children: '>', size: ButtonSize.L}
 
 export const SquareXL = Template.bind({})
 SquareXL.args = {square: true, children: '>', size: ButtonSize.XL}
+
+export const Disabled = Template.bind({})
+SquareXL.args = {disabled: true}

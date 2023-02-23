@@ -21,6 +21,7 @@ type ButtonProps = {
     theme?: ButtonTheme
     square?: boolean
     size?: ButtonSize
+    disabled?: boolean
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 export const Button: FC<ButtonProps> = props => {
@@ -30,11 +31,13 @@ export const Button: FC<ButtonProps> = props => {
         theme,
         size = ButtonSize.M,
         square = false,
+        disabled = false,
         ...otherProps
     } = props
 
     const mods: Record<string, boolean> = {
-        [cls.square]: square
+        [cls.square]: square,
+        [cls.disabled]: disabled
     }
 
     const addClassName: string[] = [
@@ -46,6 +49,7 @@ export const Button: FC<ButtonProps> = props => {
     return (
         <button type="button"
             className={classNames(cls.button, mods, addClassName)}
+            disabled={disabled}
             {...otherProps}
         >
             {children}

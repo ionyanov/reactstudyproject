@@ -2,7 +2,7 @@ import {type FC, type ReactNode} from 'react'
 import {Provider} from 'react-redux'
 import {createReduxStore} from '../config/store'
 import {type StateShema} from '../config/StateShema'
-import {DeepPartial} from "@reduxjs/toolkit";
+import {type DeepPartial} from '@reduxjs/toolkit'
 
 interface StoreProviderProps {
     children: ReactNode
