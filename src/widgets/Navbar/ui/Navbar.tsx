@@ -6,6 +6,7 @@ import {useTranslation} from 'react-i18next'
 import {useDispatch, useSelector} from 'react-redux'
 import {getUserAuthData, userActions} from 'entities/User'
 import {LoginModal} from 'features/AuthByUserName'
+import {LangSelector} from "widgets/LangSelector/ui/LangSelector";
 
 interface NavbarProps {
     className?: string
@@ -32,6 +33,7 @@ export const Navbar: FC<NavbarProps> = (props) => {
     return (
         <div className={classNames(cls.navbar, {}, [props.className])}>
             <div className={cls.links}>
+                <LangSelector/>
                 {
                     authData
                         ? <Button onClick={onLogout} theme={ButtonTheme.CLEAR_INVERTED}>

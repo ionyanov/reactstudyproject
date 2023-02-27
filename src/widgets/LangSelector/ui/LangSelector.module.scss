@@ -1,0 +1,17 @@
+.LangSelector {
+  padding-left: 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.img {
+  width: var(--font-line-m);
+  height: var(--font-line-m);
+  margin: 3px;
+}
+
+.active_lang {
+  width: var(--font-line-l);
+  height: var(--font-line-l);
+}

@@ -9,6 +9,9 @@ import {ErrorBoundary} from 'app/providers/ErrorBoundary'
 import {StoreProvider} from 'app/providers/StoreProvider'
 
 const container = document.getElementById('root')
+
+document.title = _IS_DEV_ ? 'DEV MODE' : 'PRUDUCT MODE';
+
 const root = createRoot(container)
 root.render(
     <StoreProvider>

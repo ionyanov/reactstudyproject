@@ -2,19 +2,19 @@ import React, {type FC, useEffect, useState} from 'react'
 import {classNames} from 'shared/lib/classNames/classNames'
 import cls from './Sidebar.module.scss'
 import {Button, ButtonSize, ButtonTheme} from 'shared/ui/Button/Button'
-import {ThemeSwitcher} from 'widgets/ThemeSwitcher/ui/ThemeSwitcher'
+import {ThemeSwitcher} from 'widgets/ThemeSwitcher'
 import {useTranslation} from 'react-i18next'
-import {LangSwitcher} from 'widgets/LangSwitcher/ui/LangSwitcher'
+import {LangSwitcher} from 'widgets/LangSwitcher'
 import {AppLink, AppLinkTheme} from 'shared/ui/AppLink/AppLink'
 import {RoutePath} from 'shared/config/routeConfig/routeConfig'
 import MainIcon from 'shared/assets/icons/main-page.svg'
 import AboutIcon from 'shared/assets/icons/about-page.svg'
-import {SIDEBAR_LOCALSTORAGE_KEY} from "shared/const/localstorage";
+import {SIDEBAR_LOCALSTORAGE_KEY} from 'shared/const/localstorage'
+import {LangSelector} from "widgets/LangSelector/ui/LangSelector";
 
 interface SidebarProps {
     className?: string
 }
-
 
 const defaultState: boolean = JSON.parse(localStorage.getItem(SIDEBAR_LOCALSTORAGE_KEY)) || false
 
