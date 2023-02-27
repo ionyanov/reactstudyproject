@@ -14,7 +14,7 @@ interface InputProps extends HTMLInputsProps {
     value?: string
     onChange?: (value: string) => void
     authFocus?: boolean
-    placeholdersize?: PlaceHolderSize
+    placeholdersize?: PlaceHolderSize | undefined
 }
 
 const Input: FC<InputProps> = memo((props: InputProps) => {
@@ -23,7 +23,7 @@ const Input: FC<InputProps> = memo((props: InputProps) => {
         className,
         onChange,
         placeholder,
-        placeholdersize,
+        placeholdersize = PlaceHolderSize.PHS_40,
         type = 'text',
         authFocus,
         ...otherProps

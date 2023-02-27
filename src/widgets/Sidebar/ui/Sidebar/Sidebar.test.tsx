@@ -1,6 +1,6 @@
 import {fireEvent, screen} from '@testing-library/react'
 import {Sidebar} from './Sidebar'
-import {ComponentRender} from '../../../../shared/config/tests/componentRender/componentRender'
+import {ComponentRender} from "shared/config/tests/componentRender/componentRender";
 
 describe('Sidebar', () => {
     test('Sidebar exists', async () => {

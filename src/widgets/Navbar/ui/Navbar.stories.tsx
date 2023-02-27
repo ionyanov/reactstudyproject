@@ -1,11 +1,9 @@
 import React from 'react'
 import {type ComponentMeta, type ComponentStory} from '@storybook/react'
-
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'app/providers/ThemeProvider'
 import {Navbar} from './Navbar'
 import {StoreDecorator} from 'shared/config/storybook/StoreDecorator'
-import {type DeepPartial} from '@reduxjs/toolkit'
 import {type StateShema} from 'app/providers/StoreProvider'
 
 export default {

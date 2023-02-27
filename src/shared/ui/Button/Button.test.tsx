@@ -14,6 +14,5 @@ describe('Button', () => {
         waitFor(() => {
             expect(screen.getAllByText('Test')).toHaveClass('clear')
         })
-        screen.debug()
     })
 })

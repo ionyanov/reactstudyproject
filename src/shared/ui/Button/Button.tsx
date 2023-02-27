@@ -26,9 +26,9 @@ type ButtonProps = {
 
 export const Button: FC<ButtonProps> = props => {
     const {
-        className,
+        className = '',
         children,
-        theme,
+        theme = ButtonTheme.OUTLINE,
         size = ButtonSize.M,
         square = false,
         disabled = false,

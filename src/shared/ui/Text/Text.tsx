@@ -17,8 +17,8 @@ interface TextProps {
 export const Text: FC<TextProps> = (props) => {
     const {
         className,
-        title,
-        text,
+        title = '',
+        text = '',
         theme = TextTheme.NORMAL
     } = props
 
