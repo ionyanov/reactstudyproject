@@ -31,27 +31,27 @@ export const Sidebar: FC<SidebarProps> = props => {
 
     return (
         <div data-testid="sidebar"
-             className={classNames(cls.sidebar, {[cls.collapsed]: collapsed}, [props.className])}>
+            className={classNames(cls.sidebar, {[cls.collapsed]: collapsed}, [props.className])}>
             <Button data-testid="sidebar-toggle"
-                    onClick={onToggle}
-                    className={cls.collapsedBtn}
-                    theme={ButtonTheme.BACKGROUND_INVERTED}
-                    square={true}
-                    size={ButtonSize.XL}
+                onClick={onToggle}
+                className={cls.collapsedBtn}
+                theme={ButtonTheme.BACKGROUND_INVERTED}
+                square={true}
+                size={ButtonSize.XL}
             >
                 {collapsed ? '>' : '<'}
             </Button>
             <div className={cls.items}>
                 <AppLink theme={AppLinkTheme.SECONDARY}
-                         to={RoutePath.main}
-                         className={cls.item}
+                    to={RoutePath.main}
+                    className={cls.item}
                 >
                     <MainIcon className={cls.icon}/>
                     <div className={cls.link}>{t('Main')}</div>
                 </AppLink>
                 <AppLink theme={AppLinkTheme.SECONDARY}
-                         to={RoutePath.about}
-                         className={cls.item}
+                    to={RoutePath.about}
+                    className={cls.item}
                 >
                     <AboutIcon className={cls.icon}/>
                     <div className={cls.link}>{t('About')}</div>

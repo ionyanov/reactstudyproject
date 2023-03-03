@@ -33,11 +33,11 @@ export function BuildLoaders (option: BuildOption): webpack.RuleSetRule[] {
                     ['@babel/preset-env', {targets: 'defaults'}]
                 ],
                 plugins: [
-                    ['i18next-extract', {
+                    /*['i18next-extract', {
                         nsSeparator: '~',
-                        locales: ['ru-RU', 'en'],
+                        locales: ['ru', 'en'],
                         keyAsDefaultValue: true
-                    }]
+                    }]*/
                 ]
             }
         }
