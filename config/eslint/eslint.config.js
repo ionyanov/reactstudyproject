@@ -57,7 +57,9 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'error',
         'no-param-reassign': 'off',
         '@typescript-eslint/no-dynamic-delete': 'off',
-        '@typescript-eslint/no-non-null-assertion': 'off'
+        '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/no-misused-promises': 'off',
+
     },
     globals: {
         _IS_DEV_: true

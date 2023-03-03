@@ -1,5 +1,5 @@
-import {type StateShema} from 'app/providers/StoreProvider'
+import {type StateSchema} from 'app/providers/StoreProvider'
 
-export function getUserName (state: StateShema): string {
+export function getUserName (state: StateSchema): string {
     return state?.loginForm?.username || ''
 }

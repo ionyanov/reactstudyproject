@@ -3,11 +3,11 @@ import {render, type RenderResult} from '@testing-library/react'
 import {I18nextProvider} from 'react-i18next'
 import i18n4test from 'shared/config/i18n/i18n4test'
 import {MemoryRouter} from 'react-router-dom'
-import {type StateShema, StoreProvider} from 'app/providers/StoreProvider'
+import {type StateSchema, StoreProvider} from 'app/providers/StoreProvider'
 
 export interface ComponentRenderProps {
     route: string
-    initialState?: DeepPartial<StateShema>
+    initialState?: DeepPartial<StateSchema>
 }
 
 export function ComponentRender (component: ReactNode, options: ComponentRenderProps = {route: '/'}): RenderResult {

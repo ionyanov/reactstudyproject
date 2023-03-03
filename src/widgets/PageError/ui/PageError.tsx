@@ -1,4 +1,4 @@
-import {type FC} from 'react'
+import {type FC, memo} from 'react'
 import {classNames} from 'shared/lib/classNames/classNames'
 import cls from './PageError.module.scss'
 import {useTranslation} from 'react-i18next'
@@ -8,7 +8,7 @@ interface PageErrorProps {
     className?: string
 }
 
-export const PageError: FC<PageErrorProps> = (props) => {
+export const PageError: FC<PageErrorProps> = memo((props: PageErrorProps) => {
     const {t} = useTranslation()
 
     const reloadPage: () => void = () => {
@@ -23,4 +23,6 @@ export const PageError: FC<PageErrorProps> = (props) => {
             </Button>
         </div>
     )
-}
+})
+
+PageError.displayName = 'PageError'

@@ -1,4 +1,4 @@
-import {type FC, type MouseEventHandler} from 'react'
+import {type FC, memo, type MouseEventHandler} from 'react'
 import {classNames} from 'shared/lib/classNames/classNames'
 import cls from './LangSelector.module.scss'
 import {useTranslation} from 'react-i18next'
@@ -19,11 +19,13 @@ interface LangSelectorEvent extends React.MouseEvent<HTMLButtonElement> {
     target: LangSelectorEventTarget
 }
 
-export const LangSelector: FC<LangSelectorProps> = (props) => {
+export const LangSelector: FC<LangSelectorProps> = memo<LangSelectorProps>((props: LangSelectorProps) => {
     const {i18n} = useTranslation()
 
     const onSelect: MouseEventHandler<HTMLButtonElement> = (event: LangSelectorEvent): void => {
-        if (i18n.language !== event.target.alt) { i18n.changeLanguage(event.target.alt) }
+        if (i18n.language !== event.target.alt) {
+            i18n.changeLanguage(event.target.alt)
+        }
     }
 
     return (
@@ -44,4 +46,6 @@ export const LangSelector: FC<LangSelectorProps> = (props) => {
             </Button>
         </div>
     )
-}
+})
+
+LangSelector.displayName = 'LangSelector'

@@ -12,7 +12,7 @@ interface NavbarProps {
     className?: string
 }
 
-export const Navbar: FC<NavbarProps> = (props) => {
+export const Navbar: FC<NavbarProps> = props => {
     const {t} = useTranslation()
     const authData = useSelector(getUserAuthData)
     const [isAuthModal, setIsAuthModal] = useState(false)

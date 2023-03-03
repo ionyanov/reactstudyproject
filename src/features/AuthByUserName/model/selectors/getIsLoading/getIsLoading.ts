@@ -1,5 +1,5 @@
-import {type StateShema} from 'app/providers/StoreProvider'
+import {type StateSchema} from 'app/providers/StoreProvider'
 
-export function getIsLoading (state: StateShema): boolean {
+export function getIsLoading (state: StateSchema): boolean {
     return state?.loginForm?.isLoading || false
 }

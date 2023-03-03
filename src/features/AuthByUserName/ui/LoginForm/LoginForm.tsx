@@ -5,7 +5,7 @@ import {useTranslation} from 'react-i18next'
 import {Button, ButtonTheme} from 'shared/ui/Button/Button'
 import {Input, PlaceHolderSize} from 'shared/ui/Input/Input'
 import {Text, TextTheme} from 'shared/ui/Text/Text'
-import {useDispatch, useSelector} from 'react-redux'
+import {useSelector} from 'react-redux'
 import {DynamicModuleLoader, type ReducerList} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import {loginActions, loginReducer} from '../../model/slice/loginSlice'
 import {loginByUsername} from '../../model/services/loginByUsername/loginByUsername'
@@ -13,9 +13,11 @@ import {getUserName} from '../../model/selectors/getUserName/getUserName'
 import {getIsLoading} from '../../model/selectors/getIsLoading/getIsLoading'
 import {getError} from '../../model/selectors/getError/getError'
 import {getPassword} from '../../model/selectors/getPassword/getPassword'
+import {useAppDispatch} from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 
 export interface LoginFormProps {
     className?: string
+    onSuccess?: () => void
 }
 
 const redusers: ReducerList = {
@@ -24,7 +26,7 @@ const redusers: ReducerList = {
 
 const LoginForm: FC<LoginFormProps> = memo((props: LoginFormProps) => {
     const {t} = useTranslation()
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
     const username = useSelector(getUserName)
     const password = useSelector(getPassword)
     const error = useSelector(getError)
@@ -38,10 +40,13 @@ const LoginForm: FC<LoginFormProps> = memo((props: LoginFormProps) => {
         dispatch(loginActions.setPassword(value))
     }, [dispatch])
 
-    const onLogin = useCallback(() => {
-        // @ts-expect-error ERR
-        dispatch(loginByUsername({username, password}))
-    }, [dispatch, username, password])
+    const onLogin = useCallback(async () => {
+        // @ts-expect-error REDUX BUG
+        const [result] = await Promise.all([dispatch(loginByUsername({username, password}))])
+        if (result.meta.requestStatus === 'fulfilled') {
+            props.onSuccess?.()
+        }
+    }, [dispatch, username, password, props])
 
     return (
         <DynamicModuleLoader reducers={redusers}>
@@ -49,7 +54,7 @@ const LoginForm: FC<LoginFormProps> = memo((props: LoginFormProps) => {
                 <Text title={t('Авторизация') || ''}/>
                 {error &&
                     <Text theme={TextTheme.ERROR}
-                        text={error}/>
+                        text={t('Неверное имя пользователя или пароль') || ''}/>
                 }
                 <Input className={cls.input}
                     placeholder={t('Введите логин') || ''}
@@ -70,7 +75,7 @@ const LoginForm: FC<LoginFormProps> = memo((props: LoginFormProps) => {
                     onClick={onLogin}
                     disabled={isLoading}
                 >
-                    {t('Войти')}
+                    {t('Войти') || ''}
                 </Button>
             </div>
         </DynamicModuleLoader>

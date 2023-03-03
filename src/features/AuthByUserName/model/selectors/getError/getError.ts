@@ -1,5 +1,5 @@
-import {type StateShema} from 'app/providers/StoreProvider'
+import {type StateSchema} from 'app/providers/StoreProvider'
 
-export function getError (state: StateShema): string {
+export function getError (state: StateSchema): string {
     return state?.loginForm?.error || ''
 }
