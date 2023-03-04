@@ -55,14 +55,16 @@ module.exports = {
         '@typescript-eslint/consistent-type-assertions': 'off',
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
-        'no-param-reassign': 'off',
+        'no-param-reassign': 'warn',
+        '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-dynamic-delete': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
-        '@typescript-eslint/no-misused-promises': 'off',
+        '@typescript-eslint/no-misused-promises': 'warn',
 
     },
     globals: {
-        _IS_DEV_: true
+        _IS_DEV_: true,
+        _API_URL_: true
     },
     overrides: [
         {

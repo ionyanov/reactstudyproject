@@ -5,6 +5,7 @@ import {type BuildParams} from './config/build/types/config'
 
 export default (env: BuildParams): webpack.Configuration => {
     const mode = env.mode || 'development'
+    const apiURL = env.apiURL || 'http://localhost:8000/'
 
     const config: webpack.Configuration = BuildWebpackConfig({
         mode,
@@ -16,6 +17,7 @@ export default (env: BuildParams): webpack.Configuration => {
             node_modules: path.join(__dirname, 'node_modules')
         },
         isDev: mode === 'development',
+        apiURL,
         port: env.port || 3000,
         fileMask: '[name].[contenthash:5]'
     })

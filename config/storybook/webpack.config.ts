@@ -25,7 +25,8 @@ export default ({config}: {config: webpack.Configuration}): webpack.Configuratio
     config.module!.rules?.push(svgLoader())
 
     config.plugins!.push(new DefinePlugin({
-        _IS_DEV_: true
+        _IS_DEV_: true,
+        _API_URL_: true
     }))
 
     return config

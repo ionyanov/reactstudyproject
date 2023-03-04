@@ -11,6 +11,8 @@ export interface BuildPaths {
 export interface BuildParams {
     mode: BuildMode
     port: number
+    apiURL: string
+
 }
 
 export interface BuildOption {
@@ -19,4 +21,5 @@ export interface BuildOption {
     isDev: boolean
     port: number
     fileMask: string
+    apiURL: string
 }

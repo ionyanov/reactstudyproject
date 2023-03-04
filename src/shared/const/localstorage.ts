@@ -1,2 +1,2 @@
-export const USER_LOCALSTORAGE_KEY = 'user'
-export const SIDEBAR_LOCALSTORAGE_KEY = 'sidebar'
+export const LOCALSTORAGE_USER_KEY = 'user'
+export const LOCALSTORAGE_SIDEBAR_KEY = 'sidebar'

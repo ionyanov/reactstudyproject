@@ -41,7 +41,6 @@ const LoginForm: FC<LoginFormProps> = memo((props: LoginFormProps) => {
     }, [dispatch])
 
     const onLogin = useCallback(async () => {
-        // @ts-expect-error REDUX BUG
         const [result] = await Promise.all([dispatch(loginByUsername({username, password}))])
         if (result.meta.requestStatus === 'fulfilled') {
             props.onSuccess?.()

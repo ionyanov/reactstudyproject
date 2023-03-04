@@ -4,7 +4,7 @@ import cls from './Sidebar.module.scss'
 import {Button, ButtonSize, ButtonTheme} from 'shared/ui/Button/Button'
 import {ThemeSwitcher} from 'widgets/ThemeSwitcher'
 import {LangSwitcher} from 'widgets/LangSwitcher'
-import {SIDEBAR_LOCALSTORAGE_KEY} from 'shared/const/localstorage'
+import {LOCALSTORAGE_SIDEBAR_KEY} from 'shared/const/localstorage'
 import {SidebarItemList} from 'widgets/Sidebar/model/Item'
 import {SidebarItem} from 'widgets/Sidebar/ui/SidebarItem/SidebarItem'
 
@@ -12,7 +12,7 @@ interface SidebarProps {
     className?: string
 }
 
-const defaultState: boolean = JSON.parse(localStorage.getItem(SIDEBAR_LOCALSTORAGE_KEY) || 'false') || false
+const defaultState: boolean = JSON.parse(localStorage.getItem(LOCALSTORAGE_SIDEBAR_KEY) || 'false') || false
 
 export const Sidebar: FC<SidebarProps> = props => {
     const [collapsed, setCollapsed] = useState(defaultState)
@@ -22,7 +22,7 @@ export const Sidebar: FC<SidebarProps> = props => {
     }
 
     useEffect(() => {
-        localStorage.setItem(SIDEBAR_LOCALSTORAGE_KEY, JSON.stringify(collapsed))
+        localStorage.setItem(LOCALSTORAGE_SIDEBAR_KEY, JSON.stringify(collapsed))
     }, [collapsed])
 
     return (

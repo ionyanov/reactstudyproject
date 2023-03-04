@@ -1,9 +1,21 @@
-import {type CombinedState, configureStore, type Reducer, type ReducersMapObject} from '@reduxjs/toolkit'
+import {
+    type AnyAction,
+    type CombinedState,
+    configureStore,
+    type Reducer,
+    type ReducersMapObject,
+    type ThunkDispatch
+} from '@reduxjs/toolkit'
 import {type ReduxStoreWithManager, type StateSchema} from './StateSchema'
 import {userReducer} from 'entities/User'
 import {createdReducerManager} from './reducerManager'
+import {$api} from 'shared/api/api'
+import {type To} from '@remix-run/router'
+import {type NavigateOptions} from 'react-router/dist/lib/context'
 
-export function createReduxStore (initialState?: StateSchema, asyncRedusers?: ReducersMapObject<StateSchema>): ReduxStoreWithManager {
+export function createReduxStore (initialState?: StateSchema,
+    asyncRedusers?: ReducersMapObject<StateSchema>,
+    navigate?: (to: To, options?: NavigateOptions) => void): ReduxStoreWithManager {
     const rootReducer: ReducersMapObject<StateSchema> = {
         ...asyncRedusers,
         user: userReducer
@@ -11,14 +23,22 @@ export function createReduxStore (initialState?: StateSchema, asyncRedusers?: Re
 
     const reducerManager = createdReducerManager(rootReducer)
 
-    const store: ReduxStoreWithManager = configureStore<StateSchema>({
+    const store: ReduxStoreWithManager = configureStore({
         reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
         devTools: _IS_DEV_,
-        preloadedState: initialState
+        preloadedState: initialState,
+        middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+            thunk: {
+                extraArgument: {
+                    api: $api,
+                    navigate
+                }
+            }
+        })
     })
     store.reducerManager = reducerManager
 
     return store
 }
 
-export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
+export type AppDispatch = ThunkDispatch<Reducer<CombinedState<StateSchema>>, any, AnyAction>

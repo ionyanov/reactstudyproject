@@ -16,7 +16,8 @@ export function BuildPlugins (option: BuildOption): webpack.WebpackPluginInstanc
             chunkFilename: `css/${option.fileMask}.css`
         }),
         new webpack.DefinePlugin({
-            _IS_DEV_: JSON.stringify(option.isDev)
+            _IS_DEV_: JSON.stringify(option.isDev),
+            _API_URL_: JSON.stringify(option.apiURL)
         }),
         new webpack.HotModuleReplacementPlugin()
     ]

@@ -28,7 +28,7 @@
   "profile": {
     "firstname": "firstname",
     "lastname": "lastname",
-    "age": "42",
+    "age": 42,
     "currency": "RUB",
     "country": "Russia",
     "city": "Moscow",

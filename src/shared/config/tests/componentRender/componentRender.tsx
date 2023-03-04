@@ -12,12 +12,12 @@ export interface ComponentRenderProps {
 
 export function ComponentRender (component: ReactNode, options: ComponentRenderProps = {route: '/'}): RenderResult {
     return render(
-        <StoreProvider initialState={options.initialState}>
-            <MemoryRouter initialEntries={[options.route]}>
+        <MemoryRouter initialEntries={[options.route]}>
+            <StoreProvider initialState={options.initialState}>
                 <I18nextProvider i18n={i18n4test}>
                     {component}
                 </I18nextProvider>
-            </MemoryRouter>
-        </StoreProvider>
+            </StoreProvider>
+        </MemoryRouter>
     )
 }
