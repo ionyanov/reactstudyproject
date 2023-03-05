@@ -1,10 +1,11 @@
 import type webpack from 'webpack'
 import {type BuildOption} from './types/config'
 import {buildCSSLoaders} from './loaders/buildCSSLoaders'
-import {svgLoader} from './loaders/svgLoader'
+import {buildSVGLoader} from './loaders/buildSVGLoader'
+import {buildBabelLoader} from './loaders/buildBabelLoader'
 
 export function BuildLoaders (option: BuildOption): webpack.RuleSetRule[] {
-    const svgLoaderItem: webpack.RuleSetRule = svgLoader()
+    const svgLoaderItem: webpack.RuleSetRule = buildSVGLoader()
 
     const fileLoader: webpack.RuleSetRule = {
         test: /\.(png|jpe?g|gif|woff2|woff)$/i,
@@ -23,25 +24,7 @@ export function BuildLoaders (option: BuildOption): webpack.RuleSetRule[] {
 
     const scssLoader: webpack.RuleSetRule = buildCSSLoaders(option.isDev)
 
-    const babelLoader: webpack.RuleSetRule = {
-        test: /\.(js|jsx|ts|tsx)$/,
-        exclude: /node_modules/,
-        use: {
-            loader: 'babel-loader',
-            options: {
-                presets: [
-                    ['@babel/preset-env', {targets: 'defaults'}]
-                ],
-                plugins: [
-                    /* ['i18next-extract', {
-                        nsSeparator: '~',
-                        locales: ['ru', 'en'],
-                        keyAsDefaultValue: true
-                    }] */
-                ]
-            }
-        }
-    }
+    const babelLoader: webpack.RuleSetRule = buildBabelLoader()
 
     return [
         fileLoader,

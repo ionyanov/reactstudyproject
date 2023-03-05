@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "all": "concurrently \"npm run start\" \"npm run server\" \"npm run storybook\"",
     "start": "webpack serve --env port=3000",
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
@@ -55,6 +56,7 @@
     "@typescript-eslint/parser": "^5.51.0",
     "babel-loader": "^9.1.2",
     "babel-plugin-i18next-extract": "^0.9.0",
+    "concurrently": "^7.6.0",
     "css-loader": "^6.7.3",
     "eslint": "^8.22.0",
     "eslint-config-standard-with-typescript": "^34.0.0",

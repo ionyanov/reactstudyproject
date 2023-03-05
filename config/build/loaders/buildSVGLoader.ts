@@ -1,6 +1,6 @@
 import {type RuleSetRule} from 'webpack'
 
-export function svgLoader (): RuleSetRule {
+export function buildSVGLoader (): RuleSetRule {
     return {
         test: /\.svg$/,
         use: ['@svgr/webpack']
