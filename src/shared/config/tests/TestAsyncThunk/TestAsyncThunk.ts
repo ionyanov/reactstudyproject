@@ -1,5 +1,5 @@
 import {type StateSchema, type ThunkConfig} from 'app/providers/StoreProvider'
-import {type AsyncThunkAction} from '@reduxjs/toolkit'
+import {type AsyncThunkAction, type PayloadAction, type SerializedError} from '@reduxjs/toolkit'
 import axios, {type AxiosStatic} from 'axios'
 
 jest.mock('axios')
@@ -22,7 +22,8 @@ export class TestAsyncThunk<Return, Args, RejectedValue> {
         this.navigate = jest.fn()
     }
 
-    async callThunk (arg: Args) {
+    async callThunk (arg: Args): Promise<PayloadAction<Return, string, {arg: Args, requestId: string, requestStatus: 'fulfilled'}, never>
+    | PayloadAction<RejectedValue | undefined, string, any | unknown, SerializedError>> {
         const action = this.actionCreator(arg)
         const result = await action(
             this.dispatch,

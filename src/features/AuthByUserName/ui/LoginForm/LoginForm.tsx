@@ -20,7 +20,7 @@ export interface LoginFormProps {
     onSuccess?: () => void
 }
 
-const redusers: ReducerList = {
+const reducers: ReducerList = {
     loginForm: loginReducer
 }
 
@@ -48,7 +48,7 @@ const LoginForm: FC<LoginFormProps> = memo((props: LoginFormProps) => {
     }, [dispatch, username, password, props])
 
     return (
-        <DynamicModuleLoader reducers={redusers}>
+        <DynamicModuleLoader reducers={reducers}>
             <div className={classNames(cls.LoginForm, {}, [props.className])}>
                 <Text title={t('Авторизация') || ''}/>
                 {error &&

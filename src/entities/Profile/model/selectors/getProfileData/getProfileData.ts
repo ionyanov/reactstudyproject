@@ -1,9 +1,11 @@
 import {type StateSchema} from 'app/providers/StoreProvider'
+import {type Profile} from 'entities/Profile'
 
-export const getProfileData = (state: StateSchema) => state.profile?.data ||
-    {
-        firstname: '',
-        lastname: '',
-        age: ''
+const defaultData: Profile = {
+    firstname: '',
+    lastname: ''
+}
 
-    }
+export function getProfileData (state: StateSchema): Profile | undefined {
+    return state.profile?.data || defaultData
+}

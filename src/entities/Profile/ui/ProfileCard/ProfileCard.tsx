@@ -31,11 +31,11 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
             </div>
             <div className={cls.data}>
                 <Input className={cls.input}
-                    value={data.firstname}
+                    value={data?.firstname}
                     placeholder={t('Выше имя') || ''}
                 />
                 <Input className={cls.input}
-                    value={data.lastname}
+                    value={data?.lastname}
                     placeholder={t('Выша фамилия') || ''}
                 />
             </div>

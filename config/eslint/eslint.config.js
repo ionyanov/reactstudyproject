@@ -59,8 +59,14 @@ module.exports = {
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-dynamic-delete': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
-        '@typescript-eslint/no-misused-promises': 'warn',
-
+        '@typescript-eslint/no-misused-promises': [
+            'error',
+            {
+                'checksVoidReturn': {
+                    'attributes': false
+                }
+            }
+        ]
     },
     globals: {
         _IS_DEV_: true,
@@ -68,7 +74,7 @@ module.exports = {
     },
     overrides: [
         {
-            files: ['**/src/**/*.test.{ts,tsx}'],
+            files: ['**/src/**/*.test.{ts,tsx}', '**/config/**/*.{ts,tsx}'],
             rules: {'i18next/no-literal-string': "off"}
         },
         {
