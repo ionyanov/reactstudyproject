@@ -5,6 +5,7 @@ import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'app/providers/ThemeProvider'
 import {SidebarItem} from './SidebarItem'
 import MainIcon from 'shared/assets/icons/main-page.svg'
+import {StoreDecorator} from 'shared/config/storybook/StoreDecorator'
 
 export default {
     title: 'widgets/SidebarItem',
@@ -20,6 +21,8 @@ export default {
 const Template: ComponentStory<typeof SidebarItem> = (args) => <SidebarItem {...args} />
 
 export const Light = Template.bind({})
+Light.decorators = [StoreDecorator({})]
 
 export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+Dark.decorators = [ThemeDecorator(Theme.DARK),
+    StoreDecorator({})]

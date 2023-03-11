@@ -1,16 +1,8 @@
-export type {
-    Profile,
-    ProfileSchema
+export {
+    type Profile,
+    type ProfileSchema,
+    ValidateProfileError
 } from './model/types/profile'
-
-export {
-    profileActions,
-    profileReducer
-} from './model/slice/profileSlice'
-
-export {
-    fetchProfileData
-} from './model/servises/fetchProfileData/fetchProfileData'
 
 export {
     ProfileCard

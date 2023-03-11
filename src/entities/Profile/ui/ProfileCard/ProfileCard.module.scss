@@ -4,20 +4,28 @@
   border-radius: 10px;
 }
 
-.header {
+.loader,
+.error {
   display: flex;
-}
-
-.editBnt {
-  margin-left: auto;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .data {
-  margin-top: 30px;
   display: flex;
   flex-direction: column;
 }
 
 .input {
   margin: 2px;
+}
+
+.editing {
+  border: 2px solid var(--primary-color-inverted);
+}
+
+.avatarWrapper {
+  display: flex;
+  justify-content: center;
 }

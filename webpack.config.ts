@@ -19,7 +19,8 @@ export default (env: BuildParams): webpack.Configuration => {
         isDev: mode === 'development',
         apiURL,
         port: env.port || 3000,
-        fileMask: '[name].[contenthash:5]'
+        fileMask: '[name].[contenthash:5]',
+        project: 'frontend'
     })
 
     return config

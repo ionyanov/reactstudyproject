@@ -17,7 +17,8 @@ export function BuildPlugins (option: BuildOption): webpack.WebpackPluginInstanc
         }),
         new webpack.DefinePlugin({
             _IS_DEV_: JSON.stringify(option.isDev),
-            _API_URL_: JSON.stringify(option.apiURL)
+            _API_URL_: JSON.stringify(option.apiURL),
+            _PROJECT_: JSON.stringify(option.project)
         }),
         new webpack.HotModuleReplacementPlugin()
     ]

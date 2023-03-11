@@ -59,6 +59,8 @@ module.exports = {
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-dynamic-delete': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
+        'prefer-promise-reject-errors': 'off',
+        'react/display-name': 'off',
         '@typescript-eslint/no-misused-promises': [
             'error',
             {
@@ -70,7 +72,8 @@ module.exports = {
     },
     globals: {
         _IS_DEV_: true,
-        _API_URL_: true
+        _API_URL_: true,
+        _PROJECT_: true
     },
     overrides: [
         {

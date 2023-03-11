@@ -22,4 +22,5 @@ export interface BuildOption {
     port: number
     fileMask: string
     apiURL: string
+    project: 'storybook' | 'jest' | 'frontend'
 }

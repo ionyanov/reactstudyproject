@@ -20,5 +20,11 @@ const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />
 
 export const Light = Template.bind({})
 
+export const LightWithTitle = Template.bind({})
+LightWithTitle.args = {placeholder: 'title'}
+
+export const LightGrow = Template.bind({})
+LightGrow.args = {placeholder: 'title', placeholdersize: '100px'}
+
 export const Dark = Template.bind({})
 Dark.decorators = [ThemeDecorator(Theme.DARK)]

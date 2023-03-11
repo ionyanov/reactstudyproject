@@ -3,7 +3,7 @@ import {classNames} from 'shared/lib/classNames/classNames'
 import cls from './LoginForm.module.scss'
 import {useTranslation} from 'react-i18next'
 import {Button, ButtonTheme} from 'shared/ui/Button/Button'
-import {Input, PlaceHolderSize} from 'shared/ui/Input/Input'
+import {Input} from 'shared/ui/Input/Input'
 import {Text, TextTheme} from 'shared/ui/Text/Text'
 import {useSelector} from 'react-redux'
 import {DynamicModuleLoader, type ReducerList} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
@@ -58,14 +58,14 @@ const LoginForm: FC<LoginFormProps> = memo((props: LoginFormProps) => {
                 <Input className={cls.input}
                     placeholder={t('Введите логин') || ''}
                     authFocus
-                    placeholdersize={PlaceHolderSize.PHS_40}
+                    placeholdersize='40%'
                     onChange={onChangeUserName}
                     value={username}
                 />
                 <Input type={'password'}
                     className={cls.input}
                     placeholder={t('Введите пароль') || ''}
-                    placeholdersize={PlaceHolderSize.PHS_40}
+                    placeholdersize='40%'
                     onChange={onChangePassword}
                     value={password}
                 />

@@ -35,6 +35,7 @@ export default {
     testEnvironment: 'jsdom',
     globals: {
         _IS_DEV_: false,
-        _API_URL_: ''
+        _API_URL_: '',
+        _PROJECT_: 'jest'
     }
 }
