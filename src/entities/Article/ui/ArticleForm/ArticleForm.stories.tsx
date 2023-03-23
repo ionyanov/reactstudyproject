@@ -7,7 +7,7 @@ import {StoreDecorator} from 'shared/config/storybook/StoreDecorator'
 import {type Article} from 'entities/Article'
 import {ArticleBlockType, ArticleType} from 'entities/Article/model/types/article'
 import {articleDetailReducer} from 'entities/Article/model/slice/articleDetailSlice'
-import {ComponentMeta, ComponentStory} from "@storybook/react";
+import {type ComponentMeta, type ComponentStory} from '@storybook/react'
 
 export default {
     title: 'entities/ArticleForm',
