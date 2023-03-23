@@ -1,11 +1,14 @@
 import 'app/styles/index.scss'
 import {type Story} from '@storybook/react'
-import {BrowserRouter} from 'react-router-dom'
+import {MemoryRouter, Route, Routes} from 'react-router-dom'
+import React from 'react'
 
 export function RouterDecorator (StoryComponent: Story): JSX.Element {
     return (
-        <BrowserRouter>
-            <StoryComponent/>
-        </BrowserRouter>
+        <MemoryRouter initialEntries={['/path/id']}>
+            <Routes>
+                <Route path="/path/:id" element={<StoryComponent/>}/>
+            </Routes>
+        </MemoryRouter>
     )
 }

@@ -3,10 +3,11 @@ import cls from './Navbar.module.scss'
 import {classNames} from 'shared/lib/classNames/classNames'
 import {Button, ButtonTheme} from 'shared/ui/Button/Button'
 import {useTranslation} from 'react-i18next'
-import {useDispatch, useSelector} from 'react-redux'
+import {useSelector} from 'react-redux'
 import {getUserAuthData, userActions} from 'entities/User'
 import {LoginModal} from 'features/AuthByUserName'
 import {LangSelector} from 'widgets/LangSelector/ui/LangSelector'
+import {useAppDispatch} from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 
 interface NavbarProps {
     className?: string
@@ -16,7 +17,7 @@ export const Navbar: FC<NavbarProps> = props => {
     const {t} = useTranslation()
     const authData = useSelector(getUserAuthData)
     const [isAuthModal, setIsAuthModal] = useState(false)
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     const onOpenModal = useCallback(() => {
         setIsAuthModal(true)

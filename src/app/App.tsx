@@ -4,12 +4,13 @@ import {classNames} from '../shared/lib/classNames/classNames'
 import {AppRouter} from 'app/providers/AppRouter'
 import {Navbar} from 'widgets/Navbar'
 import {Sidebar} from 'widgets/Sidebar'
-import {useDispatch} from 'react-redux'
-import {userActions} from 'entities/User'
+import {useDispatch, useSelector} from 'react-redux'
+import {getUserIsInit, userActions} from 'entities/User'
 
 const App: FC = () => {
     const {theme} = useTheme()
     const dispatch = useDispatch()
+    const isInit = useSelector(getUserIsInit)
 
     useEffect(() => {
         dispatch(userActions.initAuthData())
@@ -20,7 +21,7 @@ const App: FC = () => {
             <Navbar/>
             <div className='content-page'>
                 <Sidebar/>
-                <AppRouter/>
+                {isInit && <AppRouter/>}
             </div>
         </div>
     )

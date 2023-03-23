@@ -29,7 +29,7 @@ interface ProfileCardProps {
 export const ProfileCard: FC<ProfileCardProps> = (props) => {
     const {t} = useTranslation('profile')
 
-    if (props.isLoading) {
+    if (props.isLoading || !props.data) {
         return (
             <div className={classNames(cls.ProfileCard, {}, [props.className, cls.loader])}>
                 <Loader/>
@@ -55,30 +55,30 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
     return (
         <div className={classNames(cls.ProfileCard, {[cls.editing]: !props.readOnly}, [props.className])}>
             <div className={cls.data}>
-                {props.data?.avatar && (
+                {props.data.avatar && (
                     <div className={cls.avatarWrapper}>
-                        <Avatar src={props.data?.avatar}
+                        <Avatar src={props.data.avatar}
                             text={t('Аватар') || ''}
                             size={150}
                         />
                     </div>
                 )}
                 <Input className={cls.input}
-                    value={props.data?.firstname}
+                    value={props.data.firstname}
                     placeholder={t('Выше имя') || ''}
                     readonly={props.readOnly}
                     onChange={props.onChangeFirstName}
                     placeholdersize={phsize}
                 />
                 <Input className={cls.input}
-                    value={props.data?.lastname}
+                    value={props.data.lastname}
                     placeholder={t('Выша фамилия') || ''}
                     readonly={props.readOnly}
                     onChange={props.onChangeLastName}
                     placeholdersize={phsize}
                 />
                 <Input className={cls.input}
-                    value={props.data?.age}
+                    value={props.data.age}
                     type='number'
                     placeholder={t('Выш возраст') || ''}
                     readonly={props.readOnly}
@@ -88,13 +88,13 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                 <CountrySelect
                     className={cls.input}
                     title={t('Выша страна') || ''}
-                    selected={props.data?.country}
+                    selected={props.data.country}
                     readonly={props.readOnly}
                     onchange={props.onChangeCountry}
                     placeholdersize={phsize}
                 />
                 <Input className={cls.input}
-                    value={props.data?.city}
+                    value={props.data.city}
                     placeholder={t('Выш город') || ''}
                     readonly={props.readOnly}
                     onChange={props.onChangeCity}
@@ -104,19 +104,19 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                     className={cls.input}
                     title={t('Выша валюта') || ''}
                     readonly={props.readOnly}
-                    selected={props.data?.currency}
+                    selected={props.data.currency}
                     onchange={props.onChangeCurrency}
                     placeholdersize={phsize}
                 />
                 <Input className={cls.input}
-                    value={props.data?.username}
+                    value={props.data.username}
                     placeholder={t('Выш логин') || ''}
                     readonly={props.readOnly}
                     onChange={props.onChangeUserName}
                     placeholdersize={phsize}
                 />
                 <Input className={cls.input}
-                    value={props.data?.avatar}
+                    value={props.data.avatar}
                     placeholder={t('Выша аватар') || ''}
                     readonly={props.readOnly}
                     onChange={props.onChangeAvatar}

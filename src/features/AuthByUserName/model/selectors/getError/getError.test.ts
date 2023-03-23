@@ -9,7 +9,7 @@ describe('getError', () => {
         expect(getError(state as StateSchema)).toEqual('error')
     })
 
-    test('Should woek with empty state', () => {
+    test('Should work with empty state', () => {
         const state: DeepPartial<StateSchema> = {}
         expect(getError(state as StateSchema)).toEqual('')
     })

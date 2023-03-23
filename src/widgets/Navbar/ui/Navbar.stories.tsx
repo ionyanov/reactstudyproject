@@ -4,7 +4,6 @@ import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'app/providers/ThemeProvider'
 import {Navbar} from './Navbar'
 import {StoreDecorator} from 'shared/config/storybook/StoreDecorator'
-import {type StateSchema} from 'app/providers/StoreProvider'
 
 export default {
     title: 'widgets/Navbar',
@@ -24,4 +23,4 @@ Dark.decorators = [ThemeDecorator(Theme.DARK),
     StoreDecorator({})]
 
 export const LoginedUser = Template.bind({})
-LoginedUser.decorators = [StoreDecorator({authData: {}} as DeepPartial<StateSchema>)]
+LoginedUser.decorators = [StoreDecorator({user: {authData: {}}})]

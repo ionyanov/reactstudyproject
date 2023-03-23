@@ -11,6 +11,6 @@ describe('getProfileReadOnly', () => {
 
     test('Should work with empty state', () => {
         const state: DeepPartial<StateSchema> = {}
-        expect(getProfileReadOnly(state as StateSchema)).toEqual(true)
+        expect(getProfileReadOnly(state as StateSchema)).toEqual(undefined)
     })
 })

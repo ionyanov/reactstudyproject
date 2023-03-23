@@ -16,7 +16,7 @@ interface DynamicModuleLoaderProps extends HTMLAttributes<HTMLElement> {
 
 export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
     const {
-        removeAfterUnmount,
+        removeAfterUnmount = true,
         reducers
     } = props
 
@@ -30,9 +30,9 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
         })
 
         return () => {
-            if (removeAfterUnmount || false) {
+            if (removeAfterUnmount) {
                 Object.entries(reducers).forEach(([name, reducer]) => {
-                    dispatch({type: `@DESTROY ${name} reducer`})
+                    // dispatch({type: `@DESTROY ${name} reducer`})
                     store.reducerManager!.remove(name as StateSchemaKey)
                 })
             }

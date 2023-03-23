@@ -18,7 +18,7 @@ describe('updateProfileData', () => {
     test('Successes', async () => {
         const thunk = new TestAsyncThunk(updateProfileData, {profile: {form: data}})
         thunk.api.put.mockReturnValue(Promise.resolve({data}))
-        const result = await thunk.callThunk(undefined)
+        const result = await thunk.callThunk('1')
 
         expect(thunk.api.put).toHaveBeenCalled()
         // method post return fulfilled
@@ -29,7 +29,7 @@ describe('updateProfileData', () => {
     test('Error', async () => {
         const thunk = new TestAsyncThunk(updateProfileData, {profile: {form: data}})
         thunk.api.put.mockReturnValue(Promise.reject({status: 403}))
-        const result = await thunk.callThunk(undefined)
+        const result = await thunk.callThunk('1')
 
         expect(thunk.api.put).toHaveBeenCalled()
         expect(result.meta.requestStatus).toEqual('rejected')
@@ -38,7 +38,7 @@ describe('updateProfileData', () => {
 
     test('Validate Error', async () => {
         const thunk = new TestAsyncThunk(updateProfileData, {profile: {form: {...data, lastname: ''}}})
-        const result = await thunk.callThunk(undefined)
+        const result = await thunk.callThunk('1')
 
         expect(result.meta.requestStatus).toEqual('rejected')
         expect(result.payload).toEqual([ValidateProfileError.INCORRECT_NAME])

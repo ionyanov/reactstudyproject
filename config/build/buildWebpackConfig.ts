@@ -17,7 +17,8 @@ export function BuildWebpackConfig (option: BuildOption): webpack.Configuration 
         output: {
             filename: `${option.fileMask}.js`,
             path: option.paths.build,
-            clean: true
+            clean: true,
+            publicPath: '/'
         },
         devtool: option.isDev ? 'inline-source-map' : undefined,
         devServer: option.isDev ? BuildDevServer(option) : undefined

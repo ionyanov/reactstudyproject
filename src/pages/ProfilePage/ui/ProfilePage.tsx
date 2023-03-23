@@ -14,7 +14,7 @@ interface ProfilePageProps {
 
 const ProfilePage: FC<ProfilePageProps> = (props) => {
     return (
-        <DynamicModuleLoader reducers={redusers} removeAfterUnmount>
+        <DynamicModuleLoader reducers={redusers}>
             <div className={classNames(cls.ProfilePage, {}, [props.className])}>
                 <EditableProfileCard/>
             </div>

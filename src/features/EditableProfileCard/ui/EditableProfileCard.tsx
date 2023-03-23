@@ -1,4 +1,4 @@
-import {type FC, useCallback, useEffect} from 'react'
+import {type FC, useCallback} from 'react'
 import {useSelector} from 'react-redux'
 import {classNames} from 'shared/lib/classNames/classNames'
 import cls from './EditableProfileCard.module.scss'
@@ -16,6 +16,8 @@ import {type Country} from 'entities/Country'
 import {getProfileValidateError} from '../model/selectors/getProfileValidateError/getProfileValidateError'
 import {Text, TextTheme} from 'shared/ui/Text/Text'
 import {useTranslation} from 'react-i18next'
+import {useParams} from 'react-router-dom'
+import {useInitialEffect} from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 
 interface EditableProfileCardProps {
     className?: string
@@ -23,6 +25,7 @@ interface EditableProfileCardProps {
 
 export const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
     const {t} = useTranslation('profile')
+    const {id} = useParams<{id: string}>()
 
     const dispatch = useAppDispatch()
     const data = useSelector(getProfileForm)
@@ -38,11 +41,11 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
         [ValidateProfileError.SERVER_ERROR]: t('Ошибка получения данных')
     }
 
-    useEffect(() => {
-        if (_PROJECT_ !== 'storybook') {
-            dispatch(fetchProfileData({}))
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id))
         }
-    }, [dispatch])
+    })
 
     const onChangeFirstName = useCallback((value: string) => {
         dispatch(profileActions.setProfile({firstname: value}))
@@ -75,6 +78,16 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
     const onChangeCountry = useCallback((value: Country) => {
         dispatch(profileActions.setProfile({country: value}))
     }, [dispatch])
+
+    if (!id) {
+        return (
+            <div className={classNames(cls.EditableProfileCard, {}, [props.className])}>
+                <Text theme={TextTheme.ERROR}
+                    text={t('Профиль не найден!')}
+                />
+            </div>
+        )
+    }
 
     return (
         <div className={classNames(cls.EditableProfileCard, {}, [props.className])}>
