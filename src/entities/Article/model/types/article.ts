@@ -1,3 +1,5 @@
+import {type User} from 'entities/User'
+
 export enum ArticleBlockType {
     TEXT = 'TEXT',
     CODE = 'CODE',
@@ -8,6 +10,11 @@ export enum ArticleType {
     IT = 'IT',
     SCINCE = 'SCINCE',
     ECONOMIC = 'ECONOMIC'
+}
+
+export enum ArticleView {
+    GRID = 'GRID',
+    LIST = 'LIST'
 }
 
 export interface ArticleBlockBase {
@@ -43,4 +50,5 @@ export interface Article {
     createdAt: string
     type: ArticleType[]
     blocks: ArticleBloc[]
+    user: User
 }

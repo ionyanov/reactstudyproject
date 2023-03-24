@@ -35,7 +35,7 @@ export const Sidebar: FC<SidebarProps> = props => {
     }, [collapsed])
 
     return (
-        <div data-testid="sidebar"
+        <menu data-testid="sidebar"
             className={classNames(cls.sidebar, {[cls.collapsed]: collapsed}, [props.className])}>
             <Button data-testid="sidebar-toggle"
                 onClick={onToggle}
@@ -53,6 +53,6 @@ export const Sidebar: FC<SidebarProps> = props => {
                 <ThemeSwitcher/>
                 <LangSwitcher short={collapsed}/>
             </div>
-        </div>
+        </menu>
     )
 }

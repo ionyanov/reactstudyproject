@@ -14,6 +14,7 @@ import {type To} from '@remix-run/router'
 import {type NavigateOptions} from 'react-router/dist/lib/context'
 import {type ArticleCommentListSchema} from 'features/ArticleCommentList'
 import {type AddCommentCardSchema} from 'features/AddCommentCard'
+import {type ArticlesPageSchema} from 'pages/ArticlePage'
 
 export interface StateSchema {
     user: UserSchema
@@ -23,6 +24,7 @@ export interface StateSchema {
     articleDetail?: ArticleDetailsSchema
     articleCommentList?: ArticleCommentListSchema
     addArticleComment?: AddCommentCardSchema
+    articlesAdapter?: ArticlesPageSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

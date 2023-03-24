@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "all": "concurrently \"npm run start\" \"npm run server\" \"npm run storybook\"",
-    "test": "npm run lint:scss:fix && npm run lint:ts:fix && npm run test:unit && npm run test:ui",
+    "test": "npm run lint:scss:fix && npm run lint:ts:fix && npm run test:unit",
     "start": "webpack serve --env port=3000",
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",

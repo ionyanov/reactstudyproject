@@ -3,8 +3,9 @@ import {classNames} from 'shared/lib/classNames/classNames'
 import cls from './ProfilePage.module.scss'
 import {DynamicModuleLoader, type ReducerList} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import {EditableProfileCard, profileReducer} from 'features/EditableProfileCard'
+import {Page} from 'shared/ui/Page/Page'
 
-const redusers: ReducerList = {
+const reducers: ReducerList = {
     profile: profileReducer
 }
 
@@ -14,10 +15,10 @@ interface ProfilePageProps {
 
 const ProfilePage: FC<ProfilePageProps> = (props) => {
     return (
-        <DynamicModuleLoader reducers={redusers}>
-            <div className={classNames(cls.ProfilePage, {}, [props.className])}>
+        <DynamicModuleLoader reducers={reducers}>
+            <Page className={classNames(cls.ProfilePage, {}, [props.className])}>
                 <EditableProfileCard/>
-            </div>
+            </Page>
         </DynamicModuleLoader>
     )
 }

@@ -24,6 +24,7 @@ const data: Article = {
     subtitle: 'subtitle',
     img: '',
     views: 0,
+    user: {id: '1', username: 'username'},
     createdAt: 'createdAt',
     type: [ArticleType.ECONOMIC],
     blocks: [

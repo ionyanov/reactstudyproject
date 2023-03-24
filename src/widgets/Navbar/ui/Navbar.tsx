@@ -32,7 +32,7 @@ export const Navbar: FC<NavbarProps> = props => {
     }, [dispatch])
 
     return (
-        <div className={classNames(cls.navbar, {}, [props.className])}>
+        <header className={classNames(cls.navbar, {}, [props.className])}>
             <div className={cls.links}>
                 <LangSelector/>
                 {
@@ -50,6 +50,6 @@ export const Navbar: FC<NavbarProps> = props => {
                         </>
                 }
             </div>
-        </div>
+        </header>
     )
 }

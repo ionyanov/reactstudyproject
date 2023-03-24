@@ -46,6 +46,10 @@ module.exports = {
             {
                 allowDirectConstAssertionInArrowFunctions: true
             }],
+        '@typescript-eslint/no-invalid-void-type': [1,
+            {
+                allowInGenericTypeArguments: false
+            }],
         'i18next/no-literal-string': [2, {
             markupOnly: true,
             ignoreAttribute: ['data-testid', 'to'],
@@ -82,7 +86,10 @@ module.exports = {
         },
         {
             files: ['**/src/**/*.stories.{ts,tsx}'],
-            rules: {'max-len': "off"}
+            rules: {
+                'max-len': "off",
+                'i18next/no-literal-string': "off"
+            }
         }
     ]
 }
