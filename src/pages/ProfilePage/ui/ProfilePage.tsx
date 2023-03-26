@@ -1,9 +1,9 @@
 import {type FC} from 'react'
-import {classNames} from 'shared/lib/classNames/classNames'
-import cls from './ProfilePage.module.scss'
-import {DynamicModuleLoader, type ReducerList} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import {EditableProfileCard, profileReducer} from 'features/EditableProfileCard'
+import {classNames} from 'shared/lib/classNames/classNames'
+import {DynamicModuleLoader, type ReducerList} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import {Page} from 'shared/ui/Page/Page'
+import cls from './ProfilePage.module.scss'
 
 const reducers: ReducerList = {
     profile: profileReducer

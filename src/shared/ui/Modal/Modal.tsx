@@ -1,8 +1,8 @@
 import {type FC, type MouseEventHandler, type ReactNode, useCallback, useEffect, useRef, useState} from 'react'
 import {classNames} from 'shared/lib/classNames/classNames'
-import cls from './Modal.module.scss'
+import {useTheme} from 'shared/lib/providers/ThemeProvider'
 import {Portal} from 'shared/ui/Portal/Portal'
-import {useTheme} from 'app/providers/ThemeProvider'
+import cls from './Modal.module.scss'
 
 interface ModalProps {
     className?: string

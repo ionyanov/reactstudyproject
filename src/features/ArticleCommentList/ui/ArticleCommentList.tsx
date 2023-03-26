@@ -1,14 +1,14 @@
 import {type FC, memo} from 'react'
-import {classNames} from 'shared/lib/classNames/classNames'
-import cls from './ArticleCommentList.module.scss'
 import {useSelector} from 'react-redux'
 import {CommentList} from 'entities/Comment'
-import {useInitialEffect} from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
-import {useAppDispatch} from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import {classNames} from 'shared/lib/classNames/classNames'
 import {DynamicModuleLoader, type ReducerList} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import {useAppDispatch} from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import {useInitialEffect} from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import {getArticleCommentListIsLoading} from '../model/selectors/articleCommentListSelectors'
 import {fetchCommentsByArticleId} from '../model/services/fetchCommentsByArticleId'
 import {articleCommentListReducer, getArticleComments} from '../model/slices/articleCommentListSlice'
+import cls from './ArticleCommentList.module.scss'
 
 interface ArticleCommentListProps {
     className?: string

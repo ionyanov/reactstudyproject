@@ -1,14 +1,14 @@
 import {type FC, useCallback} from 'react'
-import {classNames} from 'shared/lib/classNames/classNames'
-import cls from './AddCommentCard.module.scss'
 import {useTranslation} from 'react-i18next'
+import {useSelector} from 'react-redux'
+import {classNames} from 'shared/lib/classNames/classNames'
+import {DynamicModuleLoader, type ReducerList} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import {useAppDispatch} from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import {Button, ButtonTheme} from 'shared/ui/Button/Button'
 import {Input} from 'shared/ui/Input/Input'
-import {useSelector} from 'react-redux'
-import {DynamicModuleLoader, type ReducerList} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import {addArticleCommentAction, addArticleCommentReducer} from '../model/slice/addCommentCardSlice'
 import {getAddCommentCardText} from '../model/selectors/addCommentCardSelector'
-import {useAppDispatch} from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import {addArticleCommentAction, addArticleCommentReducer} from '../model/slice/addCommentCardSlice'
+import cls from './AddCommentCard.module.scss'
 
 interface AddArticleCommentProps {
     className?: string

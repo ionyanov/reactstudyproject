@@ -2,7 +2,12 @@ module.exports = {
     settings: {
         react: {
             version: 'detect'
-        }
+        },
+        'import/resolver': {
+            typescript: {
+                alwaysTryTypes: true,
+            },
+        },
     },
     env: {
         browser: true,
@@ -14,7 +19,9 @@ module.exports = {
         'standard-with-typescript',
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
-        "plugin:react-hooks/recommended"
+        'plugin:react-hooks/recommended',
+        'plugin:boundaries/recommended',
+        '@feature-sliced'
     ],
     parserOptions: {
         ecmaVersion: 'latest',
@@ -27,10 +34,11 @@ module.exports = {
         'react',
         'i18next',
         '@typescript-eslint',
-        "react-hooks"
+        'react-hooks',
+        'boundaries'
     ],
     rules: {
-        indent: ['error', 4],
+        'indent': ['error', 4],
         '@typescript-eslint/indent': ['error', 4],
         'object-curly-spacing': [1, 'never'],
         '@typescript-eslint/object-curly-spacing': [1, 'never'],
@@ -72,7 +80,9 @@ module.exports = {
                     'attributes': false
                 }
             }
-        ]
+        ],
+        'import/no-internal-modules': 'off',
+        'boundaries/element-types': 'warn'
     },
     globals: {
         _IS_DEV_: true,

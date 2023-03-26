@@ -1,11 +1,11 @@
-import React from 'react'
 import {type ComponentMeta, type ComponentStory} from '@storybook/react'
+import React from 'react'
 
-import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
-import {Theme} from 'app/providers/ThemeProvider'
-import ArticleCommentList from './ArticleCommentList'
 import {StoreDecorator} from 'shared/config/storybook/StoreDecorator'
+import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
+import {Theme} from 'shared/lib/providers/ThemeProvider'
 import {articleCommentListReducer} from '../model/slices/articleCommentListSlice'
+import ArticleCommentList from './ArticleCommentList'
 
 export default {
     title: 'features/Comment/ArticleCommentList',

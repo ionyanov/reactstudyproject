@@ -1,8 +1,8 @@
 import type webpack from 'webpack'
-import {type BuildOption} from './types/config'
+import {buildBabelLoader} from './loaders/buildBabelLoader'
 import {buildCSSLoaders} from './loaders/buildCSSLoaders'
 import {buildSVGLoader} from './loaders/buildSVGLoader'
-import {buildBabelLoader} from './loaders/buildBabelLoader'
+import {type BuildOption} from './types/config'
 
 export function BuildLoaders (option: BuildOption): webpack.RuleSetRule[] {
     const svgLoaderItem: webpack.RuleSetRule = buildSVGLoader()

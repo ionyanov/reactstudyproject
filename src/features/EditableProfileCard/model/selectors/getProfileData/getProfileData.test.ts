@@ -1,8 +1,8 @@
-import {type StateSchema} from 'app/providers/StoreProvider'
-import {getProfileData} from './getProfileData'
-import {type Profile} from 'entities/Profile'
 import {Country} from 'entities/Country'
 import {Currency} from 'entities/Currency'
+import {type Profile} from 'entities/Profile'
+import {type StateSchema} from 'shared/lib/providers/StoreProvider'
+import {getProfileData} from './getProfileData'
 
 describe('getProfileData', () => {
     test('Should return value', () => {

@@ -1,6 +1,6 @@
-import {type StateSchema, type ThunkConfig} from 'app/providers/StoreProvider'
 import {type AsyncThunkAction, type PayloadAction, type SerializedError} from '@reduxjs/toolkit'
 import axios, {type AxiosStatic} from 'axios'
+import {type StateSchema, type ThunkConfig} from 'shared/lib/providers/StoreProvider'
 
 jest.mock('axios')
 const mockedAxios = jest.mocked(axios, {shallow: false})

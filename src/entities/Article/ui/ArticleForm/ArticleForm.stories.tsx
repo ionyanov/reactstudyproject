@@ -1,13 +1,13 @@
+import {type ComponentMeta, type ComponentStory} from '@storybook/react'
 import React from 'react'
 
-import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
-import {Theme} from 'app/providers/ThemeProvider'
-import {ArticleForm} from './ArticleForm'
-import {StoreDecorator} from 'shared/config/storybook/StoreDecorator'
 import {type Article} from 'entities/Article'
-import {ArticleBlockType, ArticleType} from 'entities/Article/model/types/article'
 import {articleDetailReducer} from 'entities/Article/model/slice/articleDetailSlice'
-import {type ComponentMeta, type ComponentStory} from '@storybook/react'
+import {ArticleBlockType, ArticleType} from 'entities/Article/model/types/article'
+import {StoreDecorator} from 'shared/config/storybook/StoreDecorator'
+import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
+import {Theme} from 'shared/lib/providers/ThemeProvider'
+import {ArticleForm} from './ArticleForm'
 
 export default {
     title: 'entities/ArticleForm',

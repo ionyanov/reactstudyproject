@@ -1,6 +1,6 @@
-import {loginByUsername} from './loginByUsername'
 import {userActions} from 'entities/User'
 import {TestAsyncThunk} from 'shared/config/tests/TestAsyncThunk/TestAsyncThunk'
+import {loginByUsername} from './loginByUsername'
 
 describe('loginByUsername', () => {
     test('Successes login', async () => {

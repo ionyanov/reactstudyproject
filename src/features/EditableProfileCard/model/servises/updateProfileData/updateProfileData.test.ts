@@ -1,8 +1,8 @@
-import {updateProfileData} from './updateProfileData'
-import {TestAsyncThunk} from 'shared/config/tests/TestAsyncThunk/TestAsyncThunk'
-import {type Profile, ValidateProfileError} from 'entities/Profile'
 import {Country} from 'entities/Country'
 import {Currency} from 'entities/Currency'
+import {type Profile, ValidateProfileError} from 'entities/Profile'
+import {TestAsyncThunk} from 'shared/config/tests/TestAsyncThunk/TestAsyncThunk'
+import {updateProfileData} from './updateProfileData'
 
 const data: Profile = {
     firstname: 'firstname',

@@ -1,9 +1,9 @@
 import {type FC, type ReactNode} from 'react'
 import {classNames} from 'shared/lib/classNames/classNames'
-import cls from './ArticleList.module.scss'
 import {type Article, ArticleView} from '../../model/types/article'
 import {ArticleListItem} from '../ArticleListItem/ArticleListItem'
 import {ArticleListSkeletonItem} from '../ArticleListItem/ArticleListItemSkeleton'
+import cls from './ArticleList.module.scss'
 
 interface ArticleListProps {
     className?: string

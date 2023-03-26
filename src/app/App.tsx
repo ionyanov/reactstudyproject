@@ -1,11 +1,12 @@
+import './styles/index.scss'
 import React, {type FC, useEffect} from 'react'
-import {useTheme} from './providers/ThemeProvider/lib/useTheme'
-import {classNames} from '../shared/lib/classNames/classNames'
-import {AppRouter} from 'app/providers/AppRouter'
+import {useDispatch, useSelector} from 'react-redux'
 import {Navbar} from 'widgets/Navbar'
 import {Sidebar} from 'widgets/Sidebar'
-import {useDispatch, useSelector} from 'react-redux'
 import {getUserIsInit, userActions} from 'entities/User'
+import {AppRouter} from 'shared/lib/providers/AppRouter'
+import {classNames} from '../shared/lib/classNames/classNames'
+import {useTheme} from '../shared/lib/providers/ThemeProvider/lib/useTheme'
 
 const App: FC = () => {
     const {theme} = useTheme()

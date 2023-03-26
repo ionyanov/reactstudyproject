@@ -1,6 +1,5 @@
-import 'app/styles/index.scss'
 import {type Story} from '@storybook/react'
-import {type Theme, ThemeProvider} from 'app/providers/ThemeProvider'
+import {type Theme, ThemeProvider} from 'shared/lib/providers/ThemeProvider'
 
 export const ThemeDecorator: (theme: Theme) => (StoryComponent: Story) => JSX.Element = (theme: Theme) => {
     return function f (StoryComponent: Story) {

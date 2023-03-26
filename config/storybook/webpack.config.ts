@@ -1,8 +1,8 @@
 import path from 'path'
 import type webpack from 'webpack'
 import {DefinePlugin, type RuleSetRule} from 'webpack'
-import {buildSVGLoader} from '../build/loaders/buildSVGLoader'
 import {buildCSSLoaders} from '../build/loaders/buildCSSLoaders'
+import {buildSVGLoader} from '../build/loaders/buildSVGLoader'
 
 export default ({config}: {config: webpack.Configuration}): webpack.Configuration => {
     config.resolve!.modules = [

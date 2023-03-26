@@ -1,11 +1,11 @@
-import React from 'react'
 import {type ComponentMeta, type ComponentStory} from '@storybook/react'
+import React from 'react'
 
-import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
-import {Theme} from 'app/providers/ThemeProvider'
-import LoginForm from './LoginForm'
-import {StoreDecorator} from 'shared/config/storybook/StoreDecorator'
 import {type LoginSchema} from 'features/AuthByUserName'
+import {StoreDecorator} from 'shared/config/storybook/StoreDecorator'
+import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
+import {Theme} from 'shared/lib/providers/ThemeProvider'
+import LoginForm from './LoginForm'
 
 export default {
     title: 'features/LoginForm',

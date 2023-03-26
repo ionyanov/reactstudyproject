@@ -1,11 +1,11 @@
-import React from 'react'
 import {type ComponentMeta, type ComponentStory} from '@storybook/react'
+import React from 'react'
 
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
-import {Theme} from 'app/providers/ThemeProvider'
-import {EditableProfileCardHeader} from './EditableProfileCardHeader'
+import {Theme} from 'shared/lib/providers/ThemeProvider'
 import {StoreDecorator} from '../../../../shared/config/storybook/StoreDecorator'
 import {profileReducer} from '../../model/slice/profileSlice'
+import {EditableProfileCardHeader} from './EditableProfileCardHeader'
 
 export default {
     title: 'features/ProfileCard/EditableProfileCardHeader',

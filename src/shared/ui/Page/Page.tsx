@@ -1,7 +1,7 @@
 import {type FC, type MutableRefObject, type ReactNode, useRef} from 'react'
 import {classNames} from 'shared/lib/classNames/classNames'
-import cls from './Page.module.scss'
 import {useInfiniteScroll} from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll'
+import cls from './Page.module.scss'
 
 interface PageProps {
     className?: string

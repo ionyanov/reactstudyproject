@@ -1,7 +1,7 @@
-import {type StateSchema, StoreProvider} from 'app/providers/StoreProvider'
-import {type Story} from '@storybook/react'
 import {type ReducersMapObject} from '@reduxjs/toolkit'
+import {type Story} from '@storybook/react'
 import {loginReducer} from 'features/AuthByUserName'
+import {type StateSchema, StoreProvider} from 'shared/lib/providers/StoreProvider'
 
 const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
     loginForm: loginReducer

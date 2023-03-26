@@ -1,8 +1,8 @@
 import {type FC, memo, useCallback, useMemo} from 'react'
-import {Select} from 'shared/ui/Select/Select'
-import {Country} from '../model/country'
 import {classNames} from 'shared/lib/classNames/classNames'
+import {Select} from 'shared/ui/Select/Select'
 import cls from 'shared/ui/Select/Select.module.scss'
+import {Country} from '../model/country'
 
 interface CurrencyProps {
     className?: string

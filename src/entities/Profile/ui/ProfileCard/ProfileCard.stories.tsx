@@ -1,12 +1,12 @@
-import React from 'react'
 import {type ComponentMeta, type ComponentStory} from '@storybook/react'
+import React from 'react'
 
-import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
-import {Theme} from 'app/providers/ThemeProvider'
-import {ProfileCard} from './ProfileCard'
 import {Country} from 'entities/Country'
 import {Currency} from 'entities/Currency'
 import AvatarImg from 'shared/assets/test/avatar.jpg'
+import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
+import {Theme} from 'shared/lib/providers/ThemeProvider'
+import {ProfileCard} from './ProfileCard'
 
 export default {
     title: 'entities/ProfileCard',
