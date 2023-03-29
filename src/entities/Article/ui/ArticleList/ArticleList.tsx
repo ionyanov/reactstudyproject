@@ -1,5 +1,7 @@
-import {type FC, type ReactNode} from 'react'
+import {type FC, type HTMLAttributeAnchorTarget, type ReactNode} from 'react'
+import {useTranslation} from 'react-i18next'
 import {classNames} from 'shared/lib/classNames/classNames'
+import {Text, TextAlign} from 'shared/ui/Text/Text'
 import {type Article, ArticleView} from '../../model/types/article'
 import {ArticleListItem} from '../ArticleListItem/ArticleListItem'
 import {ArticleListSkeletonItem} from '../ArticleListItem/ArticleListItemSkeleton'
@@ -10,6 +12,7 @@ interface ArticleListProps {
     articles: Article[]
     isLoading?: boolean
     view?: ArticleView
+    target?: HTMLAttributeAnchorTarget
 }
 
 const getSkeletons: (view: ArticleView) => ReactNode =
@@ -22,6 +25,8 @@ const getSkeletons: (view: ArticleView) => ReactNode =
     }
 
 export const ArticleList: FC<ArticleListProps> = (props) => {
+    const {t} = useTranslation()
+
     const renderArticle: (article: Article) => ReactNode =
         (article: Article) => {
             return (
@@ -29,9 +34,17 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
                     key={article.id}
                     article={article}
                     view={props.view || ArticleView.GRID}
+                    target={props.target}
                 />
             )
         }
+
+    if (!props.isLoading && !props.articles.length) {
+        return (
+            <div className={classNames(cls.ArticleList, {}, [props.className, cls[props.view || ArticleView.GRID]])}>
+                <Text title={t('Статьи не найдены')} align={TextAlign.CENTER}/>
+            </div>)
+    }
 
     return (
         <div className={classNames(cls.ArticleList, {}, [props.className, cls[props.view || ArticleView.GRID]])}>

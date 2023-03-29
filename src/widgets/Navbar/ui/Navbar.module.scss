@@ -3,6 +3,7 @@
   height: var(--navbar-height);
   background: var(--bg-color-inverted);
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 20px;
 }
@@ -14,4 +15,12 @@
 
 .link {
   margin: 15px;
+}
+
+.siteName {
+  width: var(--sidebar-width);
+}
+
+.createArticle {
+  margin-left: fill;
 }

@@ -1,6 +1,7 @@
 import {type RouteProps} from 'react-router-dom'
 import {AboutPage} from 'pages/AboutPage'
 import {ArticleDetailsPage} from 'pages/ArticleDetailsPage'
+import {ArticleEditPage} from 'pages/ArticleEditPage'
 import {ArticlesPage} from 'pages/ArticlesPage'
 import {MainPage} from 'pages/MainPage'
 import {NotFoundPage} from 'pages/NotFoundPage'
@@ -16,6 +17,8 @@ export enum AppRoutes {
     PROFILE = 'profile',
     ARTICLES = 'articles',
     ARTICLES_DETAIL = 'article_details',
+    ARTICLES_CREATE = 'article_create',
+    ARTICLES_EDIT = 'article_edit',
     // must be last
     NOTFOUND = 'notfaund',
 }
@@ -25,7 +28,9 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.ABOUT]: '/about',
     [AppRoutes.PROFILE]: '/profile/', // + :id
     [AppRoutes.ARTICLES]: '/articles',
-    [AppRoutes.ARTICLES_DETAIL]: '/articles/', // + :id
+    [AppRoutes.ARTICLES_DETAIL]: '/articles/',
+    [AppRoutes.ARTICLES_CREATE]: '/articles/new',
+    [AppRoutes.ARTICLES_EDIT]: '/articles/:id/edit',
     // must be last
     [AppRoutes.NOTFOUND]: '*'
 }
@@ -54,6 +59,17 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
         element: <ArticleDetailsPage/>,
         authOnly: true
     },
+    [AppRoutes.ARTICLES_EDIT]: {
+        path: `${RoutePath.article_edit}`,
+        element: <ArticleEditPage/>,
+        authOnly: true
+    },
+    [AppRoutes.ARTICLES_CREATE]: {
+        path: `${RoutePath.article_create}`,
+        element: <ArticleEditPage/>,
+        authOnly: true
+    },
+
     [AppRoutes.NOTFOUND]: {
         path: RoutePath.notfaund,
         element: <NotFoundPage/>

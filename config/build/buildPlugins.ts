@@ -4,6 +4,8 @@ import webpack from 'webpack'
 import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer'
 import {type BuildOption} from './types/config'
 
+const CopyPlugin = require('copy-webpack-plugin')
+
 export function BuildPlugins (option: BuildOption): webpack.WebpackPluginInstance[] {
     const plugins = [
         new HtmlWebpackPlugin({
@@ -20,7 +22,8 @@ export function BuildPlugins (option: BuildOption): webpack.WebpackPluginInstanc
             _API_URL_: JSON.stringify(option.apiURL),
             _PROJECT_: JSON.stringify(option.project)
         }),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new CopyPlugin({patterns: [{from: option.paths.locales, to: option.paths.buildLocales}]})
     ]
     if (option.isDev) {
         plugins.push(

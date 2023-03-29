@@ -27,7 +27,7 @@ const data: Article = {
     views: 0,
     user: {id: '1', username: 'username'},
     createdAt: 'createdAt',
-    type: [ArticleType.ECONOMIC],
+    type: [ArticleType.ECONOMICS],
     blocks: [
         {
             id: '1',

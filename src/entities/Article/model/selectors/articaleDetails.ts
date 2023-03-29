@@ -6,9 +6,9 @@ export const getArticleDetailsData: (state: StateSchema) => Article | undefined 
 }
 
 export const getArticleDetailsError: (state: StateSchema) => string = (state: StateSchema) => {
-    return state?.articleDetail?.error || ''
+    return state?.articleDetail?.error ?? ''
 }
 
 export const getArticleDetailsIsLoading: (state: StateSchema) => boolean = (state: StateSchema) => {
-    return state?.articleDetail?.isLoading || false
+    return state?.articleDetail?.isLoading ?? false
 }

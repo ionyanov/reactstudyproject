@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "all": "concurrently \"npm run start\" \"npm run server\" \"npm run storybook\"",
+    "all1": "concurrently \"npm run start\" \"npm run server\"",
     "test": "npm run lint:scss:fix && npm run lint:ts:fix && npm run test:unit",
     "start": "webpack serve --env port=3000",
     "build:prod": "webpack --env mode=production",
@@ -59,6 +60,7 @@
     "babel-loader": "^9.1.2",
     "babel-plugin-i18next-extract": "^0.9.0",
     "concurrently": "^7.6.0",
+    "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.3",
     "eslint": "^8.22.0",
     "eslint-config-standard-with-typescript": "^34.0.0",

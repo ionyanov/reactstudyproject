@@ -14,7 +14,9 @@ export default (env: BuildParams): webpack.Configuration => {
             html: path.resolve(__dirname, 'public', 'index.html'),
             build: path.resolve(__dirname, 'dist'),
             src: path.resolve(__dirname, 'src'),
-            node_modules: path.join(__dirname, 'node_modules')
+            node_modules: path.join(__dirname, 'node_modules'),
+            locales: path.resolve(__dirname, 'public', 'locales'),
+            buildLocales: path.resolve(__dirname, 'dist', 'locales')
         },
         isDev: mode === 'development',
         apiURL,

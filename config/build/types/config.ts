@@ -6,6 +6,8 @@ export interface BuildPaths {
     html: string
     src: string
     node_modules: string
+    locales: string
+    buildLocales: string
 }
 
 export interface BuildParams {

@@ -1,0 +1,23 @@
+import {createAsyncThunk} from '@reduxjs/toolkit'
+import {type Article} from 'entities/Article'
+import {getArticleDetailsData} from 'entities/Article/model/selectors/articaleDetails'
+import {type StateSchema, type ThunkConfig} from 'shared/lib/providers/StoreProvider'
+
+export const fetchRecommendation = createAsyncThunk<Article[], void, ThunkConfig<string>>(
+    'ArticlesRecommendation/fetchRecommendation',
+    async (props, thunkAPI) => {
+        try {
+            const article = getArticleDetailsData(thunkAPI.getState() as StateSchema)
+
+            const response = await thunkAPI.extra.api.get<Article[]>('/articles', {
+                params: {
+                    _limit: 4,
+                    type: article?.type
+                }
+            })
+            return response.data
+        } catch (e) {
+            return thunkAPI.rejectWithValue('error')
+        }
+    }
+)

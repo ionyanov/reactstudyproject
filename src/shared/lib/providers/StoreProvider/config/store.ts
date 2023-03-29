@@ -6,19 +6,18 @@ import {
     type ReducersMapObject,
     type ThunkDispatch
 } from '@reduxjs/toolkit'
-import {type To} from '@remix-run/router'
-import {type NavigateOptions} from 'react-router/dist/lib/context'
+import {pageReducer} from 'widgets/Page'
 import {userReducer} from 'entities/User'
 import {$api} from 'shared/api/api'
 import {createdReducerManager} from './reducerManager'
 import {type ReduxStoreWithManager, type StateSchema} from './StateSchema'
 
 export function createReduxStore (initialState?: StateSchema,
-    asyncRedusers?: ReducersMapObject<StateSchema>,
-    navigate?: (to: To, options?: NavigateOptions) => void): ReduxStoreWithManager {
+    asyncRedusers?: ReducersMapObject<StateSchema>): ReduxStoreWithManager {
     const rootReducer: ReducersMapObject<StateSchema> = {
         ...asyncRedusers,
-        user: userReducer
+        user: userReducer,
+        page: pageReducer
     }
 
     const reducerManager = createdReducerManager(rootReducer)
@@ -30,8 +29,7 @@ export function createReduxStore (initialState?: StateSchema,
         middleware: (getDefaultMiddleware) => getDefaultMiddleware({
             thunk: {
                 extraArgument: {
-                    api: $api,
-                    navigate
+                    api: $api
                 }
             }
         })

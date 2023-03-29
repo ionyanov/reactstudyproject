@@ -1,0 +1,9 @@
+.Tabs {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.tab {
+  cursor: pointer;
+}

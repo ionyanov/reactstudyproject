@@ -6,5 +6,5 @@ export const getUserAuthData: (state: StateSchema) => User | undefined = (state:
 }
 
 export const getUserIsInit: (state: StateSchema) => boolean = (state: StateSchema) => {
-    return state?.user.isInit
+    return state?.user.isInit ?? false
 }

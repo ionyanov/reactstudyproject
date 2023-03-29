@@ -2,11 +2,11 @@ import {type Reducer} from '@reduxjs/toolkit'
 import {type FC, type HTMLAttributes, useEffect} from 'react'
 import {useStore} from 'react-redux'
 import {useAppDispatch} from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import {type ReduxStoreWithManager} from 'shared/lib/providers/StoreProvider'
+import {type ReduxStoreWithManager, type StateSchema} from 'shared/lib/providers/StoreProvider'
 import {type StateSchemaKey} from 'shared/lib/providers/StoreProvider/config/StateSchema'
 
 export type ReducerList = {
-    [name in StateSchemaKey]?: Reducer;
+    [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
 }
 
 interface DynamicModuleLoaderProps extends HTMLAttributes<HTMLElement> {
@@ -24,9 +24,14 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
     const dispatch = useAppDispatch()
 
     useEffect(() => {
+        const mountedReducers = store.reducerManager?.getReducerMap()
         Object.entries(reducers).forEach(([name, reducer]) => {
-            store.reducerManager!.add(name as StateSchemaKey, reducer)
-            dispatch({type: `@INIT ${name} reducer`})
+            const mounted = mountedReducers?.[name as StateSchemaKey]
+            // Добавляем новый редюсер только если его нет
+            if (!mounted) {
+                store.reducerManager?.add(name as StateSchemaKey, reducer)
+                dispatch({type: `@INIT ${name} reducer`})
+            }
         })
 
         return () => {

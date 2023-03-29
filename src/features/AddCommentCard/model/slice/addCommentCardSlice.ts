@@ -1,18 +1,21 @@
 import {createSlice, type PayloadAction} from '@reduxjs/toolkit'
+import {type AddCommentCardSchema} from '../types/addCommentCard'
+
+const initialState: AddCommentCardSchema = {
+    error: undefined,
+    text: ''
+}
 
 const addCommentCardSlice = createSlice({
     name: 'AddCommentCard',
-    initialState: {
-        error: undefined,
-        text: ''
-    },
+    initialState,
     reducers: {
         setText: (state, action: PayloadAction<string>) => {
             state.text = action.payload
         }
-    },
-    extraReducers: (builder) => {
-        /* builder
+    }
+    /* extraReducers: (builder) => {
+         builder
             .addCase(fetchCommentsByArticleId.pending, (state, action) => {
                 state.error = ''
                 state.isLoading = true
@@ -24,8 +27,8 @@ const addCommentCardSlice = createSlice({
             .addCase(fetchCommentsByArticleId.rejected, (state, action) => {
                 state.isLoading = false
                 state.error = action.payload
-            }) */
-    }
+            })
+    } */
 })
 
 export const {actions: addArticleCommentAction} = addCommentCardSlice

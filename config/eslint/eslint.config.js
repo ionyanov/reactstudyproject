@@ -82,7 +82,8 @@ module.exports = {
             }
         ],
         'import/no-internal-modules': 'off',
-        'boundaries/element-types': 'warn'
+        'boundaries/element-types': 'off',
+        "n/no-callback-literal": "off"
     },
     globals: {
         _IS_DEV_: true,

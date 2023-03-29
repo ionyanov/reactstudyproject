@@ -1,16 +1,17 @@
 import {type FC, memo, useCallback} from 'react'
 import {useSelector} from 'react-redux'
-import {ArticleViewSelector} from 'features/ArticleVewSelector'
-import {ArticleList, type ArticleView} from 'entities/Article'
+import {useSearchParams} from 'react-router-dom'
+import {initArticlesPage} from 'pages/ArticlesPage/model/services/initArticlesPage'
+import {ArticlesFilter} from 'pages/ArticlesPage/ui/ArticlesFilter/ArticlesFilter'
+import {Page} from 'widgets/Page'
+import {ArticleList} from 'entities/Article'
 import {classNames} from 'shared/lib/classNames/classNames'
 import {DynamicModuleLoader, type ReducerList} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import {useAppDispatch} from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import {useInitialEffect} from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
-import {Page} from 'shared/ui/Page/Page'
 import {getArticlesIsLoading, getArticlesView} from '../../model/selectors/articlesPageSelector'
-import {fetchArticles} from '../../model/services/fetchArticles'
 import {fetchNextArticlePage} from '../../model/services/fetchNextArticlePage'
-import {articlesPageAction, articlesPageReducer, getArticles} from '../../model/slice/articlesPageSlice'
+import {articlesPageReducer, getArticles} from '../../model/slice/articlesPageSlice'
 import cls from './ArticlesPage.module.scss'
 
 interface ArticlePageProps {
@@ -25,30 +26,24 @@ const ArticlesPage: FC<ArticlePageProps> = (props) => {
     const dispatch = useAppDispatch()
     const articles = useSelector(getArticles.selectAll)
     const isLoading = useSelector(getArticlesIsLoading)
-    // const errors = useSelector(getArticlesError)
     const view = useSelector(getArticlesView)
-    // const page = useSelector(getArticlesPage)
+    const [searchParams] = useSearchParams()
 
     useInitialEffect(() => {
-        dispatch(articlesPageAction.initState())
-        dispatch(fetchArticles({page: 1}))
+        dispatch(initArticlesPage(searchParams))
     })
 
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArticlePage())
     }, [dispatch])
 
-    const setView = useCallback((view: ArticleView) => {
-        dispatch(articlesPageAction.setView(view))
-    }, [dispatch])
-
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page
                 onScrollEnd={onLoadNextPart}
                 className={classNames(cls.ArticlePage, {}, [props.className])}
             >
-                <ArticleViewSelector onViewSelect={setView} selectedView={view}/>
+                <ArticlesFilter/>
                 <ArticleList
                     articles={articles}
                     isLoading={isLoading}

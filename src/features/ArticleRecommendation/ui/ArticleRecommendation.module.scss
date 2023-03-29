@@ -1,0 +1,13 @@
+.ArticleRecommendation {
+  margin-top: 20px;
+}
+
+.title {
+  margin-top: 20px;
+}
+
+.recommendationList {
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  overflow-x: auto;
+}

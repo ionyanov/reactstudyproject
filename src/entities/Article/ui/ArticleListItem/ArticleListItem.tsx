@@ -1,9 +1,9 @@
-import {type FC, useCallback} from 'react'
+import {type FC, type HTMLAttributeAnchorTarget} from 'react'
 import {useTranslation} from 'react-i18next'
-import {useNavigate} from 'react-router-dom'
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
 import {RoutePath} from 'shared/config/routeConfig/routeConfig'
 import {classNames} from 'shared/lib/classNames/classNames'
+import {AppLink} from 'shared/ui/AppLink/AppLink'
 import {Avatar} from 'shared/ui/Avatar/Avatar'
 import {Button} from 'shared/ui/Button/Button'
 import {Card} from 'shared/ui/Card/Card'
@@ -17,15 +17,11 @@ interface ArticleListItemProps {
     className?: string
     article: Article
     view: ArticleView
+    target?: HTMLAttributeAnchorTarget
 }
 
 export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
     const {t} = useTranslation()
-    const navigate = useNavigate()
-
-    const onOpenArticle = useCallback(() => {
-        navigate(RoutePath.article_details + props.article.id)
-    }, [navigate, props])
 
     if (props.view === ArticleView.LIST) {
         const textBlock = props.article.blocks.find(
@@ -46,7 +42,9 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
                     <ArticleBlockTextComponent block={textBlock} className={cls.block}/>
                 )}
                 <div className={cls.footer}>
-                    <Button onClick={onOpenArticle}>{t('Читать далее...')}</Button>
+                    <AppLink to={RoutePath.article_details + props.article.id} target={props.target}>
+                        <Button>{t('Читать далее...')}</Button>
+                    </AppLink>
                     <Text text={props.article.views.toString()} className={cls.view}/>
                     <Icon Svg={EyeIcon}/>
                 </div>
@@ -55,20 +53,19 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
     }
 
     return (
-        <Card
-            className={classNames(cls.ArticleListItem, {}, [props.className, cls[props.view]])}
-            onClick={onOpenArticle}
-        >
-            <div className={cls.imageWrapper}>
-                <img src={props.article.img} alt={props.article.title} className={cls.img}/>
-                <Text text={props.article.createdAt} className={cls.date}/>
-            </div>
-            <div className={cls.infoWraper}>
-                <Text text={props.article.type.join(', ')} className={cls.types}/>
-                <Text text={props.article.views.toString()} className={cls.view}/>
-                <Icon Svg={EyeIcon}/>
-            </div>
-            <Text text={props.article.title} className={cls.title}/>
-        </Card>
+        <AppLink to={RoutePath.article_details + props.article.id} target={props.target}>
+            <Card className={classNames(cls.ArticleListItem, {}, [props.className, cls[props.view]])}>
+                <div className={cls.imageWrapper}>
+                    <img src={props.article.img} alt={props.article.title} className={cls.img}/>
+                    <Text text={props.article.createdAt} className={cls.date}/>
+                </div>
+                <div className={cls.infoWraper}>
+                    <Text text={props.article.type.join(', ')} className={cls.types}/>
+                    <Text text={props.article.views.toString()} className={cls.view}/>
+                    <Icon Svg={EyeIcon}/>
+                </div>
+                <Text text={props.article.title} className={cls.title}/>
+            </Card>
+        </AppLink>
     )
 }

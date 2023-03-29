@@ -1,4 +1,4 @@
-import {type FC, memo, useCallback, useMemo} from 'react'
+import {type FC, memo, useMemo} from 'react'
 import {classNames} from 'shared/lib/classNames/classNames'
 import {Select} from 'shared/ui/Select/Select'
 import cls from 'shared/ui/Select/Select.module.scss'
@@ -16,20 +16,16 @@ interface CurrencyProps {
 export const CountrySelect: FC<CurrencyProps> = memo((props: CurrencyProps) => {
     const countryOptions = useMemo(() =>
         Object.entries(Country).map((val) => (
-            {value: val[0], content: val[1]})
+            {value: val[0] as Country, content: val[1]})
         ), [])
 
-    const onChangeHandler = useCallback((value: string) => {
-        props.onchange?.(value as Country)
-    }, [props])
-
     return (
-        <Select
+        <Select<Country>
             className={classNames(cls.Select, {}, [props.className])}
             value={props.selected}
             label={props.title}
             readonly={props.readonly}
-            onChange={onChangeHandler}
+            onChange={props.onchange}
             options={countryOptions}
             placeholdersize={props.placeholdersize}
         />

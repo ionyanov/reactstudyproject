@@ -11,7 +11,6 @@ export class TestAsyncThunk<Return, Args, RejectedValue> {
     actionCreator: (arg: Args) => AsyncThunkAction<Return, Args, ThunkConfig<RejectedValue>>
 
     api: jest.MockedFunctionDeep<AxiosStatic>
-    navigate: jest.MockedFn<any>
 
     constructor (actionCreator: (arg: Args) => AsyncThunkAction<Return, Args, ThunkConfig<RejectedValue>>,
         state?: DeepPartial<StateSchema>) {
@@ -20,7 +19,6 @@ export class TestAsyncThunk<Return, Args, RejectedValue> {
         this.getState = jest.fn(() => state as StateSchema)
 
         this.api = mockedAxios
-        this.navigate = jest.fn()
     }
 
     async callThunk (arg: Args): Promise<PayloadAction<Return, string, {arg: Args, requestId: string, requestStatus: 'fulfilled'}, never>
@@ -30,8 +28,7 @@ export class TestAsyncThunk<Return, Args, RejectedValue> {
             this.dispatch,
             this.getState,
             {
-                api: this.api,
-                navigate: this.navigate
+                api: this.api
             })
 
         return result

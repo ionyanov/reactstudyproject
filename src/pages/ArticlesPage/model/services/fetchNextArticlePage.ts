@@ -12,7 +12,7 @@ export const fetchNextArticlePage = createAsyncThunk<void, void, ThunkConfig<str
         const isLoading = getArticlesIsLoading(thunkAPI.getState() as StateSchema)
         if (hasMore && !isLoading) {
             thunkAPI.dispatch(articlesPageAction.setPage(page + 1))
-            thunkAPI.dispatch(fetchArticles({page}))
+            thunkAPI.dispatch(fetchArticles({}))
         }
     }
 )
