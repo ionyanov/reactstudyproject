@@ -1,9 +1,9 @@
 import {type FC, memo} from 'react'
 import {useTranslation} from 'react-i18next'
-import {type MyComment} from 'entities/Comment'
-import {CommentCard} from 'entities/Comment/ui/CommentCard/CommentCard'
 import {classNames} from 'shared/lib/classNames/classNames'
 import {Text} from 'shared/ui/Text/Text'
+import {type MyComment} from '../../model/types/myComment'
+import {CommentCard} from '../CommentCard/CommentCard'
 import cls from './CommentList.module.scss'
 
 interface CommentListProps {

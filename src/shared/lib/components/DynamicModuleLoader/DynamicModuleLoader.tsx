@@ -1,9 +1,9 @@
 import {type Reducer} from '@reduxjs/toolkit'
 import {type FC, type HTMLAttributes, useEffect} from 'react'
 import {useStore} from 'react-redux'
-import {useAppDispatch} from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import {type ReduxStoreWithManager, type StateSchema} from 'shared/lib/providers/StoreProvider'
-import {type StateSchemaKey} from 'shared/lib/providers/StoreProvider/config/StateSchema'
+import {useAppDispatch} from '../../hooks/useAppDispatch/useAppDispatch'
+import {type ReduxStoreWithManager, type StateSchema} from '../../providers/StoreProvider'
+import {type StateSchemaKey} from '../../providers/StoreProvider/config/StateSchema'
 
 export type ReducerList = {
     [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
@@ -30,7 +30,7 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
             // Добавляем новый редюсер только если его нет
             if (!mounted) {
                 store.reducerManager?.add(name as StateSchemaKey, reducer)
-                dispatch({type: `@INIT ${name} reducer`})
+                // dispatch({type: `@INIT ${name} reducer`})
             }
         })
 

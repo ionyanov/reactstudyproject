@@ -6,7 +6,7 @@ import {Theme} from 'shared/lib/providers/ThemeProvider'
 import {ArticleRecommendation} from './ArticleRecommendation'
 
 export default {
-    title: 'pages/ArticleRecommendation',
+    title: 'features/Article/ArticleRecommendation',
     component: ArticleRecommendation,
     argTypes: {
         backgroundColor: {control: 'color'}

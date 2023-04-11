@@ -35,7 +35,8 @@ module.exports = {
         'i18next',
         '@typescript-eslint',
         'react-hooks',
-        'boundaries'
+        'boundaries',
+        'ulbi-tv-plugin'
     ],
     rules: {
         'indent': ['error', 4],
@@ -54,10 +55,7 @@ module.exports = {
             {
                 allowDirectConstAssertionInArrowFunctions: true
             }],
-        '@typescript-eslint/no-invalid-void-type': [1,
-            {
-                allowInGenericTypeArguments: false
-            }],
+        '@typescript-eslint/no-invalid-void-type': 'off',
         'i18next/no-literal-string': [2, {
             markupOnly: true,
             ignoreAttribute: ['data-testid', 'to'],
@@ -83,7 +81,8 @@ module.exports = {
         ],
         'import/no-internal-modules': 'off',
         'boundaries/element-types': 'off',
-        "n/no-callback-literal": "off"
+        'n/no-callback-literal': 'off',
+        'ulbi-tv-plugin/path-checker': 'warn'
     },
     globals: {
         _IS_DEV_: true,

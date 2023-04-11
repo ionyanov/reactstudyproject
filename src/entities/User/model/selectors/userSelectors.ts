@@ -1,5 +1,5 @@
-import {type User} from 'entities/User'
 import {type StateSchema} from 'shared/lib/providers/StoreProvider'
+import {type User} from '../types/user'
 
 export const getUserAuthData: (state: StateSchema) => User | undefined = (state: StateSchema) => {
     return state?.user.authData

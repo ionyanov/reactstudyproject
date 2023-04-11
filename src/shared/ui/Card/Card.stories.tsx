@@ -6,7 +6,7 @@ import {Theme} from 'shared/lib/providers/ThemeProvider'
 import {Card} from './Card'
 
 export default {
-    title: 'pages/Card',
+    title: 'shared/Card',
     component: Card,
     argTypes: {
         backgroundColor: {control: 'color'}

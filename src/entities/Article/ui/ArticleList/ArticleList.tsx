@@ -1,6 +1,7 @@
 import {type FC, type HTMLAttributeAnchorTarget, type ReactNode} from 'react'
 import {useTranslation} from 'react-i18next'
 import {classNames} from 'shared/lib/classNames/classNames'
+import {VStack} from 'shared/ui/Stack'
 import {Text, TextAlign} from 'shared/ui/Text/Text'
 import {type Article, ArticleView} from '../../model/types/article'
 import {ArticleListItem} from '../ArticleListItem/ArticleListItem'
@@ -17,7 +18,7 @@ interface ArticleListProps {
 
 const getSkeletons: (view: ArticleView) => ReactNode =
     (view: ArticleView) => {
-        return new Array(view === ArticleView.GRID ? 9 : 3)
+        return new Array(view === ArticleView.GRID ? 3 : 1)
             .fill(0)
             .map((item, index) => (
                 <ArticleListSkeletonItem key={index} view={view}/>
@@ -41,9 +42,9 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
 
     if (!props.isLoading && !props.articles.length) {
         return (
-            <div className={classNames(cls.ArticleList, {}, [props.className, cls[props.view || ArticleView.GRID]])}>
+            <VStack gap={'8'} max className={classNames(cls.ArticleList, {}, [props.className, cls[props.view || ArticleView.GRID]])}>
                 <Text title={t('Статьи не найдены')} align={TextAlign.CENTER}/>
-            </div>)
+            </VStack>)
     }
 
     return (

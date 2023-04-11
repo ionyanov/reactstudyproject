@@ -27,6 +27,6 @@ describe('loginByUsername', () => {
         expect(thunk.dispatch).toHaveBeenCalledTimes(2)
         expect(thunk.api.post).toHaveBeenCalled()
         expect(result.meta.requestStatus).toEqual('rejected')
-        expect(result.payload).toEqual('error')
+        expect(result.payload).toEqual('no data')
     })
 })

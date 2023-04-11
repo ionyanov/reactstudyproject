@@ -7,7 +7,7 @@ export default (env: BuildParams): webpack.Configuration => {
     const mode = env.mode || 'development'
     const apiURL = env.apiURL || 'http://localhost:8000/'
 
-    const config: webpack.Configuration = BuildWebpackConfig({
+    return BuildWebpackConfig({
         mode,
         paths: {
             entry: path.resolve(__dirname, 'src', 'index.tsx'),
@@ -24,6 +24,4 @@ export default (env: BuildParams): webpack.Configuration => {
         fileMask: '[name].[contenthash:5]',
         project: 'frontend'
     })
-
-    return config
 }

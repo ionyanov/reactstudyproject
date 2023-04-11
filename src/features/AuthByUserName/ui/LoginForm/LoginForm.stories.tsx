@@ -1,10 +1,10 @@
 import {type ComponentMeta, type ComponentStory} from '@storybook/react'
 import React from 'react'
 
-import {type LoginSchema} from 'features/AuthByUserName'
 import {StoreDecorator} from 'shared/config/storybook/StoreDecorator'
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'shared/lib/providers/ThemeProvider'
+import {type LoginSchema} from '../../model/types/loginSchema'
 import LoginForm from './LoginForm'
 
 export default {

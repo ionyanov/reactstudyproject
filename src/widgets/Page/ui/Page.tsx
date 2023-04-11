@@ -1,14 +1,14 @@
 import {type FC, type MutableRefObject, type ReactNode, type UIEventHandler, useRef} from 'react'
 import {useSelector} from 'react-redux'
 import {useLocation} from 'react-router-dom'
-import {getPageScrollByPath} from 'widgets/Page/model/selectors/pageSelectors'
-import {pageAction} from 'widgets/Page/model/slices/pageSlice'
 import {classNames} from 'shared/lib/classNames/classNames'
 import {useAppDispatch} from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import {useInfiniteScroll} from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll'
 import {useInitialEffect} from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import {useThrottle} from 'shared/lib/hooks/useThrottle/useThrottle'
 import {type StateSchema} from 'shared/lib/providers/StoreProvider'
+import {getPageScrollByPath} from '../model/selectors/pageSelectors'
+import {pageAction} from '../model/slices/pageSlice'
 import cls from './Page.module.scss'
 
 interface PageProps {
@@ -42,12 +42,13 @@ export const Page: FC<PageProps> = (props) => {
     }, 500)
 
     return (
-        <section
+        <main
             onScroll={onScroll}
             ref={wrapperRef}
-            className={classNames(cls.Page, {}, [props.className])}>
+            className={classNames(cls.Page, {}, [props.className])}
+        >
             {props.children}
             {props.onScrollEnd && <div className={cls.trigger} ref={triggerRef}/>}
-        </section>
+        </main>
     )
 }

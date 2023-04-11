@@ -6,7 +6,7 @@ import {Theme} from 'shared/lib/providers/ThemeProvider'
 import {ArticleEditPage} from './ArticleEditPage'
 
 export default {
-    title: 'pages/ArticleEditPage',
+    title: 'pages/Article/ArticleEditPage',
     component: ArticleEditPage,
     argTypes: {
         backgroundColor: {control: 'color'}

@@ -1,8 +1,6 @@
 import {type FC, memo, useCallback} from 'react'
 import {useSelector} from 'react-redux'
 import {useSearchParams} from 'react-router-dom'
-import {initArticlesPage} from 'pages/ArticlesPage/model/services/initArticlesPage'
-import {ArticlesFilter} from 'pages/ArticlesPage/ui/ArticlesFilter/ArticlesFilter'
 import {Page} from 'widgets/Page'
 import {ArticleList} from 'entities/Article'
 import {classNames} from 'shared/lib/classNames/classNames'
@@ -11,7 +9,9 @@ import {useAppDispatch} from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import {useInitialEffect} from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import {getArticlesIsLoading, getArticlesView} from '../../model/selectors/articlesPageSelector'
 import {fetchNextArticlePage} from '../../model/services/fetchNextArticlePage'
+import {initArticlesPage} from '../../model/services/initArticlesPage'
 import {articlesPageReducer, getArticles} from '../../model/slice/articlesPageSlice'
+import {ArticlesFilter} from '../ArticlesFilter/ArticlesFilter'
 import cls from './ArticlesPage.module.scss'
 
 interface ArticlePageProps {

@@ -9,8 +9,8 @@ import {ArticleForm} from 'entities/Article'
 import {classNames} from 'shared/lib/classNames/classNames'
 import {useAppDispatch} from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import {Text} from 'shared/ui/Text/Text'
-import {sendComment} from '../model/services/sendComment'
-import {ArticleDetailPageHeader} from './ArticleDetailPageHeader/ArticleDetailPageHeader'
+import {sendComment} from '../../model/services/sendComment'
+import {ArticleDetailPageHeader} from '../ArticleDetailPageHeader/ArticleDetailPageHeader'
 import cls from './ArticleDetailsPage.module.scss'
 
 interface ArticleDetailsPageProps {

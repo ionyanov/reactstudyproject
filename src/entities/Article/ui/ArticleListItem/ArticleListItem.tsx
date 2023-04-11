@@ -8,6 +8,7 @@ import {Avatar} from 'shared/ui/Avatar/Avatar'
 import {Button} from 'shared/ui/Button/Button'
 import {Card} from 'shared/ui/Card/Card'
 import {Icon} from 'shared/ui/Icon/Icon'
+import {HStack, VStack} from 'shared/ui/Stack'
 import {Text} from 'shared/ui/Text/Text'
 import {type Article, type ArticleBlockText, ArticleBlockType, ArticleView} from '../../model/types/article'
 import {ArticleBlockTextComponent} from '../ArticleBlockTextComponent/ArticleBlockTextComponent'
@@ -55,15 +56,15 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
     return (
         <AppLink to={RoutePath.article_details + props.article.id} target={props.target}>
             <Card className={classNames(cls.ArticleListItem, {}, [props.className, cls[props.view]])}>
-                <div className={cls.imageWrapper}>
+                <VStack className={cls.imageWrapper}>
                     <img src={props.article.img} alt={props.article.title} className={cls.img}/>
                     <Text text={props.article.createdAt} className={cls.date}/>
-                </div>
-                <div className={cls.infoWraper}>
+                </VStack>
+                <HStack gap={'8'} justify={'between'}>
                     <Text text={props.article.type.join(', ')} className={cls.types}/>
                     <Text text={props.article.views.toString()} className={cls.view}/>
                     <Icon Svg={EyeIcon}/>
-                </div>
+                </HStack>
                 <Text text={props.article.title} className={cls.title}/>
             </Card>
         </AppLink>

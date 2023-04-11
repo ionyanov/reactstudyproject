@@ -6,7 +6,7 @@ import {Theme} from 'shared/lib/providers/ThemeProvider'
 import {ArticleDetailPageHeader} from './ArticleDetailPageHeader'
 
 export default {
-    title: 'pages/ArticleDetailPageHeader',
+    title: 'pages/Article/ArticleDetailPageHeader',
     component: ArticleDetailPageHeader,
     argTypes: {
         backgroundColor: {control: 'color'}

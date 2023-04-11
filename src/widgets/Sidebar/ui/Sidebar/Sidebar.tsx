@@ -5,6 +5,7 @@ import {ThemeSwitcher} from 'features/ThemeSwitcher'
 import {LOCALSTORAGE_SIDEBAR_KEY} from 'shared/const/localstorage'
 import {classNames} from 'shared/lib/classNames/classNames'
 import {Button, ButtonSize, ButtonTheme} from 'shared/ui/Button/Button'
+import {VStack} from 'shared/ui/Stack'
 import {getSidebarItems} from '../../model/getSidebarItems'
 import {SidebarItem} from '../SidebarItem/SidebarItem'
 import cls from './Sidebar.module.scss'
@@ -35,7 +36,7 @@ export const Sidebar: FC<SidebarProps> = props => {
     }, [collapsed])
 
     return (
-        <menu data-testid="sidebar"
+        <aside data-testid="sidebar"
             className={classNames(cls.sidebar, {[cls.collapsed]: collapsed}, [props.className])}>
             <Button data-testid="sidebar-toggle"
                 onClick={onToggle}
@@ -46,13 +47,13 @@ export const Sidebar: FC<SidebarProps> = props => {
             >
                 {collapsed ? '>' : '<'}
             </Button>
-            <div className={cls.items}>
+            <VStack gap={'8'} className={cls.items} role={'navigation'}>
                 {itemList}
-            </div>
+            </VStack>
             <div className={cls.switchers}>
                 <ThemeSwitcher/>
                 <LangSwitcher short={collapsed}/>
             </div>
-        </menu>
+        </aside>
     )
 }

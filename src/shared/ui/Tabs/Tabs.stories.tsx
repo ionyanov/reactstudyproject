@@ -6,7 +6,7 @@ import {Theme} from 'shared/lib/providers/ThemeProvider'
 import {Tabs} from './Tabs'
 
 export default {
-    title: 'pages/Tabs',
+    title: 'shared/Tabs',
     component: Tabs,
     argTypes: {
         backgroundColor: {control: 'color'}

@@ -10,7 +10,7 @@ import {Theme} from 'shared/lib/providers/ThemeProvider'
 import ArticleDetailsPage from './ArticleDetailsPage'
 
 export default {
-    title: 'pages/ArticleDetailsPage',
+    title: 'pages/Article/ArticleDetailsPage',
     component: ArticleDetailsPage,
     argTypes: {
         backgroundColor: {control: 'color'}

@@ -14,7 +14,7 @@ export const loginByUsername = createAsyncThunk<User, loginByUsernameProps, Thun
         try {
             const response = await thunkAPI.extra.api.post<User>('/login', authData)
             if (!response.data) {
-                throw new Error()
+                return thunkAPI.rejectWithValue('no data')
             }
             localStorage.setItem(LOCALSTORAGE_USER_KEY, JSON.stringify(response.data))
             thunkAPI.dispatch(userActions.setAuthData(response.data))

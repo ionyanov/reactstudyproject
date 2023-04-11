@@ -1,16 +1,16 @@
 import {type ComponentMeta, type ComponentStory} from '@storybook/react'
 import React from 'react'
 
-import {type Article} from 'entities/Article'
-import {articleDetailReducer} from 'entities/Article/model/slice/articleDetailSlice'
-import {ArticleBlockType, ArticleType} from 'entities/Article/model/types/article'
 import {StoreDecorator} from 'shared/config/storybook/StoreDecorator'
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'shared/lib/providers/ThemeProvider'
+import {articleDetailReducer} from '../../model/slice/articleDetailSlice'
+import {ArticleBlockType, ArticleType} from '../../model/types/article'
+import {type Article} from '../../model/types/article'
 import {ArticleForm} from './ArticleForm'
 
 export default {
-    title: 'entities/ArticleForm',
+    title: 'entities/Article/ArticleForm',
     component: ArticleForm,
     argTypes: {
         backgroundColor: {control: 'color'}

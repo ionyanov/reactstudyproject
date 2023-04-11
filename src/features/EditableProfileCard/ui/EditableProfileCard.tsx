@@ -8,6 +8,7 @@ import {ProfileCard, ValidateProfileError} from 'entities/Profile'
 import {classNames} from 'shared/lib/classNames/classNames'
 import {useAppDispatch} from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import {useInitialEffect} from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
+import {VStack} from 'shared/ui/Stack'
 import {Text, TextTheme} from 'shared/ui/Text/Text'
 import {getProfileError} from '../model/selectors/getProfileError/getProfileError'
 import {getProfileForm} from '../model/selectors/getProfileForm/getProfileForm'
@@ -81,16 +82,16 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
 
     if (!id) {
         return (
-            <div className={classNames(cls.EditableProfileCard, {}, [props.className])}>
+            <VStack className={classNames(cls.EditableProfileCard, {}, [props.className])}>
                 <Text theme={TextTheme.ERROR}
                     text={t('Профиль не найден!')}
                 />
-            </div>
+            </VStack>
         )
     }
 
     return (
-        <div className={classNames(cls.EditableProfileCard, {}, [props.className])}>
+        <VStack gap={'16'} max className={classNames(cls.EditableProfileCard, {}, [props.className])}>
             <EditableProfileCardHeader/>
             {errors.length > 0 && errors.map(err => (
                 <Text theme={TextTheme.ERROR}
@@ -112,6 +113,6 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
                 onChangeUserName={onChangeUserName}
                 onChangeAvatar={onChangeAvatar}
             />
-        </div>
+        </VStack>
     )
 }

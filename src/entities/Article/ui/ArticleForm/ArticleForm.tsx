@@ -4,13 +4,13 @@ import {useSelector} from 'react-redux'
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg'
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
 import ProfileIcon from 'shared/assets/icons/profile-20-20.svg'
-import {classNames} from 'shared/lib/classNames/classNames'
 import {DynamicModuleLoader, type ReducerList} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import {useAppDispatch} from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import {useInitialEffect} from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import {Avatar} from 'shared/ui/Avatar/Avatar'
 import {Icon} from 'shared/ui/Icon/Icon'
 import {Skeleton} from 'shared/ui/Skeleton/Skeleton'
+import {HStack, VStack} from 'shared/ui/Stack'
 import {Text, TextAlign, TextSize, TextTheme} from 'shared/ui/Text/Text'
 import {
     getArticleDetailsData,
@@ -23,7 +23,6 @@ import {type ArticleBloc, ArticleBlockType} from '../../model/types/article'
 import {ArticleBlockCodeComponent} from '../ArticleBlockCodeComponent/ArticleBlockCodeComponent'
 import {ArticleBlockImageComponent} from '../ArticleBlockImageComponent/ArticleBlockImageComponent'
 import {ArticleBlockTextComponent} from '../ArticleBlockTextComponent/ArticleBlockTextComponent'
-import cls from './ArticleForm.module.scss'
 
 interface ArticleFormProps {
     className?: string
@@ -51,11 +50,11 @@ export const ArticleForm: FC<ArticleFormProps> = memo((props: ArticleFormProps) 
 
     const renderBlock = useCallback((block: ArticleBloc): ReactNode => {
         if (block.type === ArticleBlockType.CODE) {
-            return <ArticleBlockCodeComponent key={block.id} block={block} className={cls.block}/>
+            return <ArticleBlockCodeComponent key={block.id} block={block}/>
         } else if (block.type === ArticleBlockType.IMAGE) {
-            return <ArticleBlockImageComponent key={block.id} block={block} className={cls.block}/>
+            return <ArticleBlockImageComponent key={block.id} block={block}/>
         } else if (block.type === ArticleBlockType.TEXT) {
-            return <ArticleBlockTextComponent key={block.id} block={block} className={cls.block}/>
+            return <ArticleBlockTextComponent key={block.id} block={block}/>
         } else {
             return null
         }
@@ -64,11 +63,13 @@ export const ArticleForm: FC<ArticleFormProps> = memo((props: ArticleFormProps) 
     let cotent: ReactNode
     if (isLoading) {
         cotent = (
-            <div>
-                <Skeleton className={cls.avatar} width={200} height={200} border={'50%'}/>
-                <Skeleton className={cls.title} width={300} height={32}/>
-                <Skeleton className={cls.skeleton} width={'90%'} height={200}/>
-            </div>
+            <VStack gap={'16'} max>
+                <HStack gap={'8'} max justify={'center'}>
+                    <Skeleton width={200} height={200} border={'50%'}/>
+                </HStack>
+                <Skeleton width={300} height={32}/>
+                <Skeleton width={'90%'} height={200}/>
+            </VStack>
 
         )
     } else if (error) {
@@ -81,32 +82,32 @@ export const ArticleForm: FC<ArticleFormProps> = memo((props: ArticleFormProps) 
         )
     } else {
         cotent = (
-            <>
-                <div className={cls.avatarWrapper}>
+            <VStack gap={'8'} max>
+                <HStack gap={'4'} max justify={'center'}>
                     {article?.img
-                        ? <Avatar className={cls.avatar} size={200} src={article?.img}/>
-                        : <ProfileIcon className={cls.avatar} width={200} height={200}/>
+                        ? <Avatar size={200} src={article?.img}/>
+                        : <ProfileIcon width={200} height={200}/>
                     }
-                </div>
-                <Text className={cls.title} title={article?.title} text={article?.subtitle} size={TextSize.L}/>
-                <div className={cls.articleInfo}>
-                    <Icon Svg={EyeIcon} className={cls.icon}/>
-                    <Text text={String(article?.views) || ''}/>
-                </div>
-                <div className={cls.articleInfo}>
-                    <Icon Svg={CalendarIcon} className={cls.icon}/>
-                    <Text text={article?.createdAt || ''}/>
-                </div>
+                </HStack>
+                <Text title={article?.title} text={article?.subtitle} size={TextSize.L}/>
+                <VStack gap={'4'}>
+                    <HStack gap={'4'}>
+                        <Icon Svg={EyeIcon}/>
+                        <Text text={String(article?.views) || ''}/>
+                    </HStack>
+                    <HStack gap={'4'}>
+                        <Icon Svg={CalendarIcon}/>
+                        <Text text={article?.createdAt || ''}/>
+                    </HStack>
+                </VStack>
                 {article?.blocks.map(renderBlock)}
-            </>
+            </VStack>
         )
     }
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.ArticleForm, {}, [props.className])}>
-                {cotent}
-            </div>
+            {cotent}
         </DynamicModuleLoader>
     )
 })

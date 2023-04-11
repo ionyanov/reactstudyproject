@@ -24,13 +24,12 @@ export class TestAsyncThunk<Return, Args, RejectedValue> {
     async callThunk (arg: Args): Promise<PayloadAction<Return, string, {arg: Args, requestId: string, requestStatus: 'fulfilled'}, never>
     | PayloadAction<RejectedValue | undefined, string, any | unknown, SerializedError>> {
         const action = this.actionCreator(arg)
-        const result = await action(
+
+        return (await action(
             this.dispatch,
             this.getState,
             {
                 api: this.api
-            })
-
-        return result
+            }))
     }
 }

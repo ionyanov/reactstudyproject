@@ -1,8 +1,8 @@
 import {createEntityAdapter, createSlice, type PayloadAction} from '@reduxjs/toolkit'
-import {fetchRecommendation} from 'features/ArticleRecommendation/model/services/fetchRecommendation'
-import {type ArticleRecommendationSchema} from 'features/ArticleRecommendation/model/types/articleRecommendationSchema'
 import {type Article} from 'entities/Article'
 import {type StateSchema} from 'shared/lib/providers/StoreProvider'
+import {fetchRecommendation} from '../services/fetchRecommendation'
+import {type ArticleRecommendationSchema} from '../types/articleRecommendationSchema'
 
 const recommendationAdapter = createEntityAdapter<Article>({
     selectId: (article) => article.id
@@ -23,7 +23,7 @@ const articleRecommendationSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(fetchRecommendation.pending, (state, action) => {
+            .addCase(fetchRecommendation.pending, (state) => {
                 state.error = ''
                 state.isLoading = true
             })

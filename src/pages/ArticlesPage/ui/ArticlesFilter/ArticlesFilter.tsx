@@ -1,7 +1,6 @@
 import {type FC, useCallback, useMemo} from 'react'
 import {useTranslation} from 'react-i18next'
 import {useSelector} from 'react-redux'
-import {fetchArticles} from 'pages/ArticlesPage/model/services/fetchArticles'
 import {ArticleViewSelector} from 'features/ArticleVewSelector'
 import {ArticleSortField, type ArticleView} from 'entities/Article'
 import {ArticleType} from 'entities/Article/model/types/article'
@@ -12,6 +11,7 @@ import {type SortOrder} from 'shared/types'
 import {Card} from 'shared/ui/Card/Card'
 import {Input} from 'shared/ui/Input/Input'
 import {Select, type SelectOptions} from 'shared/ui/Select/Select'
+import {HStack, VStack} from 'shared/ui/Stack'
 import {type TabItem, Tabs} from 'shared/ui/Tabs/Tabs'
 import {
     getArticlesOrder,
@@ -20,6 +20,7 @@ import {
     getArticlesType,
     getArticlesView
 } from '../../model/selectors/articlesPageSelector'
+import {fetchArticles} from '../../model/services/fetchArticles'
 import {articlesPageAction} from '../../model/slice/articlesPageSlice'
 import cls from './ArticlesFilter.module.scss'
 
@@ -91,9 +92,9 @@ export const ArticlesFilter: FC<ArticlesFilterProps> = (props) => {
     }, [dispatch, fetchData])
 
     return (
-        <div className={classNames(cls.ArticlesFilter, {}, [props.className])}>
-            <div className={cls.sortWrapper}>
-                <div className={cls.sortWrapper}>
+        <VStack gap={'16'} max className={classNames('', {}, [props.className])}>
+            <HStack max justify={'between'}>
+                <HStack gap={'16'}>
                     <Select<ArticleSortField>
                         label={t('Сортировать по') || ''}
                         value={sortField}
@@ -106,20 +107,20 @@ export const ArticlesFilter: FC<ArticlesFilterProps> = (props) => {
                         onChange={setSortOrder}
                         options={orderOption}
                     />
-                </div>
+                </HStack>
                 <ArticleViewSelector onViewSelect={setView} selectedView={view}/>
-            </div>
+            </HStack>
             <Card className={cls.search}>
                 <Input placeholder={t('Поиск') || ''} value={search}
                     onChange={setSearch}
                     placeholdersize={'50px'}
                 />
             </Card>
-            <Tabs className={cls.types}
+            <Tabs
                 onTabChange={setType}
                 tabs={typeTabs}
                 selectedTab={selectedType}
             />
-        </div>
+        </VStack>
     )
 }

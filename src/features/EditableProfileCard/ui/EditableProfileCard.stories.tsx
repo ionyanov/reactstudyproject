@@ -1,7 +1,6 @@
 import {type ComponentMeta, type ComponentStory} from '@storybook/react'
 import React from 'react'
 
-import {profileReducer} from 'features/EditableProfileCard'
 import {Country} from 'entities/Country'
 import {Currency} from 'entities/Currency'
 import {type Profile, ValidateProfileError} from 'entities/Profile'
@@ -9,6 +8,7 @@ import AvatarImg from 'shared/assets/test/avatar.jpg'
 import {StoreDecorator} from 'shared/config/storybook/StoreDecorator'
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'shared/lib/providers/ThemeProvider'
+import {profileReducer} from '../model/slice/profileSlice'
 import {EditableProfileCard} from './EditableProfileCard'
 
 export default {

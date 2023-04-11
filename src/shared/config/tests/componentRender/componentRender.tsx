@@ -2,8 +2,8 @@ import {render, type RenderResult} from '@testing-library/react'
 import {type ReactNode} from 'react'
 import {I18nextProvider} from 'react-i18next'
 import {MemoryRouter} from 'react-router-dom'
-import i18n4test from 'shared/config/i18n/i18n4test'
-import {type StateSchema, StoreProvider} from 'shared/lib/providers/StoreProvider'
+import {type StateSchema, StoreProvider} from '../../../lib/providers/StoreProvider'
+import i18n4test from '../../i18n/i18n4test'
 
 export interface ComponentRenderProps {
     route: string

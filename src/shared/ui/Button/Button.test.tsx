@@ -1,5 +1,5 @@
 import {render, screen, waitFor} from '@testing-library/react'
-import {Button, ButtonTheme} from 'shared/ui/Button/Button'
+import {Button, ButtonTheme} from './Button'
 
 describe('Button', () => {
     test('Button exists', () => {

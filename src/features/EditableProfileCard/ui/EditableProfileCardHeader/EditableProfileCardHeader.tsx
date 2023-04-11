@@ -2,15 +2,14 @@ import {type FC, useCallback} from 'react'
 import {useTranslation} from 'react-i18next'
 import {useSelector} from 'react-redux'
 import {getUserAuthData} from 'entities/User'
-import {classNames} from 'shared/lib/classNames/classNames'
 import {useAppDispatch} from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import {Button, ButtonTheme} from 'shared/ui/Button/Button'
+import {HStack} from 'shared/ui/Stack'
 import {Text} from 'shared/ui/Text/Text'
 import {getProfileData} from '../../model/selectors/getProfileData/getProfileData'
 import {getProfileReadOnly} from '../../model/selectors/getProfileReadOnly/getProfileReadOnly'
 import {updateProfileData} from '../../model/servises/updateProfileData/updateProfileData'
 import {profileActions} from '../../model/slice/profileSlice'
-import cls from './EditableProfileCardHeader.module.scss'
 
 interface EditableProfileCardHeaderProps {
     className?: string
@@ -41,23 +40,18 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (pr
     }, [dispatch, profileData])
 
     return (
-        <div className={classNames(cls.EditableProfileCardHeader, {}, [props.className])}>
+        <HStack max justify={'between'} className={props.className}>
             <Text title={t('Профиль') || ''}/>
             {canEdit && (
                 readOnly
                     ? (
-                        <Button
-                            className={cls.editBtn}
-                            onClick={onEdit}
-                        >
+                        <Button onClick={onEdit}>
                             {t('Редактировать')}
                         </Button>
                     )
                     : (
-                        <>
-                            <Button className={cls.saveBtn}
-                                onClick={onSave}
-                            >
+                        <HStack gap={'8'}>
+                            <Button onClick={onSave}>
                                 {t('Сохранить')}
                             </Button>
                             <Button onClick={onCancel}
@@ -65,9 +59,9 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (pr
                             >
                                 {t('Отмена')}
                             </Button>
-                        </>
+                        </HStack>
                     )
             )}
-        </div>
+        </HStack>
     )
 }
