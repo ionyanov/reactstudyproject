@@ -1,0 +1,52 @@
+.ListBox {
+  position: relative;
+}
+
+.openBnt {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+.options {
+  position: absolute;
+  background: var(--bg-card);
+  z-index: var(--listbox-z-index);
+  border-radius: 12px;
+  box-shadow: 4px 4px var(--bg-color);
+  min-width: 100%;
+}
+
+.topLeft {
+  bottom: 100%;
+  right: 0;
+}
+
+.topRight {
+  bottom: 100%;
+  left: 0;
+}
+
+.bottomLeft {
+  top: 100%;
+  right: 0;
+}
+
+.bottomRight {
+  top: 100%;
+  left: 0;
+}
+
+.item {
+  padding: 10px 20px;
+}
+
+.active {
+  background: var(--bg-color);
+}
+
+.unavailable {
+  opacity: 0.7;
+}

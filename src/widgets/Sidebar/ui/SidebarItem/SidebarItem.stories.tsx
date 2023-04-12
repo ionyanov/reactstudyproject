@@ -8,7 +8,7 @@ import {Theme} from 'shared/lib/providers/ThemeProvider'
 import {SidebarItem} from './SidebarItem'
 
 export default {
-    title: 'widgets/SidebarItem',
+    title: 'widgets/Sidebar/SidebarItem',
     component: SidebarItem,
     argTypes: {
         backgroundColor: {control: 'color'}

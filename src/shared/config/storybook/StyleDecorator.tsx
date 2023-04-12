@@ -3,6 +3,8 @@ import {type Story} from '@storybook/react'
 
 export function StyleDecorator (StoryComponent: Story): JSX.Element {
     return (
-        <StoryComponent/>
+        <div style={{padding: 10, width: '98%'}}>
+            <StoryComponent/>
+        </div>
     )
 }

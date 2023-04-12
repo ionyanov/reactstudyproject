@@ -8,7 +8,10 @@ import {RoutePath} from 'shared/config/routeConfig/routeConfig'
 import {classNames} from 'shared/lib/classNames/classNames'
 import {useAppDispatch} from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import {AppLink, AppLinkTheme} from 'shared/ui/AppLink/AppLink'
+import {Avatar} from 'shared/ui/Avatar/Avatar'
 import {Button, ButtonTheme} from 'shared/ui/Button/Button'
+import {DropDown} from 'shared/ui/DropDown/DropDown'
+import {HStack} from 'shared/ui/Stack'
 import {Text, TextTheme} from 'shared/ui/Text/Text'
 import cls from './Navbar.module.scss'
 
@@ -36,7 +39,7 @@ export const Navbar: FC<NavbarProps> = props => {
 
     if (authData) {
         return (
-            <header className={classNames(cls.navbar, {}, [props.className])}>
+            <HStack justify={'between'} max className={classNames(cls.navbar, {}, [props.className])}>
                 <Text title={t('SITE NAME')}
                     theme={TextTheme.INVERTED}
                     className={cls.siteName}
@@ -47,30 +50,35 @@ export const Navbar: FC<NavbarProps> = props => {
                 >
                     {t('Новая статья')}
                 </AppLink>
-                <div className={cls.links}>
+                <HStack gap={'16'}>
                     <LangSelector/>
-                    <Button onClick={onLogout} theme={ButtonTheme.CLEAR_INVERTED}>
-                        {t('Выйти')}
-                    </Button>
-                </div>
-            </header>
+                    <DropDown
+                        direction={'bottom left'}
+                        trigger={<Avatar src={authData.avatar} size={30}/>}
+                        items={[
+                            {content: t('Выйти'), onClick: onLogout},
+                            {content: t('Профиль'), href: RoutePath.profile + authData.id}
+                        ]}
+                    />
+                </HStack>
+            </HStack>
         )
     }
 
     return (
-        <header className={classNames(cls.navbar, {}, [props.className])}>
+        <HStack justify={'between'} max className={classNames(cls.navbar, {}, [props.className])}>
             <Text title={t('SITE NAME')}
                 theme={TextTheme.INVERTED}
                 className={cls.siteName}
             />
-            <div className={cls.links}>
+            <HStack gap={'16'}>
                 <LangSelector/>
                 <Button onClick={onOpenModal} theme={ButtonTheme.CLEAR_INVERTED}>
                     {t('Войти')}
                 </Button>
                 {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal}/>
                 }
-            </div>
-        </header>
+            </HStack>
+        </HStack>
     )
 }

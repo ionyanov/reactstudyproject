@@ -4,6 +4,7 @@ import {ThemeDecorator} from "../../src/shared/config/storybook/ThemeDecorator";
 import {RouterDecorator} from "../../src/shared/config/storybook/RouterDecorator";
 import {TransationDecorator} from "../../src/shared/config/storybook/TransationDecorator";
 import {Theme} from "../../src/shared/lib/providers/ThemeProvider";
+import {StoreDecorator} from "shared/config/storybook/StoreDecorator";
 
 export const parameters = {
     actions: {argTypesRegex: "^on[A-Z].*"},
@@ -19,3 +20,4 @@ addDecorator(StyleDecorator)
 addDecorator(ThemeDecorator(Theme.LIGHT))
 addDecorator(TransationDecorator)
 addDecorator(RouterDecorator)
+addDecorator(StoreDecorator({}, {}))
