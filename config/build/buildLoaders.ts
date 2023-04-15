@@ -16,15 +16,16 @@ export function BuildLoaders (option: BuildOption): webpack.RuleSetRule[] {
         ]
     }
 
-    const tsLoader: webpack.RuleSetRule = {
+    /* const tsLoader: webpack.RuleSetRule = {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/
-    }
+    } */
 
     const scssLoader: webpack.RuleSetRule = buildCSSLoaders(option.isDev)
 
-    const babelLoader: webpack.RuleSetRule = buildBabelLoader()
+    const babelLoader: webpack.RuleSetRule = buildBabelLoader({isDev: option.isDev, isTsx: false})
+    const tsLoader: webpack.RuleSetRule = buildBabelLoader({isDev: option.isDev, isTsx: true})
 
     return [
         fileLoader,

@@ -57,14 +57,14 @@ export const Navbar: FC<NavbarProps> = props => {
                         direction={'bottom left'}
                         trigger={<Avatar src={authData.avatar} size={30}/>}
                         items={[
-                            {content: t('Выйти'), onClick: onLogout},
                             ...(isAdmin
                                 ? [{
                                     content: t('Администрирование'),
                                     href: RoutePath.admin_panel
                                 }]
                                 : []),
-                            {content: t('Профиль'), href: RoutePath.profile + authData.id}
+                            {content: t('Профиль'), href: RoutePath.profile + authData.id},
+                            {content: t('Выйти'), onClick: onLogout}
                         ]}
                     />
                 </HStack>

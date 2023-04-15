@@ -1,3 +1,4 @@
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import webpack from 'webpack'
@@ -23,7 +24,17 @@ export function BuildPlugins (option: BuildOption): webpack.WebpackPluginInstanc
             _PROJECT_: JSON.stringify(option.project)
         }),
         new webpack.HotModuleReplacementPlugin(),
-        new CopyPlugin({patterns: [{from: option.paths.locales, to: option.paths.buildLocales}]})
+        new CopyPlugin({patterns: [{from: option.paths.locales, to: option.paths.buildLocales}]}),
+        new ForkTsCheckerWebpackPlugin({
+            typescript: {
+                diagnosticOptions: {
+                    semantic: true,
+                    syntactic: true
+                },
+                mode: 'write-references'
+            }
+        })
+
     ]
     if (option.isDev) {
         plugins.push(
