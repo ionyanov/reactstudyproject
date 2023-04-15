@@ -1,16 +1,4 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "userId": 1
-    },
-    {
-      "id": 2,
-      "title": "json-server",
-      "userId": 2
-    }
-  ],
   "articles": [
     {
       "id": "1",
@@ -559,6 +547,12 @@
       "userId": "1",
       "text": "24234234234",
       "id": "7g0ay3B"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "46545",
+      "id": "42PqhJK"
     }
   ],
   "users": [
@@ -566,14 +560,14 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": ["ADMIN"],
       "avatar": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER",
+      "roles": ["USER"],
       "avatar": ""
     }
   ],
@@ -583,7 +577,7 @@
       "firstname": "firstname",
       "lastname": "lastname1",
       "age": 18,
-      "currency": "AMD",
+      "currency": "USD",
       "country": "Armenia",
       "city": "Moscow",
       "username": "admin",

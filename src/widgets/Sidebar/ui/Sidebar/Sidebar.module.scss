@@ -18,6 +18,7 @@
   position: absolute;
   right: calc(-1 * var(--font-line-xl));
   bottom: var(--font-line-xl);
+  z-index: var(--listbox-z-index);
 }
 
 .items {

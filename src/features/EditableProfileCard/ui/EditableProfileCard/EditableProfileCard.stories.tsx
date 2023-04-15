@@ -8,7 +8,7 @@ import AvatarImg from 'shared/assets/test/avatar.jpg'
 import {StoreDecorator} from 'shared/config/storybook/StoreDecorator'
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'shared/lib/providers/ThemeProvider'
-import {profileReducer} from '../model/slice/profileSlice'
+import {profileReducer} from '../../model/slice/profileSlice'
 import {EditableProfileCard} from './EditableProfileCard'
 
 export default {

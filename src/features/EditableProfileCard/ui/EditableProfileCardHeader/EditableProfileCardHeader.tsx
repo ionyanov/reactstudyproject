@@ -45,17 +45,20 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (pr
             {canEdit && (
                 readOnly
                     ? (
-                        <Button onClick={onEdit}>
+                        <Button onClick={onEdit}
+                            dataTestId={'EditableProfileCard.Edit'}>
                             {t('Редактировать')}
                         </Button>
                     )
                     : (
                         <HStack gap={'8'}>
-                            <Button onClick={onSave}>
+                            <Button onClick={onSave}
+                                dataTestId={'EditableProfileCard.Save'}>
                                 {t('Сохранить')}
                             </Button>
                             <Button onClick={onCancel}
                                 theme={ButtonTheme.OUTLINE_RED}
+                                dataTestId={'EditableProfileCard.Cancel'}
                             >
                                 {t('Отмена')}
                             </Button>

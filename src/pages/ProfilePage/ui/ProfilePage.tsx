@@ -1,25 +1,33 @@
 import {type FC} from 'react'
+import {useTranslation} from 'react-i18next'
+import {useParams} from 'react-router-dom'
 import {Page} from 'widgets/Page'
-import {EditableProfileCard, profileReducer} from 'features/EditableProfileCard'
+import {EditableProfileCard} from 'features/EditableProfileCard'
 import {classNames} from 'shared/lib/classNames/classNames'
-import {DynamicModuleLoader, type ReducerList} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import {Text, TextTheme} from 'shared/ui/Text/Text'
 import cls from './ProfilePage.module.scss'
-
-const reducers: ReducerList = {
-    profile: profileReducer
-}
 
 interface ProfilePageProps {
     className?: string
 }
 
 const ProfilePage: FC<ProfilePageProps> = (props) => {
-    return (
-        <DynamicModuleLoader reducers={reducers}>
+    const {t} = useTranslation('profile')
+    const {id} = useParams<{id: string}>()
+    if (!id) {
+        return (
             <Page className={classNames(cls.ProfilePage, {}, [props.className])}>
-                <EditableProfileCard/>
+                <Text theme={TextTheme.ERROR}
+                    text={t('Профиль не найден!')}
+                />
             </Page>
-        </DynamicModuleLoader>
+        )
+    }
+
+    return (
+        <Page className={classNames(cls.ProfilePage, {}, [props.className])}>
+            <EditableProfileCard id={id}/>
+        </Page>
     )
 }
 

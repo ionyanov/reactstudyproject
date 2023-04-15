@@ -23,6 +23,7 @@ type ButtonProps = {
     square?: boolean
     size?: ButtonSize
     disabled?: boolean
+    dataTestId?: string
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 export const Button: FC<ButtonProps> = props => {
@@ -33,6 +34,7 @@ export const Button: FC<ButtonProps> = props => {
         size = ButtonSize.M,
         square = false,
         disabled = false,
+        dataTestId = 'Button',
         ...otherProps
     } = props
 
@@ -51,6 +53,7 @@ export const Button: FC<ButtonProps> = props => {
         <button type="button"
             className={classNames(cls.button, mods, addClassName)}
             disabled={disabled}
+            data-testid={`${dataTestId}`}
             {...otherProps}
         >
             {children}

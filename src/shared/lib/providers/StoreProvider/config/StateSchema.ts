@@ -15,6 +15,7 @@ import {type LoginSchema} from 'features/AuthByUserName'
 import {type ArticleDetailsSchema} from 'entities/Article'
 import {type ProfileSchema} from 'entities/Profile'
 import {type UserSchema} from 'entities/User'
+import {type rtkAPI} from 'shared/api/rtkAPI'
 
 export interface StateSchema {
     user: UserSchema
@@ -27,6 +28,7 @@ export interface StateSchema {
     addArticleComment?: AddCommentCardSchema
     articlesAdapter?: ArticlesPageSchema
     articleRecommendation?: ArticleRecommendationSchema
+    [rtkAPI.reducerPath]: ReturnType<typeof rtkAPI.reducer>
 }
 
 export type StateSchemaKey = keyof StateSchema

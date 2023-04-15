@@ -34,6 +34,7 @@ interface TextProps {
     theme?: TextTheme
     align?: TextAlign
     size?: TextSize
+    dataTestId?: string
 }
 
 export const Text: FC<TextProps> = memo<TextProps>((props: TextProps) => {
@@ -43,15 +44,16 @@ export const Text: FC<TextProps> = memo<TextProps>((props: TextProps) => {
         text = '',
         theme = TextTheme.NORMAL,
         align = TextAlign.LEFT,
-        size = TextSize.M
+        size = TextSize.M,
+        dataTestId = 'Text'
     } = props
 
     const HeaderTag = mapSizeToHeaderTag[size]
 
     return (
         <div className={classNames(cls.Text, {}, [className, cls[theme], cls[align], cls[size]])}>
-            {title && <HeaderTag className={cls.title}>{title}</HeaderTag>}
-            {text && <p className={cls.text}>{text}</p>}
+            {title && <HeaderTag data-testid={`${dataTestId}.Header`} className={cls.title}>{title}</HeaderTag>}
+            {text && <p data-testid={`${dataTestId}.Paragraph`} className={cls.text}>{text}</p>}
         </div>
     )
 })

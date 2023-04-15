@@ -1,6 +1,5 @@
 import {Menu} from '@headlessui/react'
-import {type FC, Fragment, type ReactNode} from 'react'
-import {useTranslation} from 'react-i18next'
+import {type FC, Fragment, type JSXElementConstructor, type ReactElement, type ReactNode} from 'react'
 import {classNames} from 'shared/lib/classNames/classNames'
 import {AppLink} from 'shared/ui/AppLink/AppLink'
 import {type DropdownDirection} from '../../types/ui'
@@ -29,8 +28,6 @@ const DropdownDirectionStyle: Record<DropdownDirection, string> = {
 }
 
 export const DropDown: FC<DropDownProps> = (props) => {
-    const {t} = useTranslation()
-
     return (
         <Menu as={'div'} className={classNames(cls.DropDown, {}, [props.className])}>
             <Menu.Button className={cls.btn}>
@@ -39,7 +36,7 @@ export const DropDown: FC<DropDownProps> = (props) => {
             <Menu.Items
                 className={classNames(cls.menu, {}, [DropdownDirectionStyle[props.direction || 'bottom right']])}>
                 {props.items.map((item, index) => {
-                    const content = ({active}: {active: boolean}) => (
+                    const content = ({active}: {active: boolean}): ReactElement<any, string | JSXElementConstructor<any>> => (
                         <Button
                             onClick={item.onClick}
                             disabled={item.unavailable}

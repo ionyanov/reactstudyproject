@@ -25,8 +25,8 @@ export default ({config}: {config: webpack.Configuration}): webpack.Configuratio
     config.module!.rules?.push(buildSVGLoader())
 
     config.plugins!.push(new DefinePlugin({
-        _IS_DEV_: true,
-        _API_URL_: JSON.stringify(''),
+        _IS_DEV_: JSON.stringify(true),
+        _API_URL_: JSON.stringify('http://testapi.test'),
         _PROJECT_: JSON.stringify('storybook')
     }))
 

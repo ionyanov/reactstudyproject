@@ -1,5 +1,5 @@
 import {Listbox as HListBox} from '@headlessui/react'
-import {type FC, Fragment, type ReactNode} from 'react'
+import {type FC, Fragment, type JSXElementConstructor, type ReactElement, type ReactNode} from 'react'
 import {classNames} from 'shared/lib/classNames/classNames'
 import {Button} from 'shared/ui/Button/Button'
 import {HStack} from 'shared/ui/Stack'
@@ -53,7 +53,7 @@ export const ListBox: FC<ListBoxProps> = (props) => {
                             disabled={item.unavailable}
                             as={Fragment}
                         >
-                            {({active, selected}) => (
+                            {({active, selected}): ReactElement<any, string | JSXElementConstructor<any>> => (
                                 <li className={classNames(cls.item,
                                     {[cls.active]: active, [cls.unavailable]: item.unavailable},
                                     [props.className])}>

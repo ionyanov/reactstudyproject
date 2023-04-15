@@ -6,6 +6,7 @@ import {DynamicModuleLoader, type ReducerList} from 'shared/lib/components/Dynam
 import {useAppDispatch} from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import {Button, ButtonTheme} from 'shared/ui/Button/Button'
 import {Input} from 'shared/ui/Input/Input'
+import {HStack} from 'shared/ui/Stack'
 import {getAddCommentCardText} from '../model/selectors/addCommentCardSelector'
 import {addArticleCommentAction, addArticleCommentReducer} from '../model/slice/addCommentCardSlice'
 import cls from './AddCommentCard.module.scss'
@@ -36,7 +37,7 @@ const AddCommentCard: FC<AddArticleCommentProps> = (props) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.AddCommentCard, {}, [props.className])}>
+            <HStack gap={'8'} max className={classNames(cls.AddCommentCard, {}, [props.className])}>
                 <Input
                     placeholdersize={'fit-content'}
                     className={cls.input}
@@ -50,7 +51,7 @@ const AddCommentCard: FC<AddArticleCommentProps> = (props) => {
                 >
                     {t('Отправить')}
                 </Button>
-            </div>
+            </HStack>
         </DynamicModuleLoader>
     )
 }

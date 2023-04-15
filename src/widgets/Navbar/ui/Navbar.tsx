@@ -3,7 +3,7 @@ import {useTranslation} from 'react-i18next'
 import {useSelector} from 'react-redux'
 import {LoginModal} from 'features/AuthByUserName'
 import {LangSelector} from 'features/LangSelector/ui/LangSelector'
-import {getUserAuthData, userActions} from 'entities/User'
+import {getUserAdmin, getUserAuthData, userActions} from 'entities/User'
 import {RoutePath} from 'shared/config/routeConfig/routeConfig'
 import {classNames} from 'shared/lib/classNames/classNames'
 import {useAppDispatch} from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
@@ -24,6 +24,7 @@ export const Navbar: FC<NavbarProps> = props => {
     const authData = useSelector(getUserAuthData)
     const [isAuthModal, setIsAuthModal] = useState(false)
     const dispatch = useAppDispatch()
+    const isAdmin = useSelector(getUserAdmin)
 
     const onOpenModal = useCallback(() => {
         setIsAuthModal(true)
@@ -57,6 +58,12 @@ export const Navbar: FC<NavbarProps> = props => {
                         trigger={<Avatar src={authData.avatar} size={30}/>}
                         items={[
                             {content: t('Выйти'), onClick: onLogout},
+                            ...(isAdmin
+                                ? [{
+                                    content: t('Администрирование'),
+                                    href: RoutePath.admin_panel
+                                }]
+                                : []),
                             {content: t('Профиль'), href: RoutePath.profile + authData.id}
                         ]}
                     />

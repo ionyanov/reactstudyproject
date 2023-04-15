@@ -37,5 +37,15 @@ export default {
         _IS_DEV_: false,
         _API_URL_: '',
         _PROJECT_: 'jest'
-    }
+    },
+    reporters: [
+        'default',
+        ['jest-html-reporters', {
+            publicPath: '<rootDir>/reports',
+            filename: 'unit.html',
+            // 'openReport': true,
+            pageTitle: 'Test Report',
+            inlineSource: true
+        }]
+    ]
 }

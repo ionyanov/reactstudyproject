@@ -5,6 +5,7 @@ import {classNames} from 'shared/lib/classNames/classNames'
 import {DynamicModuleLoader, type ReducerList} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import {useAppDispatch} from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import {useInitialEffect} from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
+import {VStack} from 'shared/ui/Stack'
 import {getArticleCommentListIsLoading} from '../model/selectors/articleCommentListSelectors'
 import {fetchCommentsByArticleId} from '../model/services/fetchCommentsByArticleId'
 import {articleCommentListReducer, getArticleComments} from '../model/slices/articleCommentListSlice'
@@ -33,9 +34,9 @@ const ArticleCommentList: FC<ArticleCommentListProps> = memo((props: ArticleComm
     })
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.ArticleCommentList, {}, [props.className])}>
+            <VStack gap={'16'} max className={classNames(cls.ArticleCommentList, {}, [props.className])}>
                 <CommentList comments={comments} isLoading={commentsIsLoading}/>
-            </div>
+            </VStack>
         </DynamicModuleLoader>
     )
 })

@@ -1,5 +1,5 @@
 import {type ComponentMeta, type ComponentStory} from '@storybook/react'
-import React from 'react'
+import React, {type ReactNode} from 'react'
 
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'shared/lib/providers/ThemeProvider'
@@ -11,7 +11,7 @@ export default {
     argTypes: {
         backgroundColor: {control: 'color'}
     },
-    decorators: [(Story) => <div style={{padding: 200}}><Story/></div>],
+    decorators: [(Story): ReactNode => <div style={{padding: 200}}><Story/></div>],
     args: {
         items: [
             {value: 'item1', content: 'item1item1item1item1item1item1item1', unavailable: false},

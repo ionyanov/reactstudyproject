@@ -70,6 +70,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                 readonly={props.readOnly}
                 onChange={props.onChangeFirstName}
                 placeholdersize={phsize}
+                dataTestId={'ProfileCard.firstname'}
             />
             <Input className={cls.input}
                 value={props.data.lastname}
@@ -77,6 +78,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                 readonly={props.readOnly}
                 onChange={props.onChangeLastName}
                 placeholdersize={phsize}
+                dataTestId={'ProfileCard.lastname'}
             />
             <Input className={cls.input}
                 value={props.data.age}
@@ -85,6 +87,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                 readonly={props.readOnly}
                 onChange={props.onChangeAge}
                 placeholdersize={phsize}
+                dataTestId={'ProfileCard.age'}
             />
             <CountrySelect
                 className={cls.input}
@@ -100,6 +103,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                 readonly={props.readOnly}
                 onChange={props.onChangeCity}
                 placeholdersize={phsize}
+                dataTestId={'ProfileCard.city'}
             />
             <CurrencySelect
                 className={cls.input}
@@ -115,6 +119,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                 readonly={props.readOnly}
                 onChange={props.onChangeUserName}
                 placeholdersize={phsize}
+                dataTestId={'ProfileCard.username'}
             />
             <Input className={cls.input}
                 value={props.data.avatar}
@@ -122,6 +127,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                 readonly={props.readOnly}
                 onChange={props.onChangeAvatar}
                 placeholdersize={phsize}
+                dataTestId={'ProfileCard.avatar'}
             />
         </VStack>
     )
