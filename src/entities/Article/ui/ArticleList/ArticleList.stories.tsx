@@ -1,19 +1,9 @@
-import {type ComponentMeta, type ComponentStory} from '@storybook/react'
+import {type Meta, type StoryObj} from '@storybook/react'
 import React from 'react'
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'shared/lib/providers/ThemeProvider'
-import {type Article, ArticleBlockType, ArticleType} from '../../model/types/article'
+import {type Article, ArticleBlockType, ArticleType, ArticleView} from '../../model/types/article'
 import {ArticleList} from './ArticleList'
-
-export default {
-    title: 'entities/Article/ArticleList',
-    component: ArticleList,
-    argTypes: {
-        backgroundColor: {control: 'color'}
-    }
-} as ComponentMeta<typeof ArticleList>
-
-const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />
 
 const data: Article = {
     id: 'id',
@@ -49,9 +39,31 @@ const data: Article = {
     ]
 }
 
-export const Normal = Template.bind({})
-Normal.args = {articles: [data]}
+const meta: Meta<typeof ArticleList> = {
+    title: 'entities/Article/ArticleList',
+    component: ArticleList,
+    args: {
+        articles: [data]
+    }
+}
+export default meta
+type Story = StoryObj<typeof meta>
 
-export const Dark = Template.bind({})
-Dark.args = {articles: [data]}
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+export const Normal: Story = {}
+
+export const Dark: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)]
+}
+
+export const NormalList: Story = {
+    args: {
+        view: ArticleView.LIST
+    }
+}
+
+export const DarkList: Story = {
+    args: {
+        view: ArticleView.LIST
+    },
+    decorators: [ThemeDecorator(Theme.DARK)]
+}

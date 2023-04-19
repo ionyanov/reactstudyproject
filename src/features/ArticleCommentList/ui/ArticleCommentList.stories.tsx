@@ -1,21 +1,9 @@
-import {type ComponentMeta, type ComponentStory} from '@storybook/react'
-import React from 'react'
-
+import {type Meta, type StoryObj} from '@storybook/react'
 import {StoreDecorator} from 'shared/config/storybook/StoreDecorator'
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'shared/lib/providers/ThemeProvider'
 import {articleCommentListReducer} from '../model/slices/articleCommentListSlice'
 import ArticleCommentList from './ArticleCommentList'
-
-export default {
-    title: 'features/Comment/ArticleCommentList',
-    component: ArticleCommentList,
-    argTypes: {
-        backgroundColor: {control: 'color'}
-    }
-} as ComponentMeta<typeof ArticleCommentList>
-
-const Template: ComponentStory<typeof ArticleCommentList> = (args) => <ArticleCommentList {...args} />
 
 const articleCommentList = {
     entities: {
@@ -27,19 +15,26 @@ const articleCommentList = {
     ids: ['1', '2', '3']
 }
 
-export const Normal = Template.bind({})
-Normal.decorators = [StoreDecorator({articleCommentList},
-    {articleCommentList: articleCommentListReducer})]
+const meta: Meta<typeof ArticleCommentList> = {
+    title: 'features/Comment/ArticleCommentList',
+    component: ArticleCommentList,
+    decorators: [StoreDecorator({articleCommentList}, {articleCommentList: articleCommentListReducer})]
+}
+export default meta
+type Story = StoryObj<typeof meta>
 
-export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK),
-    StoreDecorator({articleCommentList},
+export const Normal: Story = {}
+
+export const Dark: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)]
+}
+
+export const Loading: Story = {
+    decorators: [StoreDecorator({articleCommentList: {isLoading: true, entities: {}, ids: []}},
         {articleCommentList: articleCommentListReducer})]
+}
 
-export const Loading = Template.bind({})
-Loading.decorators = [StoreDecorator({articleCommentList: {isLoading: true, entities: {}, ids: []}},
-    {articleCommentList: articleCommentListReducer})]
-
-export const Empty = Template.bind({})
-Empty.decorators = [StoreDecorator({articleCommentList: {entities: {}, ids: []}},
-    {articleCommentList: articleCommentListReducer})]
+export const Empty: Story = {
+    decorators: [StoreDecorator({articleCommentList: {entities: {}, ids: []}},
+        {articleCommentList: articleCommentListReducer})]
+}

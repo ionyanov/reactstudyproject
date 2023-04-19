@@ -1,9 +1,7 @@
-import {type ComponentMeta, type ComponentStory} from '@storybook/react'
-import React from 'react'
-// import withMock from 'storybook-addon-mock'
-
+import {type Meta, type StoryObj} from '@storybook/react'
 import {type Article, ArticleType} from 'entities/Article'
 import {ArticleBlockType} from 'entities/Article/model/types/article'
+import {StoreDecorator} from 'shared/config/storybook/StoreDecorator'
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'shared/lib/providers/ThemeProvider'
 import {ArticleRecommendation} from './ArticleRecommendation'
@@ -27,27 +25,24 @@ const article: Article = {
     ]
 }
 
-export default {
+const meta: Meta<typeof ArticleRecommendation> = {
     title: 'features/Article/ArticleRecommendation',
     component: ArticleRecommendation,
-    argTypes: {
-        backgroundColor: {control: 'color'}
-    },
-    // decorators: [withMock],
-    parameters: [
-        {
+    decorators: [StoreDecorator({})],
+    parameters: {
+        mockData: [{
             url: `${_API_URL_}/articles?_limit=3`,
             method: 'GET',
             status: 200,
             response: [{...article, id: 1}, {...article, id: 2}, {...article, id: 3}]
+        }]
+    }
+}
+export default meta
+type Story = StoryObj<typeof meta>
 
-        }
-    ]
-} as ComponentMeta<typeof ArticleRecommendation>
+export const Normal: Story = {}
 
-const Template: ComponentStory<typeof ArticleRecommendation> = (args) => <ArticleRecommendation {...args} />
-
-export const Normal = Template.bind({})
-
-export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+export const Dark: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)]
+}

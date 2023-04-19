@@ -1,4 +1,4 @@
-import {type ComponentMeta, type ComponentStory} from '@storybook/react'
+import {type Meta, type StoryObj} from '@storybook/react'
 import React from 'react'
 
 import {Country} from 'entities/Country'
@@ -8,12 +8,9 @@ import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'shared/lib/providers/ThemeProvider'
 import {ProfileCard} from './ProfileCard'
 
-export default {
+const meta: Meta<typeof ProfileCard> = {
     title: 'entities/ProfileCard',
     component: ProfileCard,
-    argTypes: {
-        backgroundColor: {control: 'color'}
-    },
     args: {
         data: {
             firstname: 'firstname',
@@ -26,17 +23,20 @@ export default {
             username: 'username'
         }
     }
-} as ComponentMeta<typeof ProfileCard>
+}
+export default meta
+type Story = StoryObj<typeof meta>
 
-const Template: ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...args} />
+export const Normal: Story = {}
 
-export const Light = Template.bind({})
+export const Dark: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)]
+}
 
-export const Loading = Template.bind({})
-Loading.args = {isLoading: true}
+export const Loading: Story = {
+    args: {isLoading: true}
+}
 
-export const WithError = Template.bind({})
-WithError.args = {error: 'error'}
-
-export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+export const WithError: Story = {
+    args: {error: 'error'}
+}

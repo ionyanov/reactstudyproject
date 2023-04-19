@@ -1,13 +1,12 @@
-import {type ComponentMeta, type ComponentStory} from '@storybook/react'
+import {type Meta, type StoryObj} from '@storybook/react'
 import React from 'react'
+import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
+import {Theme} from 'shared/lib/providers/ThemeProvider'
 import {Flex} from './Flex'
 
-export default {
+const meta: Meta<typeof Flex> = {
     title: 'shared/Flex',
     component: Flex,
-    argTypes: {
-        backgroundColor: {control: 'color'}
-    },
     args: {
         children: (
             <>
@@ -19,35 +18,22 @@ export default {
             </>
         )
     }
-} as ComponentMeta<typeof Flex>
+}
+export default meta
+type Story = StoryObj<typeof meta>
 
-const Template: ComponentStory<typeof Flex> = (args) => <Flex {...args} />
+export const Normal: Story = {}
 
-export const Row = Template.bind({})
+export const Dark: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)]
+}
 
-export const RowGap4 = Template.bind({})
-RowGap4.args = {gap: '4'}
+export const Row4: Story = {args: {gap: '4'}}
+export const Row8: Story = {args: {gap: '8'}}
+export const Row16: Story = {args: {gap: '16'}}
+export const Row32: Story = {args: {gap: '32'}}
 
-export const RowGap8 = Template.bind({})
-RowGap8.args = {gap: '8'}
-
-export const RowGap16 = Template.bind({})
-RowGap16.args = {gap: '16'}
-
-export const RowGap32 = Template.bind({})
-RowGap32.args = {gap: '32'}
-
-export const Column = Template.bind({})
-Column.args = {direction: 'column'}
-
-export const ColumnGap4 = Template.bind({})
-ColumnGap4.args = {direction: 'column', gap: '4'}
-
-export const ColumnGap8 = Template.bind({})
-ColumnGap8.args = {direction: 'column', gap: '8'}
-
-export const ColumnGap16 = Template.bind({})
-ColumnGap16.args = {direction: 'column', gap: '16'}
-
-export const ColumnGap32 = Template.bind({})
-ColumnGap32.args = {direction: 'column', gap: '32'}
+export const Column4: Story = {args: {direction: 'column', gap: '4'}}
+export const Column8: Story = {args: {direction: 'column', gap: '8'}}
+export const Column16: Story = {args: {direction: 'column', gap: '16'}}
+export const Column32: Story = {args: {direction: 'column', gap: '32'}}

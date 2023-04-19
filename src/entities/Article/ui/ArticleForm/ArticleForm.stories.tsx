@@ -1,22 +1,12 @@
-import {type ComponentMeta, type ComponentStory} from '@storybook/react'
+import {type Meta, type StoryObj} from '@storybook/react'
 import React from 'react'
 
 import {StoreDecorator} from 'shared/config/storybook/StoreDecorator'
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'shared/lib/providers/ThemeProvider'
 import {articleDetailReducer} from '../../model/slice/articleDetailSlice'
-import {ArticleBlockType, ArticleType} from '../../model/types/article'
-import {type Article} from '../../model/types/article'
+import {type Article, ArticleBlockType, ArticleType} from '../../model/types/article'
 import {ArticleForm} from './ArticleForm'
-
-export default {
-    title: 'entities/Article/ArticleForm',
-    component: ArticleForm,
-    argTypes: {
-        backgroundColor: {control: 'color'}
-    }
-} as ComponentMeta<typeof ArticleForm>
-const Template: ComponentStory<typeof ArticleForm> = (args) => <ArticleForm {...args} />
 
 const data: Article = {
     id: 'id',
@@ -51,17 +41,25 @@ const data: Article = {
         }
     ]
 }
-export const Normal = Template.bind({})
-Normal.decorators = [StoreDecorator({articleDetail: {data}}, {articleDetail: articleDetailReducer})]
 
-export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK),
-    StoreDecorator({articleDetail: {data}}, {articleDetail: articleDetailReducer})]
+const meta: Meta<typeof ArticleForm> = {
+    title: 'entities/Article/ArticleForm',
+    component: ArticleForm,
+    decorators: [StoreDecorator({articleDetail: {data}}, {articleDetail: articleDetailReducer})]
+}
+export default meta
+type Story = StoryObj<typeof meta>
 
-export const Loading = Template.bind({})
-Loading.decorators = [StoreDecorator({articleDetail: {isLoading: true}},
-    {articleDetail: articleDetailReducer})]
+export const Normal: Story = {}
 
-export const Error = Template.bind({})
-Error.decorators = [StoreDecorator({articleDetail: {error: 'error'}},
-    {articleDetail: articleDetailReducer})]
+export const Dark: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)]
+}
+
+export const Loading: Story = {
+    decorators: [StoreDecorator({articleDetail: {isLoading: true}}, {articleDetail: articleDetailReducer})]
+}
+
+export const Error: Story = {
+    decorators: [StoreDecorator({articleDetail: {error: 'error'}}, {articleDetail: articleDetailReducer})]
+}

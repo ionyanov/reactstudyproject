@@ -1,19 +1,14 @@
-import {type ComponentMeta, type ComponentStory} from '@storybook/react'
-import React from 'react'
-
+import {type Meta, type StoryObj} from '@storybook/react'
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'shared/lib/providers/ThemeProvider'
 import {Code} from './Code'
 
-export default {
+const meta: Meta<typeof Code> = {
     title: 'shared/Code',
     component: Code,
-    argTypes: {
-        backgroundColor: {control: 'color'}
-    },
     args: {
         text: 'import React from \'react\'\n' +
-            'import {type ComponentMeta, type ComponentStory} from \'@storybook/react\'\n' +
+            'import {type Meta, type StoryObj} from \'@storybook/react\'\n' +
             '\n' +
             'import {ThemeDecorator} from \'shared/config/storybook/ThemeDecorator\'\n' +
             'import {Theme} from \'app/providers/ThemeProvider\'\n' +
@@ -28,13 +23,14 @@ export default {
             '    args: {\n' +
             '        text: \n' +
             '    }\n' +
-            '} as ComponentMeta<typeof Code>'
+            '} as Meta<typeof Code>'
     }
-} as ComponentMeta<typeof Code>
+}
+export default meta
+type Story = StoryObj<typeof meta>
 
-const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />
+export const Normal: Story = {}
 
-export const Normal = Template.bind({})
-
-export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+export const Dark: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)]
+}

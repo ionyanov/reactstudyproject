@@ -1,21 +1,25 @@
-import {type ComponentMeta, type ComponentStory} from '@storybook/react'
-import React from 'react'
-
+import {type Meta, type StoryObj} from '@storybook/react'
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'shared/lib/providers/ThemeProvider'
 import {Tabs} from './Tabs'
 
-export default {
+const meta: Meta<typeof Tabs> = {
     title: 'shared/Tabs',
     component: Tabs,
-    argTypes: {
-        backgroundColor: {control: 'color'}
+    args: {
+        tabs: [
+            {component: 'Component1', value: 'Component1'},
+            {component: 'Component2', value: 'Component2'},
+            {component: 'Component3', value: 'Component3'}
+        ],
+        selectedTab: 'Component2'
     }
-} as ComponentMeta<typeof Tabs>
+}
+export default meta
+type Story = StoryObj<typeof meta>
 
-const Template: ComponentStory<typeof Tabs> = (args) => <Tabs {...args} />
+export const Normal: Story = {}
 
-export const Normal = Template.bind({})
-
-export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+export const Dark: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)]
+}

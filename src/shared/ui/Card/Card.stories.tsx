@@ -1,24 +1,20 @@
-import {type ComponentMeta, type ComponentStory} from '@storybook/react'
-import React from 'react'
-
+import {type Meta, type StoryObj} from '@storybook/react'
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'shared/lib/providers/ThemeProvider'
 import {Card} from './Card'
 
-export default {
+const meta: Meta<typeof Card> = {
     title: 'shared/Card',
     component: Card,
-    argTypes: {
-        backgroundColor: {control: 'color'}
-    },
     args: {
         children: <div>Test</div>
     }
-} as ComponentMeta<typeof Card>
+}
+export default meta
+type Story = StoryObj<typeof meta>
 
-const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />
+export const Normal: Story = {}
 
-export const Normal = Template.bind({})
-
-export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+export const Dark: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)]
+}

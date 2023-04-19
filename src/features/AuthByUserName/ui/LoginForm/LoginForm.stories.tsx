@@ -1,43 +1,27 @@
-import {type ComponentMeta, type ComponentStory} from '@storybook/react'
-import React from 'react'
-
+import {type Meta, type StoryObj} from '@storybook/react'
 import {StoreDecorator} from 'shared/config/storybook/StoreDecorator'
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'shared/lib/providers/ThemeProvider'
-import {type LoginSchema} from '../../model/types/loginSchema'
 import LoginForm from './LoginForm'
 
-export default {
+const meta: Meta<typeof LoginForm> = {
     title: 'features/LoginForm',
     component: LoginForm,
-    argTypes: {
-        backgroundColor: {control: 'color'}
-    }
-} as ComponentMeta<typeof LoginForm>
+    decorators: [StoreDecorator({loginForm: {username: 'login', password: 'password'}})]
+}
+export default meta
+type Story = StoryObj<typeof meta>
 
-const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />
+export const Normal: Story = {}
 
-export const Light = Template.bind({})
-Light.decorators = [StoreDecorator({loginForm: {username: 'login', password: 'password'} as LoginSchema})]
+export const Dark: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)]
+}
 
-export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK),
-    StoreDecorator({loginForm: {username: 'login', password: 'password'} as LoginSchema})]
+export const Error: Story = {
+    decorators: [StoreDecorator({loginForm: {error: 'error'}})]
+}
 
-export const Error = Template.bind({})
-Error.decorators = [StoreDecorator({
-    loginForm: {
-        username: 'login',
-        password: 'password',
-        error: 'error'
-    } as LoginSchema
-})]
-
-export const IsLoading = Template.bind({})
-IsLoading.decorators = [StoreDecorator({
-    loginForm: {
-        username: 'login',
-        password: 'password',
-        isLoading: true
-    } as LoginSchema
-})]
+export const IsLoading: Story = {
+    decorators: [StoreDecorator({loginForm: {isLoading: true}})]
+}

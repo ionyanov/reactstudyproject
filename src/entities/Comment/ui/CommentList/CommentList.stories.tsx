@@ -1,20 +1,17 @@
-import {type ComponentMeta, type ComponentStory} from '@storybook/react'
+import {type Meta, type StoryObj} from '@storybook/react'
 
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'shared/lib/providers/ThemeProvider'
 import {CommentList} from './CommentList'
 
-export default {
+const meta: Meta<typeof CommentList> = {
     title: 'entities/Comment/CommentList',
     component: CommentList,
-    argTypes: {
-        backgroundColor: {control: 'color'}
-    },
     args: {
         comments: [
             {
                 id: '1',
-                text: 'Test',
+                text: 'Test1',
                 user: {id: '1', username: 'username'}
             },
             {
@@ -24,17 +21,22 @@ export default {
             }
         ]
     }
-} as ComponentMeta<typeof CommentList>
+}
+export default meta
+type Story = StoryObj<typeof meta>
 
-const Template: ComponentStory<typeof CommentList> = (args) => <CommentList {...args}/>
+export const Normal: Story = {}
 
-export const Normal = Template.bind({})
+export const Dark: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)]
+}
 
-export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+export const Loading: Story = {
+    args: {
+        isLoading: true
+    }
+}
 
-export const Loading = Template.bind({})
-Loading.args = {isLoading: true}
-
-export const Empty = Template.bind({})
-Empty.args = {comments: []}
+export const Empty: Story = {
+    args: {comments: []}
+}

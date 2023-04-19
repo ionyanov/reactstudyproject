@@ -1,28 +1,23 @@
-import {type ComponentMeta, type ComponentStory} from '@storybook/react'
-import React from 'react'
-
+import {type Meta, type StoryObj} from '@storybook/react'
 import MainIcon from 'shared/assets/icons/main-page.svg'
 import {StoreDecorator} from 'shared/config/storybook/StoreDecorator'
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'shared/lib/providers/ThemeProvider'
 import {SidebarItem} from './SidebarItem'
 
-export default {
+const meta: Meta<typeof SidebarItem> = {
     title: 'widgets/Sidebar/SidebarItem',
     component: SidebarItem,
-    argTypes: {
-        backgroundColor: {control: 'color'}
-    },
     args: {
         item: {path: '', text: 'Text', Icon: MainIcon}
-    }
-} as ComponentMeta<typeof SidebarItem>
+    },
+    decorators: [StoreDecorator({})]
+}
+export default meta
+type Story = StoryObj<typeof meta>
 
-const Template: ComponentStory<typeof SidebarItem> = (args) => <SidebarItem {...args} />
+export const Normal: Story = {}
 
-export const Light = Template.bind({})
-Light.decorators = [StoreDecorator({})]
-
-export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK),
-    StoreDecorator({})]
+export const Dark: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)]
+}

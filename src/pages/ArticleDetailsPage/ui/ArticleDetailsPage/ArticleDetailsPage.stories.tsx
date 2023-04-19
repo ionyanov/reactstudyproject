@@ -1,6 +1,4 @@
-import {type ComponentMeta, type ComponentStory} from '@storybook/react'
-import React from 'react'
-
+import {type Meta, type StoryObj} from '@storybook/react'
 import {type Article} from 'entities/Article'
 import {articleDetailReducer} from 'entities/Article/model/slice/articleDetailSlice'
 import {ArticleBlockType, ArticleType} from 'entities/Article/model/types/article'
@@ -8,16 +6,6 @@ import {StoreDecorator} from 'shared/config/storybook/StoreDecorator'
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'shared/lib/providers/ThemeProvider'
 import ArticleDetailsPage from './ArticleDetailsPage'
-
-export default {
-    title: 'pages/Article/ArticleDetailsPage',
-    component: ArticleDetailsPage,
-    argTypes: {
-        backgroundColor: {control: 'color'}
-    }
-} as ComponentMeta<typeof ArticleDetailsPage>
-
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />
 
 const data: Article = {
     id: 'id',
@@ -52,9 +40,17 @@ const data: Article = {
         }
     ]
 }
-export const Normal = Template.bind({})
-Normal.decorators = [StoreDecorator({articleDetail: {data}}, {articleDetail: articleDetailReducer})]
 
-export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK),
-    StoreDecorator({articleDetail: {data}}, {articleDetail: articleDetailReducer})]
+const meta: Meta<typeof ArticleDetailsPage> = {
+    title: 'pages/Article/ArticleDetailsPage',
+    component: ArticleDetailsPage,
+    decorators: [StoreDecorator({articleDetail: {data}}, {articleDetail: articleDetailReducer})]
+}
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Normal: Story = {}
+
+export const Dark: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)]
+}

@@ -1,16 +1,11 @@
-import {type ComponentMeta, type ComponentStory} from '@storybook/react'
-import React from 'react'
-
+import {type Meta, type StoryObj} from '@storybook/react'
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'shared/lib/providers/ThemeProvider'
 import {CommentCard} from './CommentCard'
 
-export default {
+const meta: Meta<typeof CommentCard> = {
     title: 'entities/Comment/CommentCard',
     component: CommentCard,
-    argTypes: {
-        backgroundColor: {control: 'color'}
-    },
     args: {
         data:
             {
@@ -19,17 +14,20 @@ export default {
                 user: {id: '1', username: 'username'}
             }
     }
-} as ComponentMeta<typeof CommentCard>
+}
+export default meta
+type Story = StoryObj<typeof meta>
 
-const Template: ComponentStory<typeof CommentCard> = (args) => <CommentCard {...args} />
+export const Normal: Story = {}
 
-export const Normal = Template.bind({})
+export const Dark: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)]
+}
 
-export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+export const Loading: Story = {
+    args: {isLoading: true}
+}
 
-export const Loading = Template.bind({})
-Loading.args = {isLoading: true}
-
-export const Empty = Template.bind({})
-Empty.args = {data: undefined}
+export const Empty: Story = {
+    args: {data: undefined}
+}

@@ -1,33 +1,29 @@
-import {type ComponentMeta, type ComponentStory} from '@storybook/react'
-import React from 'react'
-
+import {type Meta, type StoryObj} from '@storybook/react'
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'shared/lib/providers/ThemeProvider'
 import {Skeleton} from './Skeleton'
 
-export default {
+const meta: Meta<typeof Skeleton> = {
     title: 'shared/Skeleton',
     component: Skeleton,
-    argTypes: {
-        backgroundColor: {control: 'color'}
-    },
     args: {
         height: 100,
         width: 100,
         border: '5px'
     }
-} as ComponentMeta<typeof Skeleton>
+}
+export default meta
+type Story = StoryObj<typeof meta>
 
-const Template: ComponentStory<typeof Skeleton> = (args) => <Skeleton {...args} />
+export const Normal: Story = {}
 
-export const Normal = Template.bind({})
+export const Dark: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)]
+}
 
-export const Circle = Template.bind({})
-Circle.args = {...Circle.args, border: '50%'}
+export const Circle: Story = {args: {border: '50%'}}
 
-export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
-
-export const CircleDark = Template.bind({})
-CircleDark.decorators = [ThemeDecorator(Theme.DARK)]
-CircleDark.args = {...CircleDark.args, border: '50%'}
+export const CircleDark: Story = {
+    args: {border: '50%'},
+    decorators: [ThemeDecorator(Theme.DARK)]
+}

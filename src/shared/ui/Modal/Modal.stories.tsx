@@ -1,26 +1,21 @@
-import {type ComponentMeta, type ComponentStory} from '@storybook/react'
-import React from 'react'
-
+import {type Meta, type StoryObj} from '@storybook/react'
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'shared/lib/providers/ThemeProvider'
 import {Modal} from './Modal'
 
-export default {
+const meta: Meta<typeof Modal> = {
     title: 'shared/Modal',
     component: Modal,
-    argTypes: {
-        backgroundColor: {control: 'color'}
-    },
     args: {
-        children: 'Modal'
+        children: 'Modal',
+        isOpen: true
     }
-} as ComponentMeta<typeof Modal>
+}
+export default meta
+type Story = StoryObj<typeof meta>
 
-const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />
+export const Normal: Story = {}
 
-export const Primary = Template.bind({})
-Primary.args = {isOpen: true}
-
-export const Dark = Template.bind({})
-Dark.args = {isOpen: true}
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+export const Dark: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)]
+}

@@ -1,16 +1,11 @@
-import {type ComponentMeta, type ComponentStory} from '@storybook/react'
-import React from 'react'
-
+import {type Meta, type StoryObj} from '@storybook/react'
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'shared/lib/providers/ThemeProvider'
 import {Select} from './Select'
 
-export default {
+const meta: Meta<typeof Select> = {
     title: 'shared/Select',
     component: Select,
-    argTypes: {
-        backgroundColor: {control: 'color'}
-    },
     args: {
         label: 'label',
         value: 'item2',
@@ -20,11 +15,16 @@ export default {
             {value: 'item3', content: 'item3'}
         ]
     }
-} as ComponentMeta<typeof Select>
+}
+export default meta
+type Story = StoryObj<typeof meta>
 
-const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />
+export const Normal: Story = {}
 
-export const Normal = Template.bind({})
+export const Dark: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)]
+}
 
-export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+export const ReadOnly: Story = {
+    args: {readonly: true}
+}

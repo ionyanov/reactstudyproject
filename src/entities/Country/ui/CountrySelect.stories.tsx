@@ -1,24 +1,20 @@
-import {type ComponentMeta, type ComponentStory} from '@storybook/react'
-import React from 'react'
-
+import {type Meta, type StoryObj} from '@storybook/react'
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'shared/lib/providers/ThemeProvider'
 import {CountrySelect} from './CountrySelect'
 
-export default {
-    title: 'entities/Country',
+const meta: Meta<typeof CountrySelect> = {
+    title: 'entities/CountrySelect',
     component: CountrySelect,
-    argTypes: {
-        backgroundColor: {control: 'color'}
-    },
     args: {
         title: 'Страна'
     }
-} as ComponentMeta<typeof CountrySelect>
+}
+export default meta
+type Story = StoryObj<typeof meta>
 
-const Template: ComponentStory<typeof CountrySelect> = (args) => <CountrySelect {...args} />
+export const Normal: Story = {}
 
-export const Normal = Template.bind({})
-
-export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+export const Dark: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)]
+}
