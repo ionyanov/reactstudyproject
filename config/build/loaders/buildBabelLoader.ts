@@ -31,8 +31,8 @@ export function buildBabelLoader (props: BuildBabelLoaderProps): RuleSetRule {
                         {
                             props: ['data-testid']
                         }
-                    ],
-                    props.isDev && require.resolve('react-refresh/babel')
+                    ]
+                    // props.isDev && require.resolve('react-refresh/babel')
                 ].filter(Boolean)
             }
         }

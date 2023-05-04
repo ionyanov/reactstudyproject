@@ -1,12 +1,12 @@
 import {type FC, useCallback} from 'react'
 import {useTranslation} from 'react-i18next'
-import {sendComment} from 'pages/ArticleDetailsPage/model/services/sendComment'
-import cls from 'pages/ArticleDetailsPage/ui/ArticleDetailsPage/ArticleDetailsPage.module.scss'
 import {AddCommentCard} from 'features/AddCommentCard'
 import {ArticleCommentList} from 'features/ArticleCommentList'
 import {useAppDispatch} from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import {VStack} from 'shared/ui/Stack'
 import {Text} from 'shared/ui/Text/Text'
+import {sendComment} from '../../model/services/sendComment'
+import cls from './ArticleDetailsPage.module.scss'
 
 interface ArticleDetailCommentsProps {
     className?: string

@@ -1,6 +1,4 @@
 import {type Meta, type StoryObj} from '@storybook/react'
-import React from 'react'
-
 import {profileReducer} from 'features/EditableProfileCard'
 import {StoreDecorator} from 'shared/config/storybook/StoreDecorator'
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'

@@ -2,15 +2,14 @@ import React, {type FC, useCallback, useState} from 'react'
 import {useTranslation} from 'react-i18next'
 import {useSelector} from 'react-redux'
 import {LoginModal} from 'features/AuthByUserName'
+import {AvatarButton} from 'features/AvatarButton'
 import {LangSelector} from 'features/LangSelector/ui/LangSelector'
-import {getUserAdmin, getUserAuthData, userActions} from 'entities/User'
+import {NotificationButton} from 'features/NotificationButton/idex'
+import {getUserAuthData} from 'entities/User'
 import {RoutePath} from 'shared/config/routeConfig/routeConfig'
 import {classNames} from 'shared/lib/classNames/classNames'
-import {useAppDispatch} from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import {AppLink, AppLinkTheme} from 'shared/ui/AppLink/AppLink'
-import {Avatar} from 'shared/ui/Avatar/Avatar'
 import {Button, ButtonTheme} from 'shared/ui/Button/Button'
-import {DropDown} from 'shared/ui/DropDown/DropDown'
 import {HStack} from 'shared/ui/Stack'
 import {Text, TextTheme} from 'shared/ui/Text/Text'
 import cls from './Navbar.module.scss'
@@ -23,8 +22,6 @@ export const Navbar: FC<NavbarProps> = props => {
     const {t} = useTranslation()
     const authData = useSelector(getUserAuthData)
     const [isAuthModal, setIsAuthModal] = useState(false)
-    const dispatch = useAppDispatch()
-    const isAdmin = useSelector(getUserAdmin)
 
     const onOpenModal = useCallback(() => {
         setIsAuthModal(true)
@@ -33,10 +30,6 @@ export const Navbar: FC<NavbarProps> = props => {
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false)
     }, [])
-
-    const onLogout = useCallback(() => {
-        dispatch(userActions.logout())
-    }, [dispatch])
 
     if (authData) {
         return (
@@ -53,20 +46,8 @@ export const Navbar: FC<NavbarProps> = props => {
                 </AppLink>
                 <HStack gap={'16'}>
                     <LangSelector/>
-                    <DropDown
-                        direction={'bottom left'}
-                        trigger={<Avatar src={authData.avatar} size={30}/>}
-                        items={[
-                            ...(isAdmin
-                                ? [{
-                                    content: t('Администрирование'),
-                                    href: RoutePath.admin_panel
-                                }]
-                                : []),
-                            {content: t('Профиль'), href: RoutePath.profile + authData.id},
-                            {content: t('Выйти'), onClick: onLogout}
-                        ]}
-                    />
+                    <NotificationButton/>
+                    <AvatarButton/>
                 </HStack>
             </HStack>
         )
@@ -83,8 +64,7 @@ export const Navbar: FC<NavbarProps> = props => {
                 <Button onClick={onOpenModal} theme={ButtonTheme.CLEAR_INVERTED}>
                     {t('Войти')}
                 </Button>
-                {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal}/>
-                }
+                {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal}/>}
             </HStack>
         </HStack>
     )

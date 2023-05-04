@@ -1,20 +1,24 @@
 import {type Meta, type StoryObj} from '@storybook/react'
 import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
 import {Theme} from 'shared/lib/providers/ThemeProvider'
-import {DropDown} from './DropDown'
+import {ListBox} from './ListBox'
 
-const meta: Meta<typeof DropDown> = {
-    title: 'shared/DropDown',
-    component: DropDown,
+const meta: Meta<typeof ListBox> = {
+    title: 'shared/Popups/ListBox',
+    component: ListBox,
     decorators: [(Story): JSX.Element => <div style={{padding: 200}}><Story/></div>],
     args: {
         items: [
-            {content: 'item1item1item1item1item1item1item1', unavailable: false},
-            {content: 'item2', unavailable: false, href: 'sdfsdds'},
-            {content: 'item3', unavailable: true},
-            {content: 'item4', unavailable: false}
+            {value: 'item1', content: 'item1item1item1item1item1item1item1', unavailable: false},
+            {value: 'item2', content: 'item2', unavailable: false},
+            {value: 'item3', content: 'item3', unavailable: true},
+            {value: 'item4', content: 'item4', unavailable: false}
         ],
-        trigger: 'DropDown'
+        onChange: (val: string) => {
+            console.log(val)
+        },
+        value: 'item2',
+        defaultValue: 'Select item'
     }
 }
 export default meta

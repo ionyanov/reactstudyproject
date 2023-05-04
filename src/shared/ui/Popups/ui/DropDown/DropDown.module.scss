@@ -1,15 +1,5 @@
 .DropDown {
-  position: relative;
   width: fit-content;
-}
-
-.btn {
-  background: none;
-  outline: none;
-  padding: 0;
-  margin: 0;
-  border: none;
-  cursor: pointer;
 }
 
 .menu {
@@ -30,28 +20,4 @@
   outline: none;
   color: var(--primary-color);
   cursor: pointer;
-}
-
-.active {
-  background: var(--primary-color-inverted);
-}
-
-.topLeft {
-  bottom: 100%;
-  right: 0;
-}
-
-.topRight {
-  bottom: 100%;
-  left: 0;
-}
-
-.bottomLeft {
-  top: 100%;
-  right: 0;
-}
-
-.bottomRight {
-  top: 100%;
-  left: 0;
 }

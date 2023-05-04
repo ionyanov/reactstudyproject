@@ -1,0 +1,12 @@
+.options {
+  position: absolute;
+  background: var(--bg-card);
+  z-index: var(--listbox-z-index);
+  border-radius: 12px;
+  box-shadow: 4px 4px var(--bg-color);
+  min-width: 100%;
+}
+
+.item {
+  padding: 10px 20px;
+}
