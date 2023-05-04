@@ -1,6 +1,6 @@
-import {Country} from 'entities/Country'
-import {Currency} from 'entities/Currency'
-import {type Profile, type ProfileSchema, ValidateProfileError} from 'entities/Profile'
+import {Country} from '@/entities/Country'
+import {Currency} from '@/entities/Currency'
+import {type Profile, type ProfileSchema, ValidateProfileError} from '@/entities/Profile'
 import {updateProfileData} from '../servises/updateProfileData/updateProfileData'
 import {profileActions, profileReducer} from './profileSlice'
 

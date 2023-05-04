@@ -6,10 +6,10 @@ import {
     type ReducersMapObject,
     type ThunkDispatch
 } from '@reduxjs/toolkit'
-import {pageReducer} from 'widgets/Page'
-import {userReducer} from 'entities/User'
-import {$api} from 'shared/api/api'
-import {rtkAPI} from 'shared/api/rtkAPI'
+import {pageReducer} from '@/widgets/Page'
+import {userReducer} from '@/entities/User'
+import {$api} from '@/shared/api/api'
+import {rtkAPI} from '@/shared/api/rtkAPI'
 import {createdReducerManager} from './reducerManager'
 import {type ReduxStoreWithManager, type StateSchema} from './StateSchema'
 

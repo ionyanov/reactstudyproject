@@ -1,9 +1,9 @@
 import {type FC, memo, type MouseEventHandler} from 'react'
 import {useTranslation} from 'react-i18next'
-import GBFlag from 'shared/assets/icons/gb_flag.png'
-import RusFlag from 'shared/assets/icons/rus_flag.png'
-import {classNames} from 'shared/lib/classNames/classNames'
-import {Button, ButtonTheme} from 'shared/ui/Button/Button'
+import GBFlag from '@/shared/assets/icons/gb_flag.png'
+import RusFlag from '@/shared/assets/icons/rus_flag.png'
+import {classNames} from '@/shared/lib/classNames/classNames'
+import {Button, ButtonTheme} from '@/shared/ui/Button/Button'
 import cls from './LangSelector.module.scss'
 
 interface LangSelectorProps {

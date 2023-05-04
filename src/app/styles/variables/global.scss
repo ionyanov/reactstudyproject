@@ -16,7 +16,8 @@
   --sidebar-width-collapsed: 80px;
 
   // Modal
-  --modal-z-index: 10;
+  --modal-z-index: 1000;
+  --overlay-z-index: 100;
   --overlay-color: rgba(0 0 0 / 50%);
   --error-color-primary: #ec1d1d;
   --error-color-secondary: #d71d1d;

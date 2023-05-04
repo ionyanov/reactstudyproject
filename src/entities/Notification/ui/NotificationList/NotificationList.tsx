@@ -1,9 +1,9 @@
 import {type FC} from 'react'
 import {useSelector} from 'react-redux'
-import {getUserAuthData} from 'entities/User'
-import {classNames} from 'shared/lib/classNames/classNames'
-import {Skeleton} from 'shared/ui/Skeleton/Skeleton'
-import {VStack} from 'shared/ui/Stack'
+import {getUserAuthData} from '@/entities/User'
+import {classNames} from '@/shared/lib/classNames/classNames'
+import {Skeleton} from '@/shared/ui/Skeleton/Skeleton'
+import {VStack} from '@/shared/ui/Stack'
 import {useNotifications} from '../../api/notificationAPI'
 import {NotificationItem} from '../NotificationItem/NotificationItem'
 

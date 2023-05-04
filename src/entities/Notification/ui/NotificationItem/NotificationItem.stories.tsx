@@ -1,6 +1,6 @@
 import {type Meta, type StoryObj} from '@storybook/react'
-import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
-import {Theme} from 'shared/lib/providers/ThemeProvider'
+import {ThemeDecorator} from '@/shared/config/storybook/ThemeDecorator'
+import {Theme} from '@/shared/lib/providers/ThemeProvider'
 import {NotificationItem} from './NotificationItem'
 
 const meta: Meta<typeof NotificationItem> = {

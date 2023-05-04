@@ -1,7 +1,7 @@
 import {type Meta, type StoryObj} from '@storybook/react'
 import React from 'react'
-import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
-import {Theme} from 'shared/lib/providers/ThemeProvider'
+import {ThemeDecorator} from '@/shared/config/storybook/ThemeDecorator'
+import {Theme} from '@/shared/lib/providers/ThemeProvider'
 import {Flex} from './Flex'
 
 const meta: Meta<typeof Flex> = {

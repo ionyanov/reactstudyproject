@@ -1,7 +1,7 @@
 import {type FC, memo, useMemo} from 'react'
-import {classNames} from 'shared/lib/classNames/classNames'
-import {Select} from 'shared/ui/Select/Select'
-import cls from 'shared/ui/Select/Select.module.scss'
+import {classNames} from '@/shared/lib/classNames/classNames'
+import {Select} from '@/shared/ui/Select/Select'
+import cls from '@/shared/ui/Select/Select.module.scss'
 import {Currency} from '../model/currency'
 
 interface CurrencyProps {

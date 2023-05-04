@@ -1,8 +1,8 @@
 import {createAsyncThunk} from '@reduxjs/toolkit'
-import {getArticleDetailsData} from 'entities/Article/model/selectors/articaleDetails'
-import {type MyComment} from 'entities/Comment'
-import {getUserAuthData} from 'entities/User'
-import {type StateSchema, type ThunkConfig} from 'shared/lib/providers/StoreProvider'
+import {getArticleDetailsData} from '@/entities/Article/model/selectors/articaleDetails'
+import {type MyComment} from '@/entities/Comment'
+import {getUserAuthData} from '@/entities/User'
+import {type StateSchema, type ThunkConfig} from '@/shared/lib/providers/StoreProvider'
 
 export const sendComment = createAsyncThunk<MyComment, string, ThunkConfig<string>>(
     'ArticleDetailsPage/sendComment',

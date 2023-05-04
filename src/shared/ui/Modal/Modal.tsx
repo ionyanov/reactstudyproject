@@ -1,4 +1,6 @@
-import {type FC, type MouseEventHandler, type ReactNode, useCallback, useEffect, useRef, useState} from 'react'
+import {type FC, type ReactNode} from 'react'
+import {useModal} from '@/shared/lib/useModal/useModal'
+import {Overlay} from '@/shared/ui/Overlay/Overlay'
 import {classNames} from '../../lib/classNames/classNames'
 import {useTheme} from '../../lib/providers/ThemeProvider'
 import {Portal} from '../Portal/Portal'
@@ -12,8 +14,6 @@ interface ModalProps {
     lazy?: boolean
 }
 
-const ANIMATION_DURATION = 300
-
 export const Modal: FC<ModalProps> = (props) => {
     const {
         isOpen = false,
@@ -21,46 +21,7 @@ export const Modal: FC<ModalProps> = (props) => {
         lazy
     } = props
     const {theme} = useTheme()
-    const [isClosing, setIsClosing] = useState(false)
-    const [isMounted, setIsMounted] = useState(false)
-    const timeRef = useRef<ReturnType<typeof setTimeout>>()
-
-    useEffect(() => {
-        if (isOpen) {
-            setIsMounted(true)
-        }
-    }, [isOpen])
-
-    const onContentClick: MouseEventHandler<HTMLDivElement> = (e) => {
-        e.stopPropagation()
-    }
-
-    const closeHandler = useCallback(() => {
-        if (onClose) {
-            setIsClosing(true)
-            timeRef.current = setTimeout(() => {
-                onClose()
-                setIsClosing(false)
-            }, ANIMATION_DURATION)
-        }
-    }, [onClose])
-
-    const onKeyDown = useCallback((e: KeyboardEvent) => {
-        if (e.key === 'Escape') {
-            closeHandler()
-        }
-    }, [closeHandler])
-
-    useEffect(() => {
-        if (isOpen) {
-            window.addEventListener('keydown', onKeyDown)
-        }
-
-        return () => {
-            clearTimeout(timeRef.current)
-            window.removeEventListener('keydown', onKeyDown)
-        }
-    }, [isOpen, onKeyDown])
+    const {isMounted, isClosing, close} = useModal({isOpen, onClose})
 
     if (lazy && !isMounted) {
         return null
@@ -73,10 +34,9 @@ export const Modal: FC<ModalProps> = (props) => {
     return (
         <Portal>
             <div className={classNames(cls.Modal, mods, [props.className, theme])}>
-                <div className={cls.overlay} onClick={closeHandler}>
-                    <div className={cls.content} onClick={onContentClick}>
-                        {props.children}
-                    </div>
+                <Overlay className={cls.overlay} onClick={close}/>
+                <div className={cls.content}>
+                    {props.children}
                 </div>
             </div>
         </Portal>

@@ -1,7 +1,7 @@
 import React, {type FC, memo, type ReactNode, Suspense, useCallback} from 'react'
 import {Route, Routes} from 'react-router-dom'
-import PageLoader from 'widgets/PageLoader'
-import {type AppRouteProps, routeConfig} from 'shared/config/routeConfig/routeConfig'
+import PageLoader from '@/widgets/PageLoader'
+import {type AppRouteProps, routeConfig} from '@/shared/config/routeConfig/routeConfig'
 import {RequireAuth} from './RequireAuth'
 
 const AppRouter: FC = () => {

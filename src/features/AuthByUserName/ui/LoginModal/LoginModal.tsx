@@ -1,10 +1,10 @@
 import {type FC, Suspense, useCallback} from 'react'
 import {useSelector} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
-import {getUserAuthData} from 'entities/User'
-import {RoutePath} from 'shared/config/routeConfig/routeConfig'
-import {Loader} from 'shared/ui/Loader/Loader'
-import {Modal} from 'shared/ui/Modal/Modal'
+import {getUserAuthData} from '@/entities/User'
+import {RoutePath} from '@/shared/config/routeConfig/routeConfig'
+import {Loader} from '@/shared/ui/Loader/Loader'
+import {Modal} from '@/shared/ui/Modal/Modal'
 import {LoginFormAsync} from '../LoginForm/LoginForm.async'
 
 interface LoginModalProps {

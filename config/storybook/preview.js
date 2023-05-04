@@ -1,9 +1,9 @@
-import {StyleDecorator} from "../../src/shared/config/storybook/StyleDecorator";
-import {ThemeDecorator} from "../../src/shared/config/storybook/ThemeDecorator";
-import {RouterDecorator} from "../../src/shared/config/storybook/RouterDecorator";
-import {TransationDecorator} from "../../src/shared/config/storybook/TransationDecorator";
-import {Theme} from "../../src/shared/lib/providers/ThemeProvider";
-import {StoreDecorator} from "shared/config/storybook/StoreDecorator";
+import {StyleDecorator} from "@/shared/config/storybook/StyleDecorator";
+import {ThemeDecorator} from "@/shared/config/storybook/ThemeDecorator";
+import {RouterDecorator} from "@/shared/config/storybook/RouterDecorator";
+import {StoreDecorator} from "@/shared/config/storybook/StoreDecorator";
+import {Theme} from "@/shared/lib/providers/ThemeProvider";
+import {TransationDecorator} from "@/shared/config/storybook/TransationDecorator";
 
 const preview = {
     parameters: {

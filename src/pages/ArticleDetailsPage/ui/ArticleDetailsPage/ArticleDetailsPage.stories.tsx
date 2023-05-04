@@ -1,10 +1,10 @@
 import {type Meta, type StoryObj} from '@storybook/react'
-import {type Article} from 'entities/Article'
-import {articleDetailReducer} from 'entities/Article/model/slice/articleDetailSlice'
-import {ArticleBlockType, ArticleType} from 'entities/Article/model/types/article'
-import {StoreDecorator} from 'shared/config/storybook/StoreDecorator'
-import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator'
-import {Theme} from 'shared/lib/providers/ThemeProvider'
+import {type Article} from '@/entities/Article'
+import {articleDetailReducer} from '@/entities/Article/model/slice/articleDetailSlice'
+import {ArticleBlockType, ArticleType} from '@/entities/Article/model/types/article'
+import {StoreDecorator} from '@/shared/config/storybook/StoreDecorator'
+import {ThemeDecorator} from '@/shared/config/storybook/ThemeDecorator'
+import {Theme} from '@/shared/lib/providers/ThemeProvider'
 import ArticleDetailsPage from './ArticleDetailsPage'
 
 const data: Article = {

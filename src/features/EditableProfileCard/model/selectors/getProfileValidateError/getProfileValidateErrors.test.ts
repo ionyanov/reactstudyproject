@@ -1,5 +1,5 @@
-import {ValidateProfileError} from 'entities/Profile'
-import {type StateSchema} from 'shared/lib/providers/StoreProvider'
+import {ValidateProfileError} from '@/entities/Profile'
+import {type StateSchema} from '@/shared/lib/providers/StoreProvider'
 import {getProfileValidateError} from './getProfileValidateError'
 
 describe('getProfileReadOnly', () => {

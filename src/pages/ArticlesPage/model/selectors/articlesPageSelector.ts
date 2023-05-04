@@ -1,6 +1,6 @@
-import {ArticleSortField, ArticleType, ArticleView} from 'entities/Article'
-import {type StateSchema} from 'shared/lib/providers/StoreProvider'
-import {type SortOrder} from 'shared/types'
+import {ArticleSortField, ArticleType, ArticleView} from '@/entities/Article'
+import {type StateSchema} from '@/shared/lib/providers/StoreProvider'
+import {type SortOrder} from '@/shared/types'
 
 export const getArticlesError: (state: StateSchema) => string | undefined = (state: StateSchema) => {
     return state?.articlesAdapter?.error

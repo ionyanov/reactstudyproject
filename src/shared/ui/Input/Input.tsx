@@ -1,6 +1,6 @@
 import {type CSSProperties, type FC, type InputHTMLAttributes, memo, useEffect, useRef} from 'react'
-import {classNames} from 'shared/lib/classNames/classNames'
-import {HStack} from 'shared/ui/Stack'
+import {classNames} from '@/shared/lib/classNames/classNames'
+import {HStack} from '@/shared/ui/Stack'
 import cls from './Input.module.scss'
 
 type HTMLInputsProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
