@@ -82,7 +82,19 @@ module.exports = {
         'import/no-internal-modules': 'off',
         'boundaries/element-types': 'off',
         'n/no-callback-literal': 'off',
-        'ulbi-tv-plugin/path-checker': 'warn',
+        'ulbi-tv-plugin/path-checker': [1, {alias: '@'}],
+        'ulbi-tv-plugin/layer-imports': [1, {
+            alias: '@',
+            ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+        }],
+        'ulbi-tv-plugin/public-api-imports': [1, {
+            alias: '@',
+            testFilesPatterns: [
+                '**/*.test.*',
+                '**/*.story.*',
+                '**/StoreDecorator.tsx',
+            ]
+        }],
         '@typescript-eslint/consistent-type-imports': [2, {
             disallowTypeAnnotations: false
         }]

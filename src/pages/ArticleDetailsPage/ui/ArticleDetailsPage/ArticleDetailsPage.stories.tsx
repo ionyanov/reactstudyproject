@@ -1,7 +1,7 @@
 import {type Meta, type StoryObj} from '@storybook/react'
 import {type Article} from '@/entities/Article'
-import {articleDetailReducer} from '@/entities/Article/model/slice/articleDetailSlice'
-import {ArticleBlockType, ArticleType} from '@/entities/Article/model/types/article'
+import {articleDetailReducer, ArticleBlockType, ArticleType} from '@/entities/Article'
+
 import {StoreDecorator} from '@/shared/config/storybook/StoreDecorator'
 import {ThemeDecorator} from '@/shared/config/storybook/ThemeDecorator'
 import {Theme} from '@/shared/lib/providers/ThemeProvider'

@@ -1,6 +1,6 @@
 import {createAsyncThunk} from '@reduxjs/toolkit'
 import {type Article} from '@/entities/Article'
-import {getArticleDetailsData} from '@/entities/Article/model/selectors/articaleDetails'
+import {getArticleDetailsData} from '@/entities/Article'
 import {type StateSchema, type ThunkConfig} from '@/shared/lib/providers/StoreProvider'
 
 export const fetchRecommendation = createAsyncThunk<Article[], void, ThunkConfig<string>>(
