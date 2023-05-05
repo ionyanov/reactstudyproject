@@ -1,12 +1,4 @@
-import {
-    createContext,
-    type ReactNode,
-    useContext,
-    useEffect,
-    useMemo,
-    useRef,
-    useState
-} from 'react'
+import {createContext, type ReactNode, useContext, useEffect, useMemo, useRef, useState} from 'react'
 
 type SpringType = typeof import('@react-spring/web')
 type GestureType = typeof import('@use-gesture/react')
@@ -20,18 +12,18 @@ interface AnimationContextPayload {
 const AnimationContext = createContext<AnimationContextPayload>({})
 
 // Обе либы зависят друг от друга
-const getAsyncAnimationModules = async () => {
+const getAsyncAnimationModules: () => Promise<any> = async () => {
     return await Promise.all([
         import('@react-spring/web'),
         import('@use-gesture/react')
     ])
 }
 
-export const useAnimationLibs = () => {
+export const useAnimationLibs: () => Required<AnimationContextPayload> = () => {
     return useContext(AnimationContext) as Required<AnimationContextPayload>
 }
 
-export const AnimationProvider = ({children}: {children: ReactNode}) => {
+export const AnimationProvider: ({children}: {children: ReactNode}) => JSX.Element = ({children}: {children: ReactNode}) => {
     const SpringRef = useRef<SpringType>()
     const GestureRef = useRef<GestureType>()
     const [isLoaded, setIsLoaded] = useState(false)

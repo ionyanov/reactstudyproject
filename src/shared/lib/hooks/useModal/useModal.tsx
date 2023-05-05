@@ -8,7 +8,13 @@ interface UseModalProps {
     animationDelay?: number
 }
 
-export function useModal (props: UseModalProps) {
+interface UseModalResult {
+    isClosing: boolean
+    isMounted: boolean
+    close?: () => void
+}
+
+export function useModal (props: UseModalProps): UseModalResult {
     const [isClosing, setIsClosing] = useState(false)
     const [isMounted, setIsMounted] = useState(false)
     const timeRef = useRef<ReturnType<typeof setTimeout>>()
@@ -27,7 +33,7 @@ export function useModal (props: UseModalProps) {
                 setIsClosing(false)
             }, props.animationDelay ?? ANIMATION_DURATION)
         }
-    }, [props.onClose, props.animationDelay])
+    }, [props])
 
     const onKeyDown = useCallback((e: KeyboardEvent) => {
         if (e.key === 'Escape') {

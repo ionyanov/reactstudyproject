@@ -1,4 +1,4 @@
-export function detectMobileDevice () {
+export function detectMobileDevice (): boolean {
     const isMobile = window.matchMedia
     if (!isMobile) return false
 

@@ -5,7 +5,7 @@ import {Theme} from '@/shared/lib/providers/ThemeProvider'
 import {Overlay} from './Overlay'
 
 const meta: Meta<typeof Overlay> = {
-    title: 'Overlay',
+    title: 'shared/Overlay',
     component: Overlay,
     decorators: [StoreDecorator({})]
 }

@@ -2,6 +2,7 @@ import {type FC} from 'react'
 import {useTranslation} from 'react-i18next'
 import {useParams} from 'react-router-dom'
 import {Page} from '@/widgets/Page'
+import {ArticleRating} from '@/features/ArticleRating'
 import {ArticleRecommendation} from '@/features/ArticleRecommendation'
 import {ArticleForm} from '@/entities/Article'
 import {classNames} from '@/shared/lib/classNames/classNames'
@@ -31,6 +32,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
             <VStack gap={'16'} max>
                 <ArticleDetailPageHeader/>
                 <ArticleForm id={id}/>
+                <ArticleRating articleId={id}/>
                 <ArticleRecommendation/>
                 <ArticleDetailComments id={id}/>
             </VStack>

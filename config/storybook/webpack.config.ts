@@ -7,12 +7,17 @@ import {buildSVGLoader} from '../build/loaders/buildSVGLoader'
 export default ({config}: {config: webpack.Configuration}): webpack.Configuration => {
     config.resolve!.modules = [
         ...(config.resolve!.modules || []),
+        path.resolve(__dirname, '..', '..', 'src'),
         path.resolve(__dirname, '..', '..', 'src')
     ]
     config.resolve!.extensions = [
         ...(config.resolve!.extensions || []),
         'ts', 'tsx'
     ]
+    config.resolve!.alias = {
+        ...config.resolve!.alias,
+        '@': path.resolve(__dirname, '..', '..', 'src')
+    }
 
     config.module!.rules = config.module!.rules?.map((rl) => {
         const rule: RuleSetRule = rl as RuleSetRule

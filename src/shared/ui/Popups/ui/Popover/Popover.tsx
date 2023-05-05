@@ -16,7 +16,7 @@ interface PopoverProps {
 export const Popover: FC<PopoverProps> = (props) => {
     return (
         <HPopover className={classNames(popupCls.popup, {}, [props.className])}>
-            <HPopover.Button className={popupCls.trigger}>
+            <HPopover.Button as={'div'} className={popupCls.trigger}>
                 {props.trigger}
             </HPopover.Button>
             <HPopover.Panel

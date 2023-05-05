@@ -20,7 +20,7 @@ export const NotificationButton: FC<NotificationButtonProps> = (props) => {
     }, [])
 
     const onCloseDrawer = useCallback(() => {
-        setDrawerOpen(true)
+        setDrawerOpen(false)
     }, [])
 
     const trigger = (
@@ -36,9 +36,8 @@ export const NotificationButton: FC<NotificationButtonProps> = (props) => {
                 <Drawer
                     isOpen={isDrawerOpen}
                     onClose={onCloseDrawer}
-                    lazy={true}
                 >
-                    <NotificationList className={cls.notification}/>
+                    <NotificationList/>
                 </Drawer>
             </>
         )

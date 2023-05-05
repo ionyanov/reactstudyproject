@@ -2,7 +2,6 @@ import {type FC, memo, type ReactNode, useCallback, useEffect} from 'react'
 import {classNames} from '@/shared/lib/classNames/classNames'
 import {AnimationProvider, useAnimationLibs} from '@/shared/lib/components/AnimationProvider'
 import {useTheme} from '@/shared/lib/providers/ThemeProvider'
-import {useModal} from '@/shared/lib/useModal/useModal'
 import {Overlay} from '../Overlay/Overlay'
 import {Portal} from '../Portal/Portal'
 import cls from './Drawer.module.scss'
@@ -12,7 +11,6 @@ interface DrawerProps {
     children: ReactNode
     isOpen?: boolean
     onClose?: () => void
-    lazy?: boolean
 }
 
 const height = window.innerHeight - 100
@@ -20,35 +18,29 @@ const height = window.innerHeight - 100
 export const DrawerContent: FC<DrawerProps> = memo<DrawerProps>((props: DrawerProps) => {
     const {
         isOpen = false,
-        onClose,
-        lazy
+        onClose
     } = props
 
     const {Spring, Gesture} = useAnimationLibs()
     const [{y}, api] = Spring.useSpring(() => ({y: height}))
     const {theme} = useTheme()
-    const {isMounted} = useModal({isOpen, onClose})
 
-    if (lazy && !isMounted) {
-        return null
-    }
-
-    const openDrawer = useCallback(() => {
+    const openDrawer: () => void = useCallback(() => {
         api.start({y: 0, immediate: false})
     }, [api])
 
     useEffect(() => {
-        if (props.isOpen) {
+        if (isOpen) {
             openDrawer()
         }
-    }, [api, props.isOpen, openDrawer])
+    }, [api, isOpen, openDrawer])
 
-    const close = (velocity = 0) => {
+    const close: (velocity?: number) => void = (velocity = 0) => {
         api.start({
             y: height,
             immediate: false,
             config: {...Spring.config.stiff, velocity},
-            onResolve: props.onClose
+            onResolve: onClose
         })
     }
 
@@ -112,7 +104,7 @@ export const DrawerContent: FC<DrawerProps> = memo<DrawerProps>((props: DrawerPr
     )
 })
 
-const DrawerAsync = (props: DrawerProps) => {
+const DrawerAsync: (props: DrawerProps) => JSX.Element | null = (props: DrawerProps) => {
     const {isLoaded} = useAnimationLibs()
 
     if (!isLoaded) {
@@ -122,7 +114,7 @@ const DrawerAsync = (props: DrawerProps) => {
     return <DrawerContent {...props} />
 }
 
-export const Drawer = (props: DrawerProps) => {
+export const Drawer: (props: DrawerProps) => JSX.Element = (props: DrawerProps) => {
     return (
         <AnimationProvider>
             <DrawerAsync {...props} />

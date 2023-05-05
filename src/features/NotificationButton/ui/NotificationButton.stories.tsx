@@ -1,21 +1,17 @@
-import {type ComponentMeta, type ComponentStory} from '@storybook/react'
-import React from 'react'
-
+import {type Meta, type StoryObj} from '@storybook/react'
 import {ThemeDecorator} from '@/shared/config/storybook/ThemeDecorator'
 import {Theme} from '@/shared/lib/providers/ThemeProvider'
 import {NotificationButton} from './NotificationButton'
 
-export default {
+const meta: Meta<typeof NotificationButton> = {
     title: 'features/NotificationButton',
-    component: NotificationButton,
-    argTypes: {
-        backgroundColor: {control: 'color'}
-    }
-} as ComponentMeta<typeof NotificationButton>
+    component: NotificationButton
+}
+export default meta
+type Story = StoryObj<typeof meta>
 
-const Template: ComponentStory<typeof NotificationButton> = (args) => <NotificationButton {...args} />
+export const Normal: Story = {}
 
-export const Normal = Template.bind({})
-
-export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+export const Dark: Story = {
+    decorators: [ThemeDecorator(Theme.DARK)]
+}

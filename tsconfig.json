@@ -21,7 +21,9 @@
   "include": [
     "src",
     "config",
-    "webpack.config.ts"
+    "scripts",
+    "webpack.config.ts",
+    "vite.config.ts"
   ],
   "ts-node": {
     "compilerOptions": {

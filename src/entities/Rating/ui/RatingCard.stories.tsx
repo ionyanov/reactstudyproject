@@ -1,11 +1,13 @@
 import {type Meta, type StoryObj} from '@storybook/react'
+import {StoreDecorator} from '@/shared/config/storybook/StoreDecorator'
 import {ThemeDecorator} from '@/shared/config/storybook/ThemeDecorator'
 import {Theme} from '@/shared/lib/providers/ThemeProvider'
-import {AvatarButton} from './AvatarButton'
+import type {RatingCard} from './RatingCard'
 
-const meta: Meta<typeof AvatarButton> = {
-    title: 'features/AvatarButton',
-    component: AvatarButton
+const meta: Meta<typeof RatingCard> = {
+    title: 'RatingCard',
+    component: Navbar,
+    decorators: [StoreDecorator({})]
 }
 export default meta
 type Story = StoryObj<typeof meta>

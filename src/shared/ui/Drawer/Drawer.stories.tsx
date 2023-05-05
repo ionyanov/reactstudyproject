@@ -5,7 +5,7 @@ import {Theme} from '@/shared/lib/providers/ThemeProvider'
 import {Drawer} from './Drawer'
 
 const meta: Meta<typeof Drawer> = {
-    title: 'Drawer',
+    title: 'shared/Drawer',
     component: Drawer,
     decorators: [StoreDecorator({})]
 }
