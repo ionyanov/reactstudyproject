@@ -1,6 +1,6 @@
 import {type FC} from 'react'
 import AvatarImg from '@/shared/assets/test/avatar.jpg'
-import {RoutePath} from '@/shared/const/router'
+import {getRouteProfile} from '@/shared/const/router'
 import {classNames} from '@/shared/lib/classNames/classNames'
 import {AppLink} from '@/shared/ui/AppLink'
 import {Avatar} from '@/shared/ui/Avatar'
@@ -31,7 +31,7 @@ export const CommentCard: FC<CommentCardProps> = (props) => {
 
     return (
         <VStack gap={'8'} max className={classNames(cls.CommentCard, {}, [props.className])}>
-            <AppLink className={cls.header} to={`${RoutePath.profile}${props.data?.user.id || ''}`}>
+            <AppLink className={cls.header} to={getRouteProfile(props.data?.user.id || '')}>
                 <HStack gap={'8'}>
                     {props.data?.user.avatar
                         ? <Avatar src={props.data?.user.avatar} size={30}/>

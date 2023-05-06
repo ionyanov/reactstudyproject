@@ -14,17 +14,12 @@ export function BuildPlugins (option: BuildOption): webpack.WebpackPluginInstanc
             template: option.paths.html
         }),
         new webpack.ProgressPlugin(),
-        new MiniCssExtractPlugin({
-            filename: `css/${option.fileMask}.css`,
-            chunkFilename: `css/${option.fileMask}.css`
-        }),
         new webpack.DefinePlugin({
             _IS_DEV_: JSON.stringify(option.isDev),
             _API_URL_: JSON.stringify(option.apiURL),
             _PROJECT_: JSON.stringify(option.project)
         }),
         new webpack.HotModuleReplacementPlugin(),
-        new CopyPlugin({patterns: [{from: option.paths.locales, to: option.paths.buildLocales}]}),
         new ForkTsCheckerWebpackPlugin({
             typescript: {
                 diagnosticOptions: {
@@ -40,6 +35,14 @@ export function BuildPlugins (option: BuildOption): webpack.WebpackPluginInstanc
         plugins.push(
             new webpack.HotModuleReplacementPlugin(),
             new BundleAnalyzerPlugin({openAnalyzer: false})
+        )
+    } else {
+        plugins.push(
+            new MiniCssExtractPlugin({
+                filename: `css/${option.fileMask}.css`,
+                chunkFilename: `css/${option.fileMask}.css`
+            }),
+            new CopyPlugin({patterns: [{from: option.paths.locales, to: option.paths.buildLocales}]})
         )
     }
 

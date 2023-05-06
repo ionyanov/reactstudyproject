@@ -6,7 +6,7 @@ import {AvatarButton} from '@/features/AvatarButton'
 import {LangSelector} from '@/features/LangSelector'
 import {NotificationButton} from '@/features/NotificationButton'
 import {getUserAuthData} from '@/entities/User'
-import {RoutePath} from '@/shared/const/router'
+import {getRouteArticleCreate} from '@/shared/const/router'
 import {classNames} from '@/shared/lib/classNames/classNames'
 import {AppLink, AppLinkTheme} from '@/shared/ui/AppLink'
 import {Button, ButtonTheme} from '@/shared/ui/Button'
@@ -38,7 +38,7 @@ export const Navbar: FC<NavbarProps> = props => {
                     theme={TextTheme.INVERTED}
                     className={cls.siteName}
                 />
-                <AppLink to={RoutePath.article_create}
+                <AppLink to={getRouteArticleCreate()}
                     theme={AppLinkTheme.SECONDARY}
                     className={cls.createArticle}
                 >

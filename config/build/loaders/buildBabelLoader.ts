@@ -13,20 +13,21 @@ export function buildBabelLoader (props: BuildBabelLoaderProps): RuleSetRule {
         use: {
             loader: 'babel-loader',
             options: {
+                cacheDirectory: true,
                 presets: [
                     ['@babel/preset-env', {targets: 'defaults'}]
                 ],
                 plugins: [
-                    ['i18next-extract', {
+                    /* ['i18next-extract', {
                         nsSeparator: '~',
                         locales: ['ru', 'en'],
                         keyAsDefaultValue: true
-                    }],
+                    }], */
                     ['@babel/plugin-transform-typescript', {
                         isTSX: props.isTsx
                     }],
                     '@babel/plugin-transform-runtime',
-                    props.isTsx && [
+                    props.isTsx && !props.isDev && [
                         babelRemovePropsPlugin,
                         {
                             props: ['data-testid']

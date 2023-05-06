@@ -4,7 +4,7 @@ import AboutIcon from '@/shared/assets/icons/about-page.svg'
 import ArticleIcon from '@/shared/assets/icons/article-20-20.svg'
 import MainIcon from '@/shared/assets/icons/main-page.svg'
 import ProfileIcon from '@/shared/assets/icons/profile-20-20.svg'
-import {RoutePath} from '@/shared/const/router'
+import {getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile} from '@/shared/const/router'
 import {type StateSchema} from '@/shared/lib/providers/StoreProvider'
 import {type SidebarItemType} from './Item'
 
@@ -12,12 +12,12 @@ export const getSidebarItems: (state: StateSchema) => SidebarItemType[] = create
     (userData) => {
         const sidebarItemList: SidebarItemType[] = [
             {
-                path: RoutePath.main,
+                path: getRouteMain(),
                 text: 'Main',
                 Icon: MainIcon
             },
             {
-                path: RoutePath.about,
+                path: getRouteAbout(),
                 text: 'About',
                 Icon: AboutIcon
             }
@@ -25,13 +25,13 @@ export const getSidebarItems: (state: StateSchema) => SidebarItemType[] = create
         if (userData) {
             sidebarItemList.push(
                 {
-                    path: RoutePath.profile + userData.id,
+                    path: getRouteProfile(userData.id),
                     text: 'Profile',
                     Icon: ProfileIcon,
                     authOnly: true
                 },
                 {
-                    path: RoutePath.articles,
+                    path: getRouteArticles(),
                     text: 'Article',
                     Icon: ArticleIcon,
                     authOnly: true

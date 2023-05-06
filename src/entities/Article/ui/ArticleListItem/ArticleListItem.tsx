@@ -1,7 +1,7 @@
 import {type FC, type HTMLAttributeAnchorTarget} from 'react'
 import {useTranslation} from 'react-i18next'
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
-import {RoutePath} from '@/shared/const/router'
+import {getRouteArticleDetail} from '@/shared/const/router'
 import {classNames} from '@/shared/lib/classNames/classNames'
 import {AppLink} from '@/shared/ui/AppLink'
 import {Avatar} from '@/shared/ui/Avatar'
@@ -43,7 +43,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
                     <ArticleBlockTextComponent block={textBlock} className={cls.block}/>
                 )}
                 <div className={cls.footer}>
-                    <AppLink to={RoutePath.article_details + props.article.id} target={props.target}>
+                    <AppLink to={getRouteArticleDetail(props.article.id)} target={props.target}>
                         <Button>{t('Читать далее...')}</Button>
                     </AppLink>
                     <Text text={props.article.views.toString()} className={cls.view}/>
@@ -54,7 +54,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
     }
 
     return (
-        <AppLink to={RoutePath.article_details + props.article.id} target={props.target}>
+        <AppLink to={getRouteArticleDetail(props.article.id)} target={props.target}>
             <Card className={classNames(cls.ArticleListItem, {}, [props.className, cls[props.view]])}>
                 <VStack className={cls.imageWrapper}>
                     <img src={props.article.img} alt={props.article.title} className={cls.img}/>

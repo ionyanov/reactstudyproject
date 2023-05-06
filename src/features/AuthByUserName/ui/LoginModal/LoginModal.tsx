@@ -2,7 +2,7 @@ import {type FC, Suspense, useCallback} from 'react'
 import {useSelector} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 import {getUserAuthData} from '@/entities/User'
-import {RoutePath} from '@/shared/const/router'
+import {getRouteProfile} from '@/shared/const/router'
 import {Loader} from '@/shared/ui/Loader'
 import {Modal} from '@/shared/ui/Modal'
 import {LoginFormAsync} from '../LoginForm/LoginForm.async'
@@ -20,7 +20,7 @@ export const LoginModal: FC<LoginModalProps> = (props) => {
     const onSuccess = useCallback(() => {
         props.onClose?.()
         if (user) {
-            navigate(RoutePath.profile + user.id)
+            navigate(getRouteProfile(user.id))
         }
     }, [navigate, props, user])
     return (
