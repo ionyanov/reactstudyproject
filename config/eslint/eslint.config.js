@@ -36,7 +36,8 @@ module.exports = {
         '@typescript-eslint',
         'react-hooks',
         'boundaries',
-        'ulbi-tv-plugin'
+        'ulbi-tv-plugin',
+        'unused-imports'
     ],
     rules: {
         'indent': ['error', 4],
@@ -97,7 +98,8 @@ module.exports = {
         }],
         '@typescript-eslint/consistent-type-imports': [2, {
             disallowTypeAnnotations: false
-        }]
+        }],
+        'unused-imports/no-unused-imports': 'error',
     },
     globals: {
         _IS_DEV_: true,

@@ -23,11 +23,9 @@
     "test:storybook": "npx loki --requireReference --reactUrl file:./storybook-static --chromeFlags=\"--headless --disable-gpu --hide-scrollbars --no-sandbox\"",
     "storybook": "storybook dev -p 6006 -c ./config/storybook/",
     "storybook:build": "storybook build -c ./config/storybook/",
-    "storybook:test": "test-storybook -u -c ./config/storybook/",
     "server": "node ./server/index.js",
     "prepare": "husky install",
-    "generate:slice": "node ./scripts/createSlice/index.js",
-    "build-storybook": "storybook build"
+    "generate:slice": "node ./scripts/createSlice/index.js"
   },
   "keywords": [],
   "author": "",
@@ -81,6 +79,7 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-ulbi-tv-plugin": "^0.0.10",
+    "eslint-plugin-unused-imports": "^2.0.0",
     "file-loader": "^6.2.0",
     "fork-ts-checker-webpack-plugin": "^8.0.0",
     "html-webpack-plugin": "^5.5.0",

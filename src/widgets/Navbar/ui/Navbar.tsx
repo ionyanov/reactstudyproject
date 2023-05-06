@@ -4,6 +4,7 @@ import {useSelector} from 'react-redux'
 import {LoginModal} from '@/features/AuthByUserName'
 import {AvatarButton} from '@/features/AvatarButton'
 import {LangSelector} from '@/features/LangSelector'
+import {NotificationButton} from '@/features/NotificationButton'
 import {getUserAuthData} from '@/entities/User'
 import {RoutePath} from '@/shared/const/router'
 import {classNames} from '@/shared/lib/classNames/classNames'
@@ -12,7 +13,6 @@ import {Button, ButtonTheme} from '@/shared/ui/Button'
 import {HStack} from '@/shared/ui/Stack'
 import {Text, TextTheme} from '@/shared/ui/Text'
 import cls from './Navbar.module.scss'
-import {NotificationButton} from "@/features/NotificationButton";
 
 interface NavbarProps {
     className?: string
@@ -35,12 +35,12 @@ export const Navbar: FC<NavbarProps> = props => {
         return (
             <HStack justify={'between'} max className={classNames(cls.navbar, {}, [props.className])}>
                 <Text title={t('SITE NAME')}
-                      theme={TextTheme.INVERTED}
-                      className={cls.siteName}
+                    theme={TextTheme.INVERTED}
+                    className={cls.siteName}
                 />
                 <AppLink to={RoutePath.article_create}
-                         theme={AppLinkTheme.SECONDARY}
-                         className={cls.createArticle}
+                    theme={AppLinkTheme.SECONDARY}
+                    className={cls.createArticle}
                 >
                     {t('Новая статья')}
                 </AppLink>
@@ -56,8 +56,8 @@ export const Navbar: FC<NavbarProps> = props => {
     return (
         <HStack justify={'between'} max className={classNames(cls.navbar, {}, [props.className])}>
             <Text title={t('SITE NAME')}
-                  theme={TextTheme.INVERTED}
-                  className={cls.siteName}
+                theme={TextTheme.INVERTED}
+                className={cls.siteName}
             />
             <HStack gap={'16'}>
                 <LangSelector/>
