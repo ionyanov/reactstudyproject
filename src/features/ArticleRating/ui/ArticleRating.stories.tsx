@@ -5,7 +5,7 @@ import {Theme} from '@/shared/lib/providers/ThemeProvider'
 import ArticleRating from './ArticleRating'
 
 const meta: Meta<typeof ArticleRating> = {
-    title: 'ArticleRating',
+    title: 'features/Article/ArticleRating',
     component: ArticleRating,
     decorators: [StoreDecorator({})]
 }

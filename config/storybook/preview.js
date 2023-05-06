@@ -19,6 +19,7 @@ const preview = {
                 order: ['shared', 'entities', 'features', 'widgets', 'pages', '*'],
             },
         },
+        layout: 'fullscreen'
     },
     decorators: [
         StyleDecorator,

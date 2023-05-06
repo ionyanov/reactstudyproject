@@ -14,7 +14,8 @@ export default {
     moduleNameMapper: {
         '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
             path.resolve(__dirname, 'fileMock.js'),
-        '\\.(scss)$': 'identity-obj-proxy'
+        '\\.(scss)$': 'identity-obj-proxy',
+        '^@/(.*)$': '<rootDir>src/$1'
     },
     // An array of file extensions your modules use
     moduleFileExtensions: [
