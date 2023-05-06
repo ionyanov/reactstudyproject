@@ -1,9 +1,9 @@
 import {type StateSchema} from '@/shared/lib/providers/StoreProvider'
-import {type Article} from '../types/article'
+import {buildSelector} from '@/shared/lib/store'
 
-export const getArticleDetailsData: (state: StateSchema) => Article | undefined = (state: StateSchema) => {
+export const [useArticleDetailData, getArticleDetailsData] = buildSelector((state: StateSchema) => {
     return state?.articleDetail?.data
-}
+})
 
 export const getArticleDetailsError: (state: StateSchema) => string = (state: StateSchema) => {
     return state?.articleDetail?.error ?? ''

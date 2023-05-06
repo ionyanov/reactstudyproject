@@ -1,16 +1,17 @@
 import './styles/index.scss'
 import React, {type FC, useEffect} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
+import {useSelector} from 'react-redux'
 import {Navbar} from '@/widgets/Navbar'
 import {Sidebar} from '@/widgets/Sidebar'
 import {getUserIsInit, userActions} from '@/entities/User'
+import {useAppDispatch} from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import {AppRouter} from '@/shared/lib/providers/AppRouter'
 import {classNames} from '../shared/lib/classNames/classNames'
 import {useTheme} from '../shared/lib/providers/ThemeProvider/lib/useTheme'
 
 const App: FC = () => {
     const {theme} = useTheme()
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
     const isInit = useSelector(getUserIsInit)
 
     useEffect(() => {
