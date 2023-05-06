@@ -2,7 +2,7 @@ import {useMemo} from 'react'
 import {useSelector} from 'react-redux'
 import {Navigate, useLocation} from 'react-router-dom'
 import {getUserAuthData, getUserRoles, type UserRole} from '@/entities/User'
-import {RoutePath} from '../../../../config/routeConfig/routeConfig'
+import {RoutePath} from '@/shared/const/router'
 
 interface RequireAuthProps {
     children: JSX.Element

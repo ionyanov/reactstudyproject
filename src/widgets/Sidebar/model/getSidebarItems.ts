@@ -4,7 +4,7 @@ import AboutIcon from '@/shared/assets/icons/about-page.svg'
 import ArticleIcon from '@/shared/assets/icons/article-20-20.svg'
 import MainIcon from '@/shared/assets/icons/main-page.svg'
 import ProfileIcon from '@/shared/assets/icons/profile-20-20.svg'
-import {RoutePath} from '@/shared/config/routeConfig/routeConfig'
+import {RoutePath} from '@/shared/const/router'
 import {type StateSchema} from '@/shared/lib/providers/StoreProvider'
 import {type SidebarItemType} from './Item'
 

@@ -1,4 +1,6 @@
-export {type Article, ArticleView, ArticleSortField, ArticleType} from './model/types/article'
+export {articleDetailReducer} from './model/slice/articleDetailSlice'
+
+export {type Article, ArticleView, ArticleSortField, ArticleType, ArticleBlockType} from './model/types/article'
 export type {ArticleDetailsSchema} from './model/types/articleDetailsSchema'
 export {getArticleDetailsData} from './model/selectors/articaleDetails'
 

@@ -4,7 +4,7 @@ import {AddCommentCard} from '@/features/AddCommentCard'
 import {ArticleCommentList} from '@/features/ArticleCommentList'
 import {useAppDispatch} from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import {VStack} from '@/shared/ui/Stack'
-import {Text} from '@/shared/ui/Text/Text'
+import {Text} from '@/shared/ui/Text'
 import {sendComment} from '../../model/services/sendComment'
 import cls from './ArticleDetailComments.module.scss'
 

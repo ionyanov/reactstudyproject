@@ -3,7 +3,7 @@ import DarkIcon from '@/shared/assets/icons/dark-mode-toggle-icon.svg'
 import LightIcon from '@/shared/assets/icons/light-mode-toggle-icon.svg'
 import {classNames} from '@/shared/lib/classNames/classNames'
 import {Theme, useTheme} from '@/shared/lib/providers/ThemeProvider'
-import {Button, ButtonTheme} from '@/shared/ui/Button/Button'
+import {Button, ButtonTheme} from '@/shared/ui/Button'
 import cls from './ThemeSwitcher.module.scss'
 
 interface ThemeSwitcherProps {

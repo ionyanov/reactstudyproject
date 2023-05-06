@@ -4,7 +4,7 @@ import {useParams} from 'react-router-dom'
 import {Page} from '@/widgets/Page'
 import {EditableProfileCard} from '@/features/EditableProfileCard'
 import {classNames} from '@/shared/lib/classNames/classNames'
-import {Text, TextTheme} from '@/shared/ui/Text/Text'
+import {Text, TextTheme} from '@/shared/ui/Text'
 import cls from './ProfilePage.module.scss'
 
 interface ProfilePageProps {

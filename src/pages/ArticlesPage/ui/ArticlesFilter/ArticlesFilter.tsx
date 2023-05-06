@@ -8,11 +8,11 @@ import {classNames} from '@/shared/lib/classNames/classNames'
 import {useAppDispatch} from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import {useDebounce} from '@/shared/lib/hooks/useDebounce/useDebounce'
 import {type SortOrder} from '@/shared/types'
-import {Card} from '@/shared/ui/Card/Card'
-import {Input} from '@/shared/ui/Input/Input'
-import {Select, type SelectOptions} from '@/shared/ui/Select/Select'
+import {Card} from '@/shared/ui/Card'
+import {Input} from '@/shared/ui/Input'
+import {Select, type SelectOptions} from '@/shared/ui/Select'
 import {HStack, VStack} from '@/shared/ui/Stack'
-import {type TabItem, Tabs} from '@/shared/ui/Tabs/Tabs'
+import {type TabItem, Tabs} from '@/shared/ui/Tabs'
 import {
     getArticlesOrder,
     getArticlesSearch,
