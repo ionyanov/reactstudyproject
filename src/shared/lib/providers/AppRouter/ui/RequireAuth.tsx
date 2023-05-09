@@ -6,7 +6,7 @@ import {getRouteForbidden, getRouteMain} from '@/shared/const/router'
 
 interface RequireAuthProps {
     children: JSX.Element
-    roles: UserRole[]
+    roles?: UserRole[]
 }
 
 export function RequireAuth (props: RequireAuthProps): JSX.Element {
@@ -16,10 +16,11 @@ export function RequireAuth (props: RequireAuthProps): JSX.Element {
 
     const hasRequireRoles = useMemo(() => {
         if (props.roles) {
-            props.roles.some(role => {
+            return props.roles.some(role => {
                 return userRoles.includes(role)
             })
         }
+
         return true
     }, [userRoles, props])
 

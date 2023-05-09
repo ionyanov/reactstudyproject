@@ -4,10 +4,11 @@ import {useParams} from 'react-router-dom'
 import {Page} from '@/widgets/Page'
 import {EditableProfileCard} from '@/features/EditableProfileCard'
 import {classNames} from '@/shared/lib/classNames/classNames'
+import type {TestProps} from '@/shared/types/tests'
 import {Text, TextTheme} from '@/shared/ui/Text'
 import cls from './ProfilePage.module.scss'
 
-interface ProfilePageProps {
+interface ProfilePageProps extends TestProps {
     className?: string
 }
 
@@ -16,7 +17,7 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
     const {id} = useParams<{id: string}>()
     if (!id) {
         return (
-            <Page className={classNames(cls.ProfilePage, {}, [props.className])}>
+            <Page className={classNames(cls.ProfilePage, {}, [props.className])} data-testid={'ProfilePage'}>
                 <Text theme={TextTheme.ERROR}
                     text={t('Профиль не найден!')}
                 />
@@ -25,7 +26,7 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
     }
 
     return (
-        <Page className={classNames(cls.ProfilePage, {}, [props.className])}>
+        <Page className={classNames(cls.ProfilePage, {}, [props.className])} data-testid={'ProfilePage'}>
             <EditableProfileCard id={id}/>
         </Page>
     )

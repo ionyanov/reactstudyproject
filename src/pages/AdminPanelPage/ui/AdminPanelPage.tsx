@@ -10,7 +10,7 @@ const AdminPanelPage: FC<AdminPanelPageProps> = (props) => {
     const {t} = useTranslation()
 
     return (
-        <Page className={props.className}>
+        <Page className={props.className} data-testid={'AdminPanelPage'}>
             {t('Admin page')}
         </Page>
     )

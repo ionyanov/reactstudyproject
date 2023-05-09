@@ -7,11 +7,12 @@ import {useInfiniteScroll} from '@/shared/lib/hooks/useInfiniteScroll/useInfinit
 import {useInitialEffect} from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import {useThrottle} from '@/shared/lib/hooks/useThrottle/useThrottle'
 import {type StateSchema} from '@/shared/lib/providers/StoreProvider'
+import type {TestProps} from '@/shared/types/tests'
 import {getPageScrollByPath} from '../model/selectors/pageSelectors'
 import {pageAction} from '../model/slices/pageSlice'
 import cls from './Page.module.scss'
 
-interface PageProps {
+interface PageProps extends TestProps {
     className?: string
     children: ReactNode
     onScrollEnd?: () => void
@@ -46,6 +47,7 @@ export const Page: FC<PageProps> = (props) => {
             onScroll={onScroll}
             ref={wrapperRef}
             className={classNames(cls.Page, {}, [props.className])}
+            data-testid={props['data-testid'] ?? 'Page'}
         >
             {props.children}
             {props.onScrollEnd && <div className={cls.trigger} ref={triggerRef}/>}

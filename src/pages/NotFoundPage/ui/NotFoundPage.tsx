@@ -12,7 +12,7 @@ export const NotFoundPage: FC<NotFoundPageProps> = (props) => {
     const {t} = useTranslation()
 
     return (
-        <Page className={classNames(cls.notFoundPage, {}, [props.className])}>
+        <Page className={classNames(cls.notFoundPage, {}, [props.className])} data-testid={'NotFoundPage'}>
             {t('Page not found')}
         </Page>
     )

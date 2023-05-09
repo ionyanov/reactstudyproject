@@ -29,7 +29,7 @@ export const AvatarButton: FC<AvatarButtonProps> = (props) => {
         <DropDown
             className={classNames('', {}, [props.className])}
             direction={'bottom left'}
-            trigger={<Avatar src={authData.avatar} size={30}/>}
+            trigger={<Avatar src={authData.avatar} size={30} invertedColor/>}
             items={[
                 ...(isAdmin
                     ? [{

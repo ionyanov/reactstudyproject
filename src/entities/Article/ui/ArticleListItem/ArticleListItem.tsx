@@ -3,11 +3,13 @@ import {useTranslation} from 'react-i18next'
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
 import {getRouteArticleDetail} from '@/shared/const/router'
 import {classNames} from '@/shared/lib/classNames/classNames'
+import {AppImage} from '@/shared/ui/AppImage'
 import {AppLink} from '@/shared/ui/AppLink'
 import {Avatar} from '@/shared/ui/Avatar'
 import {Button} from '@/shared/ui/Button'
 import {Card} from '@/shared/ui/Card'
 import {Icon} from '@/shared/ui/Icon'
+import {Skeleton} from '@/shared/ui/Skeleton'
 import {HStack, VStack} from '@/shared/ui/Stack'
 import {Text} from '@/shared/ui/Text'
 import {type Article, type ArticleBlockText, ArticleBlockType, ArticleView} from '../../model/types/article'
@@ -38,7 +40,10 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
                 </div>
                 <Text text={props.article.title} className={cls.title}/>
                 <Text text={props.article.type.join(', ')} className={cls.types}/>
-                <img src={props.article.img} alt={props.article.title} className={cls.img}/>
+                <AppImage src={props.article.img}
+                    alt={props.article.title}
+                    className={cls.img}
+                    fallback={<Skeleton className={cls.img}/>}/>
                 {textBlock && (
                     <ArticleBlockTextComponent block={textBlock} className={cls.block}/>
                 )}
@@ -57,7 +62,10 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
         <AppLink to={getRouteArticleDetail(props.article.id)} target={props.target}>
             <Card className={classNames(cls.ArticleListItem, {}, [props.className, cls[props.view]])}>
                 <VStack className={cls.imageWrapper}>
-                    <img src={props.article.img} alt={props.article.title} className={cls.img}/>
+                    <AppImage src={props.article.img}
+                        alt={props.article.title}
+                        className={cls.img}
+                        fallback={<Skeleton className={cls.img}/>}/>
                     <Text text={props.article.createdAt} className={cls.date}/>
                 </VStack>
                 <HStack gap={'8'} justify={'between'}>
