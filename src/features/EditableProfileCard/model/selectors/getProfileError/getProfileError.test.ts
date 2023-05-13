@@ -1,16 +1,16 @@
-import {type StateSchema} from '@/shared/lib/providers/StoreProvider'
-import {getProfileError} from './getProfileError'
+import { type StateSchema } from '@/shared/lib/providers/StoreProvider';
+import { getProfileError } from './getProfileError';
 
 describe('getProfileError', () => {
     test('Should return value', () => {
         const state: DeepPartial<StateSchema> = {
-            profile: {error: 'error'}
-        }
-        expect(getProfileError(state as StateSchema)).toEqual('error')
-    })
+            profile: { error: 'error' },
+        };
+        expect(getProfileError(state as StateSchema)).toEqual('error');
+    });
 
     test('Should work with empty state', () => {
-        const state: DeepPartial<StateSchema> = {}
-        expect(getProfileError(state as StateSchema)).toEqual('')
-    })
-})
+        const state: DeepPartial<StateSchema> = {};
+        expect(getProfileError(state as StateSchema)).toEqual('');
+    });
+});

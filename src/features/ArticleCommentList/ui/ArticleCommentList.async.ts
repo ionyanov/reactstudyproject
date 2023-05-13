@@ -1,3 +1,5 @@
-import {lazy} from 'react'
+import { lazy } from 'react';
 
-export const ArticleCommentListAsync = lazy(async () => await import('./ArticleCommentList'))
+export const ArticleCommentListAsync = lazy(
+    async () => await import('./ArticleCommentList'),
+);

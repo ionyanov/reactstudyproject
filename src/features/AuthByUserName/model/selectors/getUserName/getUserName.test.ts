@@ -1,16 +1,16 @@
-import {type StateSchema} from '@/shared/lib/providers/StoreProvider'
-import {getUserName} from './getUserName'
+import { type StateSchema } from '@/shared/lib/providers/StoreProvider';
+import { getUserName } from './getUserName';
 
 describe('getUserName', () => {
     test('Should return error', () => {
         const state: DeepPartial<StateSchema> = {
-            loginForm: {username: 'UserName'}
-        }
-        expect(getUserName(state as StateSchema)).toEqual('UserName')
-    })
+            loginForm: { username: 'UserName' },
+        };
+        expect(getUserName(state as StateSchema)).toEqual('UserName');
+    });
 
     test('Should woek with empty state', () => {
-        const state: DeepPartial<StateSchema> = {}
-        expect(getUserName(state as StateSchema)).toEqual('')
-    })
-})
+        const state: DeepPartial<StateSchema> = {};
+        expect(getUserName(state as StateSchema)).toEqual('');
+    });
+});

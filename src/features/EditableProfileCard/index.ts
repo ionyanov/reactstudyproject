@@ -1,5 +1,3 @@
-export {EditableProfileCard} from './ui/EditableProfileCard/EditableProfileCard'
+export { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard';
 
-export {
-    profileReducer
-} from './model/slice/profileSlice'
+export { profileReducer } from './model/slice/profileSlice';

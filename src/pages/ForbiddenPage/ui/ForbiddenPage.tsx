@@ -1,19 +1,19 @@
-import {type FC, memo} from 'react'
-import {useTranslation} from 'react-i18next'
-import {Page} from '@/widgets/Page'
+import { type FC, memo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Page } from '@/widgets/Page';
 
 interface ForbiddenPageProps {
-    className?: string
+    className?: string;
 }
 
 const ForbiddenPage: FC<ForbiddenPageProps> = (props) => {
-    const {t} = useTranslation()
+    const { t } = useTranslation();
 
     return (
         <Page className={props.className} data-testid={'ForbiddenPage'}>
             {t('Доступ запрещен')}
         </Page>
-    )
-}
+    );
+};
 
-export default memo(ForbiddenPage)
+export default memo(ForbiddenPage);

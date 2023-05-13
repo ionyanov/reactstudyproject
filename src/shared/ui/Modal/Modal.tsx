@@ -1,44 +1,42 @@
-import {type FC, type ReactNode} from 'react'
-import {useModal} from '@/shared/lib/hooks/useModal/useModal'
-import {classNames} from '../../lib/classNames/classNames'
-import {useTheme} from '../../lib/providers/ThemeProvider'
-import {Overlay} from '../Overlay/Overlay'
-import {Portal} from '../Portal/Portal'
-import cls from './Modal.module.scss'
+import { type FC, type ReactNode } from 'react';
+import { useModal } from '@/shared/lib/hooks/useModal/useModal';
+import { classNames } from '../../lib/classNames/classNames';
+import { useTheme } from '../../lib/providers/ThemeProvider';
+import { Overlay } from '../Overlay/Overlay';
+import { Portal } from '../Portal/Portal';
+import cls from './Modal.module.scss';
 
 interface ModalProps {
-    className?: string
-    children?: ReactNode
-    isOpen?: boolean
-    onClose?: () => void
-    lazy?: boolean
+    className?: string;
+    children?: ReactNode;
+    isOpen?: boolean;
+    onClose?: () => void;
+    lazy?: boolean;
 }
 
 export const Modal: FC<ModalProps> = (props) => {
-    const {
-        isOpen = false,
-        onClose,
-        lazy
-    } = props
-    const {theme} = useTheme()
-    const {isMounted, isClosing, close} = useModal({isOpen, onClose})
+    const { isOpen = false, onClose, lazy } = props;
+    const { theme } = useTheme();
+    const { isMounted, isClosing, close } = useModal({ isOpen, onClose });
 
     if (lazy && !isMounted) {
-        return null
+        return null;
     }
 
     const mods = {
         [cls.opened]: isOpen,
-        [cls.isclosing]: isClosing
-    }
+        [cls.isclosing]: isClosing,
+    };
     return (
         <Portal>
-            <div className={classNames(cls.Modal, mods, [props.className, theme])}>
-                <Overlay className={cls.overlay} onClick={close}/>
-                <div className={cls.content}>
-                    {props.children}
-                </div>
+            <div
+                className={classNames(cls.Modal, mods, [
+                    props.className,
+                    theme,
+                ])}>
+                <Overlay className={cls.overlay} onClick={close} />
+                <div className={cls.content}>{props.children}</div>
             </div>
         </Portal>
-    )
-}
+    );
+};

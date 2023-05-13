@@ -1,29 +1,25 @@
-import {type Meta, type StoryObj} from '@storybook/react'
-import {StoreDecorator} from '@/shared/config/storybook/StoreDecorator'
-import {ThemeDecorator} from '@/shared/config/storybook/ThemeDecorator'
-import {Theme} from '@/shared/lib/providers/ThemeProvider'
-import {NotificationList} from './NotificationList'
+import { type Meta, type StoryObj } from '@storybook/react';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/shared/lib/providers/ThemeProvider';
+import { NotificationList } from './NotificationList';
 
 const meta: Meta<typeof NotificationList> = {
     title: 'entities/Notification/NotificationList',
     component: NotificationList,
-    args: {
+    args: {},
+};
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-    }
-}
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Normal: Story = {}
+export const Normal: Story = {};
 
 export const Dark: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)]
-}
+    decorators: [ThemeDecorator(Theme.DARK)],
+};
 
 export const IsLoading: Story = {
-    decorators: [StoreDecorator({})]
-}
+    decorators: [StoreDecorator({})],
+};
 
-export const DarkIsLoading: Story = {
-
-}
+export const DarkIsLoading: Story = {};

@@ -1,5 +1,5 @@
-import type {Article} from '../../../src/entities/Article'
-import Chainable = Cypress.Chainable
+import type { Article } from '../../../src/entities/Article';
+import Chainable = Cypress.Chainable;
 
 const defaultArticle = {
     title: 'TESTING ARTICLE',
@@ -11,34 +11,34 @@ const defaultArticle = {
     createdAt: '26.02.2022',
     userId: '1',
     type: ['SCIENCE'],
-    blocks: []
-}
+    blocks: [],
+};
 
-export function createArticle (article?: Article): Chainable<Article> {
+export function createArticle(article?: Article): Chainable<Article> {
     return cy
         .request({
             method: 'POST',
             url: 'http://localhost:8000/articles',
-            headers: {Authorization: 'asasf'},
-            body: article ?? defaultArticle
+            headers: { Authorization: 'asasf' },
+            body: article ?? defaultArticle,
         })
-        .then((resp) => resp.body)
+        .then((resp) => resp.body);
 }
 
-export function removeArticle (articleId: string): void {
+export function removeArticle(articleId: string): void {
     cy.request({
         method: 'DELETE',
         url: `http://localhost:8000/articles/${articleId}`,
-        headers: {Authorization: 'asasf'}
-    })
+        headers: { Authorization: 'asasf' },
+    });
 }
 
 declare global {
     namespace Cypress {
         interface Chainable {
-            createArticle(article?: Article): Chainable<Article>
+            createArticle(article?: Article): Chainable<Article>;
 
-            removeArticle(articleId: string): void
+            removeArticle(articleId: string): void;
         }
     }
 }

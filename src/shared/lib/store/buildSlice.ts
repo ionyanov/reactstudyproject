@@ -1,28 +1,29 @@
-import type {CreateSliceOptions, SliceCaseReducers} from '@reduxjs/toolkit'
-import {bindActionCreators, createSlice} from '@reduxjs/toolkit'
+import type { CreateSliceOptions, SliceCaseReducers } from '@reduxjs/toolkit';
+import { bindActionCreators, createSlice } from '@reduxjs/toolkit';
 
-import {useMemo} from 'react'
-import {useAppDispatch} from '../hooks/useAppDispatch/useAppDispatch'
+import { useMemo } from 'react';
+import { useAppDispatch } from '../hooks/useAppDispatch/useAppDispatch';
 
-export function buildSlice<State,
+export function buildSlice<
+    State,
     CaseReducers extends SliceCaseReducers<State>,
     Name extends string = string,
-> (options: CreateSliceOptions<State, CaseReducers, Name>) {
-    const slice = createSlice(options)
+>(options: CreateSliceOptions<State, CaseReducers, Name>) {
+    const slice = createSlice(options);
 
     const useActions = (): typeof slice.actions => {
-        const dispatch = useAppDispatch()
+        const dispatch = useAppDispatch();
 
         // @ts-expect-error TEST
         return useMemo(
             // @ts-expect-error TEST
             () => bindActionCreators(slice.actions, dispatch),
-            [dispatch]
-        )
-    }
+            [dispatch],
+        );
+    };
 
     return {
         ...slice,
-        useActions
-    }
+        useActions,
+    };
 }

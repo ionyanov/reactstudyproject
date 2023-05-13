@@ -1,19 +1,22 @@
-import {createSlice, type PayloadAction} from '@reduxjs/toolkit'
-import {type PageSchema} from '../types/page'
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import { type PageSchema } from '../types/page';
 
 const initialState: PageSchema = {
-    scroll: {}
-}
+    scroll: {},
+};
 
 const pageSlice = createSlice({
     name: 'pageSlice',
     initialState,
     reducers: {
-        setScrollPosition: (state, action: PayloadAction<{path: string, scroll: number}>) => {
-            state.scroll[action.payload.path] = action.payload.scroll
-        }
-    }
-})
+        setScrollPosition: (
+            state,
+            action: PayloadAction<{ path: string; scroll: number }>,
+        ) => {
+            state.scroll[action.payload.path] = action.payload.scroll;
+        },
+    },
+});
 
-export const {actions: pageAction} = pageSlice
-export const {reducer: pageReducer} = pageSlice
+export const { actions: pageAction } = pageSlice;
+export const { reducer: pageReducer } = pageSlice;

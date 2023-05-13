@@ -1,23 +1,27 @@
-import {type FC, memo, useMemo} from 'react'
-import {classNames} from '@/shared/lib/classNames/classNames'
-import {Select} from '@/shared/ui/Select'
-import {Country} from '../model/country'
-import cls from './CountrySelect.module.scss'
+import { type FC, memo, useMemo } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Select } from '@/shared/ui/Select';
+import { Country } from '../model/country';
+import cls from './CountrySelect.module.scss';
 
 interface CurrencyProps {
-    className?: string
-    title?: string
-    selected?: Country
-    onchange?: (value: Country) => void
-    readonly?: boolean
-    placeholdersize?: string | undefined
+    className?: string;
+    title?: string;
+    selected?: Country;
+    onchange?: (value: Country) => void;
+    readonly?: boolean;
+    placeholdersize?: string | undefined;
 }
 
 export const CountrySelect: FC<CurrencyProps> = memo((props: CurrencyProps) => {
-    const countryOptions = useMemo(() =>
-        Object.entries(Country).map((val) => (
-            {value: val[0] as Country, content: val[1]})
-        ), [])
+    const countryOptions = useMemo(
+        () =>
+            Object.entries(Country).map((val) => ({
+                value: val[0] as Country,
+                content: val[1],
+            })),
+        [],
+    );
 
     return (
         <Select<Country>
@@ -29,5 +33,5 @@ export const CountrySelect: FC<CurrencyProps> = memo((props: CurrencyProps) => {
             options={countryOptions}
             placeholdersize={props.placeholdersize}
         />
-    )
-})
+    );
+});

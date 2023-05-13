@@ -1,19 +1,19 @@
-import {createSlice, type PayloadAction} from '@reduxjs/toolkit'
-import {type AddCommentCardSchema} from '../types/addCommentCard'
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import { type AddCommentCardSchema } from '../types/addCommentCard';
 
 const initialState: AddCommentCardSchema = {
     error: undefined,
-    text: ''
-}
+    text: '',
+};
 
 const addCommentCardSlice = createSlice({
     name: 'AddCommentCard',
     initialState,
     reducers: {
         setText: (state, action: PayloadAction<string>) => {
-            state.text = action.payload
-        }
-    }
+            state.text = action.payload;
+        },
+    },
     /* extraReducers: (builder) => {
          builder
             .addCase(fetchCommentsByArticleId.pending, (state, action) => {
@@ -29,7 +29,7 @@ const addCommentCardSlice = createSlice({
                 state.error = action.payload
             })
     } */
-})
+});
 
-export const {actions: addArticleCommentAction} = addCommentCardSlice
-export const {reducer: addArticleCommentReducer} = addCommentCardSlice
+export const { actions: addArticleCommentAction } = addCommentCardSlice;
+export const { reducer: addArticleCommentReducer } = addCommentCardSlice;

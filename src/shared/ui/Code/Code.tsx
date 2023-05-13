@@ -1,27 +1,28 @@
-import {type FC, useCallback} from 'react'
-import CopyIcon from '../../assets/icons/copy-20-20.svg'
-import {classNames} from '../../lib/classNames/classNames'
-import {Button, ButtonTheme} from '../Button/Button'
-import cls from './Code.module.scss'
+import { type FC, useCallback } from 'react';
+import CopyIcon from '../../assets/icons/copy-20-20.svg';
+import { classNames } from '../../lib/classNames/classNames';
+import { Button, ButtonTheme } from '../Button/Button';
+import cls from './Code.module.scss';
 
 interface CodeProps {
-    className?: string
-    text: string
+    className?: string;
+    text: string;
 }
 
 export const Code: FC<CodeProps> = (props) => {
     const onCopy = useCallback(() => {
-        navigator.clipboard.writeText(props.text)
-    }, [props])
+        navigator.clipboard.writeText(props.text);
+    }, [props]);
 
     return (
         <pre className={classNames(cls.Code, {}, [props.className])}>
-            <Button className={cls.copyBtn} theme={ButtonTheme.CLEAR} onClick={onCopy}>
-                <CopyIcon className={cls.copyImg}/>
+            <Button
+                className={cls.copyBtn}
+                theme={ButtonTheme.CLEAR}
+                onClick={onCopy}>
+                <CopyIcon className={cls.copyImg} />
             </Button>
-            <code>
-                {props.text}
-            </code>
+            <code>{props.text}</code>
         </pre>
-    )
-}
+    );
+};

@@ -12,13 +12,16 @@ export enum AppRoutes {
     NOTFOUND = 'notfaund',
 }
 
-export const getRouteMain: () => string = () => '/'
-export const getRouteAbout: () => string = () => '/about'
-export const getRouteProfile: (id: string) => string = (id: string) => `/profile/${id}`
-export const getRouteArticles: () => string = () => '/articles'
-export const getRouteArticleDetail: (id: string) => string = (id: string) => `/articles/${id}`
-export const getRouteArticleCreate: () => string = () => '/articles/new'
-export const getRouteArticleEdit: (id: string) => string = (id: string) => `/articles/${id}/edit`
-export const getRouteAdmin: () => string = () => '/admin'
-export const getRouteForbidden: () => string = () => '/restrictaccess'
-export const getRouteNotfound: () => string = () => '*'
+export const getRouteMain: () => string = () => '/';
+export const getRouteAbout: () => string = () => '/about';
+export const getRouteProfile: (id: string) => string = (id: string) =>
+    `/profile/${id}`;
+export const getRouteArticles: () => string = () => '/articles';
+export const getRouteArticleDetail: (id: string) => string = (id: string) =>
+    `/articles/${id}`;
+export const getRouteArticleCreate: () => string = () => '/articles/new';
+export const getRouteArticleEdit: (id: string) => string = (id: string) =>
+    `/articles/${id}/edit`;
+export const getRouteAdmin: () => string = () => '/admin';
+export const getRouteForbidden: () => string = () => '/restrictaccess';
+export const getRouteNotfound: () => string = () => '*';

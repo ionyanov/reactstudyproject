@@ -1,5 +1,5 @@
-import {rtkAPI} from '@/shared/api/rtkAPI'
-import {type Notification} from '../model/types'
+import { rtkAPI } from '@/shared/api/rtkAPI';
+import { type Notification } from '../model/types';
 
 const notificationApi = rtkAPI.injectEndpoints({
     endpoints: (build) => ({
@@ -7,11 +7,11 @@ const notificationApi = rtkAPI.injectEndpoints({
             query: (userId) => ({
                 url: '/notifications',
                 params: {
-                    userId
-                }
-            })
-        })
-    })
-})
+                    userId,
+                },
+            }),
+        }),
+    }),
+});
 
-export const useNotifications = notificationApi.useGetNotificationsQuery
+export const useNotifications = notificationApi.useGetNotificationsQuery;

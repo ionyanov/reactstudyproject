@@ -1,6 +1,6 @@
-import {type ButtonHTMLAttributes, type FC} from 'react'
-import {classNames} from '@/shared/lib/classNames/classNames'
-import cls from './Button.module.scss'
+import { type ButtonHTMLAttributes, type FC } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import cls from './Button.module.scss';
 
 export enum ButtonTheme {
     CLEAR = 'clear',
@@ -8,7 +8,7 @@ export enum ButtonTheme {
     OUTLINE = 'outline',
     OUTLINE_RED = 'outline_red',
     BACKGROUND = 'background',
-    BACKGROUND_INVERTED = 'backgroundinverted'
+    BACKGROUND_INVERTED = 'backgroundinverted',
 }
 
 export enum ButtonSize {
@@ -18,15 +18,15 @@ export enum ButtonSize {
 }
 
 type ButtonProps = {
-    className?: string
-    theme?: ButtonTheme
-    square?: boolean
-    size?: ButtonSize
-    disabled?: boolean
-    dataTestId?: string
-} & ButtonHTMLAttributes<HTMLButtonElement>
+    className?: string;
+    theme?: ButtonTheme;
+    square?: boolean;
+    size?: ButtonSize;
+    disabled?: boolean;
+    dataTestId?: string;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const Button: FC<ButtonProps> = props => {
+export const Button: FC<ButtonProps> = (props) => {
     const {
         className = '',
         children,
@@ -36,27 +36,23 @@ export const Button: FC<ButtonProps> = props => {
         disabled = false,
         dataTestId = 'Button',
         ...otherProps
-    } = props
+    } = props;
 
     const mods: Record<string, boolean> = {
         [cls.square]: square,
-        [cls.disabled]: disabled
-    }
+        [cls.disabled]: disabled,
+    };
 
-    const addClassName: string[] = [
-        className,
-        cls[theme],
-        cls[size]
-    ]
+    const addClassName: string[] = [className, cls[theme], cls[size]];
 
     return (
-        <button type="button"
+        <button
+            type="button"
             className={classNames(cls.button, mods, addClassName)}
             disabled={disabled}
             data-testid={`${dataTestId}`}
-            {...otherProps}
-        >
+            {...otherProps}>
             {children}
         </button>
-    )
-}
+    );
+};

@@ -1,8 +1,8 @@
-import {type Meta, type StoryObj} from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react';
 
-import {ThemeDecorator} from '@/shared/config/storybook/ThemeDecorator'
-import {Theme} from '@/shared/lib/providers/ThemeProvider'
-import {CommentList} from './CommentList'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { Theme } from '@/shared/lib/providers/ThemeProvider';
+import { CommentList } from './CommentList';
 
 const meta: Meta<typeof CommentList> = {
     title: 'entities/Comment/CommentList',
@@ -12,31 +12,31 @@ const meta: Meta<typeof CommentList> = {
             {
                 id: '1',
                 text: 'Test1',
-                user: {id: '1', username: 'username'}
+                user: { id: '1', username: 'username' },
             },
             {
                 id: '2',
                 text: 'Test2',
-                user: {id: '1', username: 'username'}
-            }
-        ]
-    }
-}
-export default meta
-type Story = StoryObj<typeof meta>
+                user: { id: '1', username: 'username' },
+            },
+        ],
+    },
+};
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Normal: Story = {}
+export const Normal: Story = {};
 
 export const Dark: Story = {
-    decorators: [ThemeDecorator(Theme.DARK)]
-}
+    decorators: [ThemeDecorator(Theme.DARK)],
+};
 
 export const Loading: Story = {
     args: {
-        isLoading: true
-    }
-}
+        isLoading: true,
+    },
+};
 
 export const Empty: Story = {
-    args: {comments: []}
-}
+    args: { comments: [] },
+};

@@ -1,3 +1,5 @@
-import {lazy} from 'react'
+import { lazy } from 'react';
 
-export const AddCommentCardAsync = lazy(async () => await import('./AddCommentCard'))
+export const AddCommentCardAsync = lazy(
+    async () => await import('./AddCommentCard'),
+);

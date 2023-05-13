@@ -1,7 +1,7 @@
-import {type User} from '@/entities/User'
+import { type User } from '@/entities/User';
 
 export interface MyComment {
-    id: string
-    user: User
-    text: string
+    id: string;
+    user: User;
+    text: string;
 }
