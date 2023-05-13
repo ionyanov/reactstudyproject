@@ -12,14 +12,21 @@ export interface ComponentRenderProps {
     asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>
 }
 
+interface TestProviderProps {
+    children: ReactNode
+    options?: ComponentRenderProps
+}
+
+export function TestProvider (props: TestProviderProps): JSX.Element {
+    return (<MemoryRouter initialEntries={[props.options?.route ?? '/']}>
+        <StoreProvider initialState={props.options?.initialState} asyncRedusers={props.options?.asyncReducers}>
+            <I18nextProvider i18n={i18n4test}>
+                {props.children}
+            </I18nextProvider>
+        </StoreProvider>
+    </MemoryRouter>)
+}
+
 export function ComponentRender (component: ReactNode, options: ComponentRenderProps = {route: '/'}): RenderResult {
-    return render(
-        <MemoryRouter initialEntries={[options.route || '/']}>
-            <StoreProvider initialState={options.initialState} asyncRedusers={options.asyncReducers}>
-                <I18nextProvider i18n={i18n4test}>
-                    {component}
-                </I18nextProvider>
-            </StoreProvider>
-        </MemoryRouter>
-    )
+    return render(<TestProvider options={options}>{component}</TestProvider>)
 }

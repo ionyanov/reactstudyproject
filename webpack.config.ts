@@ -4,8 +4,8 @@ import {BuildWebpackConfig} from './config/build/buildWebpackConfig'
 import {type BuildParams} from './config/build/types/config'
 
 export default (env: BuildParams): webpack.Configuration => {
-    const mode = env.mode || 'development'
-    const apiURL = env.apiURL || 'http://localhost:8000/'
+    const mode = env?.mode || 'development'
+    const apiURL = env?.apiURL || 'http://localhost:8000/'
 
     return BuildWebpackConfig({
         mode,
@@ -20,7 +20,7 @@ export default (env: BuildParams): webpack.Configuration => {
         },
         isDev: mode === 'development',
         apiURL,
-        port: env.port || 3000,
+        port: env?.port || 3000,
         fileMask: '[name].[contenthash:5]',
         project: 'frontend'
     })

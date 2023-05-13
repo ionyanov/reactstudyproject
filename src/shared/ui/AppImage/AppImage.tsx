@@ -15,10 +15,10 @@ export const AppImage: FC<AppImageProps> = (props) => {
     useLayoutEffect(() => {
         const img = new Image()
         img.src = src ?? ''
-        img.onload = () => {
+        img.onload = (): void => {
             setIsLoading(false)
         }
-        img.onerror = () => {
+        img.onerror = (): void => {
             setIsLoading(false)
             setHasError(true)
         }

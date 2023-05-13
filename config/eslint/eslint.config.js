@@ -86,7 +86,7 @@ module.exports = {
         'ulbi-tv-plugin/path-checker': [1, {alias: '@'}],
         'ulbi-tv-plugin/layer-imports': [1, {
             alias: '@',
-            ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            ignoreImportPatterns: ['**/StoreProvider/*', '**/testing'],
         }],
         'ulbi-tv-plugin/public-api-imports': [1, {
             alias: '@',
@@ -116,6 +116,13 @@ module.exports = {
             rules: {
                 'max-len': "off",
                 'i18next/no-literal-string': "off"
+            }
+        },
+        {
+            files: ['**/cypress/**/*.{ts,tsx}'],
+            rules: {
+                '@typescript-eslint/no-namespace': "off",
+                '@typescript-eslint/method-signature-style': "off"
             }
         }
     ]

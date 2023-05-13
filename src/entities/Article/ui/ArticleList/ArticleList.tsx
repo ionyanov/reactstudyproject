@@ -42,13 +42,17 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
 
     if (!props.isLoading && !props.articles.length) {
         return (
-            <VStack gap={'8'} max className={classNames(cls.ArticleList, {}, [props.className, cls[props.view || ArticleView.GRID]])}>
+            <VStack gap={'8'} max
+                className={classNames(cls.ArticleList, {}, [props.className, cls[props.view || ArticleView.GRID]])}
+                data-testid={'ArticleList'}
+            >
                 <Text title={t('Статьи не найдены')} align={TextAlign.CENTER}/>
             </VStack>)
     }
 
     return (
-        <div className={classNames(cls.ArticleList, {}, [props.className, cls[props.view || ArticleView.GRID]])}>
+        <div className={classNames(cls.ArticleList, {}, [props.className, cls[props.view || ArticleView.GRID]])}
+            data-testid={'ArticleList'}>
             {props.articles.length > 0 && (
                 props.articles.map(renderArticle)
             )}

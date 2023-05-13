@@ -4,10 +4,10 @@ import {useSelector} from 'react-redux'
 import {Navbar} from '@/widgets/Navbar'
 import {Sidebar} from '@/widgets/Sidebar'
 import {getUserIsInit, userActions} from '@/entities/User'
+import {classNames} from '@/shared/lib/classNames/classNames'
 import {useAppDispatch} from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
-import {AppRouter} from '@/shared/lib/providers/AppRouter'
-import {classNames} from '../shared/lib/classNames/classNames'
-import {useTheme} from '../shared/lib/providers/ThemeProvider/lib/useTheme'
+import {useTheme} from '@/shared/lib/providers/ThemeProvider/lib/useTheme'
+import {AppRouter} from './providers/AppRouter'
 
 const App: FC = () => {
     const {theme} = useTheme()

@@ -32,7 +32,8 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
         ) as ArticleBlockText
 
         return (
-            <Card className={classNames(cls.ArticleListItem, {}, [props.className, cls[props.view]])}>
+            <Card className={classNames(cls.ArticleListItem, {}, [props.className, cls[props.view]])}
+                data-testid={'ArticleListItem'}>
                 <div className={cls.header}>
                     <Avatar size={30} src={props.article.user.avatar}/>
                     <Text text={props.article.user.username} className={cls.username}/>
@@ -60,7 +61,8 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
 
     return (
         <AppLink to={getRouteArticleDetail(props.article.id)} target={props.target}>
-            <Card className={classNames(cls.ArticleListItem, {}, [props.className, cls[props.view]])}>
+            <Card className={classNames(cls.ArticleListItem, {}, [props.className, cls[props.view]])}
+                data-testid={'ArticleListItem'}>
                 <VStack className={cls.imageWrapper}>
                     <AppImage src={props.article.img}
                         alt={props.article.title}
