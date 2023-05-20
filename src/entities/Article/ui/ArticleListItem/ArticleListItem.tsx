@@ -29,7 +29,7 @@ interface ArticleListItemProps {
 }
 
 export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('article');
 
     if (props.view === ArticleView.LIST) {
         const textBlock = props.article.blocks.find(

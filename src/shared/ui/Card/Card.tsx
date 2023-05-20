@@ -19,11 +19,12 @@ export const Card: FC<CardProps> = (props) => {
         className,
         children,
         theme = CardTheme.NORMAL,
+        max,
         ...otherProps
     } = props;
     return (
         <div
-            className={classNames(cls.Card, { [cls.max]: props.max }, [
+            className={classNames(cls.Card, { [cls.max]: max }, [
                 props.className,
                 cls[theme],
             ])}

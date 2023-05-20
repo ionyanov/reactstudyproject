@@ -2,6 +2,7 @@ import { type FC, memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { Page } from '@/widgets/Page';
+import { ArticlePageGreeting } from '@/features/articlePageGreeting';
 import { ArticleList } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
@@ -57,6 +58,7 @@ const ArticlesPage: FC<ArticlePageProps> = (props) => {
                     isLoading={isLoading}
                     view={view}
                 />
+                <ArticlePageGreeting />
             </Page>
         </DynamicModuleLoader>
     );

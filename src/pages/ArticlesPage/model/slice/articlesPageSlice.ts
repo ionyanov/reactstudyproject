@@ -79,14 +79,13 @@ const articlesPageSlice = createSlice({
             .addCase(fetchArticles.pending, (state, action) => {
                 state.error = '';
                 state.isLoading = true;
-
                 if (action.meta.arg.replace) {
                     articlesAdapter.removeAll(state);
                 }
             })
             .addCase(fetchArticles.fulfilled, (state, action) => {
                 state.isLoading = false;
-                state.hasMore = action.payload.length > 0;
+                state.hasMore = action.payload.length >= state.limit;
                 if (action.meta.arg.replace) {
                     articlesAdapter.setAll(state, action.payload);
                 } else {

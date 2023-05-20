@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from '@/app/App';
 import '@/app/styles/index.scss';
 import '@/shared/config/i18n/i18n';
-import { ErrorBoundary } from '@/shared/lib/providers/ErrorBoundary';
+import { ErrorBoundary } from '@/app/providers/ErrorBoundary';
 import { StoreProvider } from '@/shared/lib/providers/StoreProvider';
 import { ThemeProvider } from '@/shared/lib/providers/ThemeProvider';
 

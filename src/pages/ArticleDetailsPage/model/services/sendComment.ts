@@ -6,6 +6,7 @@ import {
     type StateSchema,
     type ThunkConfig,
 } from '@/shared/lib/providers/StoreProvider';
+import { fetchCommentsByArticleId } from './fetchCommentsByArticleId';
 
 export const sendComment = createAsyncThunk<
     MyComment,
@@ -27,6 +28,9 @@ export const sendComment = createAsyncThunk<
             userId: userData.id,
             text,
         });
+
+        thunkAPI.dispatch(fetchCommentsByArticleId(article.id));
+
         return response.data;
     } catch (e) {
         return thunkAPI.rejectWithValue('error');

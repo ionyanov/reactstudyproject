@@ -115,6 +115,7 @@ module.exports = {
         'unused-imports/no-unused-imports': 'error',
         'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
         'react/no-unstable-nested-components': 'warn',
+        'react/prop-types': 'warn',
     },
     globals: {
         _IS_DEV_: true,

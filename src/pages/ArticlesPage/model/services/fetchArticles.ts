@@ -39,8 +39,8 @@ export const fetchArticles = createAsyncThunk<
                 _page: page,
                 _sort: sort,
                 _order: order,
-                type: type === ArticleType.ALL ? undefined : type,
                 q: search,
+                type: type === ArticleType.ALL ? undefined : type,
             },
         });
         return response.data;

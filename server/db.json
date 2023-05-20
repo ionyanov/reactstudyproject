@@ -600,6 +600,108 @@
       "userId": "1",
       "text": "46545",
       "id": "42PqhJK"
+    },
+    {
+      "articleId": "8",
+      "userId": "1",
+      "text": "123213",
+      "id": "FWq-mhM"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "asdad",
+      "id": "eOAN5io"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "ssss",
+      "id": "cRBUu7X"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "dfgdfg",
+      "id": "_LvnKyO"
+    },
+    {
+      "articleId": "8",
+      "userId": "1",
+      "text": "121212",
+      "id": "z9aR1k3"
+    },
+    {
+      "articleId": "8",
+      "userId": "1",
+      "text": "asdasd",
+      "id": "rorZEvP"
+    },
+    {
+      "articleId": "8",
+      "userId": "1",
+      "text": "asdasd",
+      "id": "JMyuTlT"
+    },
+    {
+      "articleId": "8",
+      "userId": "1",
+      "text": "11111",
+      "id": "NQt2OLG"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "fsdfsdf",
+      "id": "LrmAs4a"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "sdfsdf",
+      "id": "AzClgM4"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "sss",
+      "id": "HQ2Eihz"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "sdfsd",
+      "id": "JYkE5wF"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "dsfsdf",
+      "id": "P59kLDS"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "werrwer",
+      "id": "D6slUgp"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "2",
+      "id": "QgrUuL-"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "3333",
+      "id": "pjbxZAp"
+    },
+    {
+      "articleId": "18",
+      "userId": "1",
+      "text": "123",
+      "id": "AnNQVZz"
     }
   ],
   "users": [
@@ -611,9 +713,14 @@
         "ADMIN"
       ],
       "features": {
-        "isArticleRatingEnabled": true
+        "isArticleRatingEnabled": true,
+        "isArticleRecommendationEnabled": true
       },
-      "avatar": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png"
+      "avatar": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+      "jsonSettings": {
+        "theme": "app_light_theme",
+        "articlesPageHasBeenOpen": true
+      }
     },
     {
       "id": "2",
@@ -625,7 +732,10 @@
       "features": {
         "isArticleRatingEnabled": false
       },
-      "avatar": ""
+      "avatar": "",
+      "jsonSettings": {
+        "articlesPageHasBeenOpen": true
+      }
     }
   ],
   "profile": [
@@ -659,6 +769,13 @@
       "feedback": "Хорошая статья",
       "userId": "1",
       "articleId": "1"
+    },
+    {
+      "userId": "1",
+      "articleId": "7",
+      "rate": 3,
+      "feedback": "ssss",
+      "id": "l3-9jBa"
     }
   ],
   "profile-ratings": [

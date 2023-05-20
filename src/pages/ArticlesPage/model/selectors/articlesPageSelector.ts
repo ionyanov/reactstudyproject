@@ -1,5 +1,6 @@
 import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 import { type StateSchema } from '@/shared/lib/providers/StoreProvider';
+import { buildSelector } from '@/shared/lib/store';
 import { type SortOrder } from '@/shared/types';
 
 export const getArticlesError: (state: StateSchema) => string | undefined = (
@@ -67,3 +68,7 @@ export const getArticlesType: (state: StateSchema) => ArticleType = (
 ) => {
     return state?.articlesAdapter?.types ?? ArticleType.ALL;
 };
+
+export const [useArticleItemById] = buildSelector(
+    (state, id: string) => state.articlesAdapter?.entities[id],
+);

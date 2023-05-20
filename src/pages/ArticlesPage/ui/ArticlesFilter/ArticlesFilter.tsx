@@ -2,9 +2,11 @@ import { type FC, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { ArticleViewSelector } from '@/features/ArticleVewSelector';
-import { ArticleSortField, type ArticleView } from '@/entities/Article';
-import { ArticleType } from '@/entities/Article';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import {
+    ArticleSortField,
+    ArticleType,
+    type ArticleView,
+} from '@/entities/Article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { type SortOrder } from '@/shared/types';
@@ -112,10 +114,7 @@ export const ArticlesFilter: FC<ArticlesFilterProps> = (props) => {
     );
 
     return (
-        <VStack
-            gap={'16'}
-            max
-            className={classNames('', {}, [props.className])}>
+        <VStack gap={'8'} className={props.className}>
             <HStack max justify={'between'}>
                 <HStack gap={'16'}>
                     <Select<ArticleSortField>

@@ -1,4 +1,5 @@
-import { type FC } from 'react';
+import type { FC, ForwardedRef } from 'react';
+import { forwardRef } from 'react';
 import { Link, type LinkProps } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './AppLink.module.scss';
@@ -13,21 +14,24 @@ type AppLinkProps = {
     theme?: AppLinkTheme;
 } & LinkProps;
 
-export const AppLink: FC<AppLinkProps> = (props) => {
-    const {
-        to,
-        children,
-        className,
-        theme = AppLinkTheme.PRIMARY,
-        ...otherProps
-    } = props;
+export const AppLink: FC<AppLinkProps> = forwardRef(
+    (props, ref: ForwardedRef<HTMLAnchorElement>) => {
+        const {
+            to,
+            children,
+            className = '',
+            theme = AppLinkTheme.PRIMARY,
+            ...otherProps
+        } = props;
 
-    return (
-        <Link
-            to={to}
-            className={classNames(cls.applink, {}, [className, cls[theme]])}
-            {...otherProps}>
-            {children}
-        </Link>
-    );
-};
+        return (
+            <Link
+                to={to}
+                className={classNames(cls.applink, {}, [className, cls[theme]])}
+                {...otherProps}
+                ref={ref}>
+                {children}
+            </Link>
+        );
+    },
+);

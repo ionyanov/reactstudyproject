@@ -6,6 +6,7 @@ import {
     type ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { type AxiosInstance } from 'axios';
+import { type ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
 import { type ArticlesPageSchema } from '@/pages/ArticlesPage';
 import { type PageSchema } from '@/widgets/Page';
 import { type AddCommentCardSchema } from '@/features/AddCommentCard';
@@ -27,6 +28,7 @@ export interface StateSchema {
     articleCommentList?: ArticleCommentListSchema;
     addArticleComment?: AddCommentCardSchema;
     articlesAdapter?: ArticlesPageSchema;
+    articlePage?: ArticleDetailsPageSchema;
     articleRecommendation?: ArticleRecommendationSchema;
     [rtkAPI.reducerPath]: ReturnType<typeof rtkAPI.reducer>;
 }

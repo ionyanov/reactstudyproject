@@ -66,7 +66,7 @@ const ArticleRating: FC<ArticleRatingProps> = (props) => {
             feedbackTitle={t('Оставьте отзыв о статье') || ''}
             onAccept={onAccept}
             onCancel={onCancel}
-            rate={data?.[0].rate ?? 0}
+            rate={data?.[0]?.rate ?? 0}
         />
     );
 };
