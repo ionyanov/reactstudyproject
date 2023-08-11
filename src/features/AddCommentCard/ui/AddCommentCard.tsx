@@ -27,7 +27,7 @@ const reducers: ReducerList = {
 };
 
 const AddCommentCard: FC<AddArticleCommentProps> = (props) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('comment');
     const text = useSelector(getAddCommentCardText);
     // const error = useSelector(getAddCommentCardError)
     const dispatch = useAppDispatch();

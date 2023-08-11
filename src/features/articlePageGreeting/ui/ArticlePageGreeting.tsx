@@ -13,7 +13,7 @@ interface ArticlePageGreetingProps {
 }
 
 export const ArticlePageGreeting: FC<ArticlePageGreetingProps> = (props) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('article');
     const [isOpen, setIsOpen] = useState(false);
     const articlesPageHasBeenOpen = useJsonSettingsByKey(
         'articlesPageHasBeenOpen',

@@ -16,7 +16,7 @@ export interface ArticleRatingProps {
 }
 
 const ArticleRating: FC<ArticleRatingProps> = (props) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('article');
     const userData = useSelector(getUserAuthData);
     const [rateArticleMutation] = useRateArticle();
     const { data, isLoading } = useGetArticleRating({

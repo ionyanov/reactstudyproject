@@ -22,7 +22,7 @@ const reducers: ReducerList = {
 export const ArticleRecommendation: FC<ArticleRecommendationProps> = (
     props,
 ) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('article');
     const { data = [], isLoading } = useArticleRecommendation(3);
 
     return (

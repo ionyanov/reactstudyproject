@@ -31,7 +31,7 @@ interface ArticlesFilterProps {
 }
 
 export const ArticlesFilter: FC<ArticlesFilterProps> = (props) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('article');
     const dispatch = useAppDispatch();
     const view = useSelector(getArticlesView);
     const sortOrder = useSelector(getArticlesOrder);

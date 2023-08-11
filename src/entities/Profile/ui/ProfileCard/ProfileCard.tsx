@@ -86,7 +86,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
             <Input
                 className={cls.input}
                 value={props.data.firstname}
-                placeholder={t('Выше имя') || ''}
+                placeholder={t('Ваше имя') || ''}
                 readonly={props.readOnly}
                 onChange={props.onChangeFirstName}
                 placeholdersize={phsize}
@@ -95,7 +95,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
             <Input
                 className={cls.input}
                 value={props.data.lastname}
-                placeholder={t('Выша фамилия') || ''}
+                placeholder={t('Ваша фамилия') || ''}
                 readonly={props.readOnly}
                 onChange={props.onChangeLastName}
                 placeholdersize={phsize}
@@ -105,7 +105,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                 className={cls.input}
                 value={props.data.age}
                 type="number"
-                placeholder={t('Выш возраст') || ''}
+                placeholder={t('Ваш возраст') || ''}
                 readonly={props.readOnly}
                 onChange={props.onChangeAge}
                 placeholdersize={phsize}
@@ -113,7 +113,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
             />
             <CountrySelect
                 className={cls.input}
-                title={t('Выша страна') || ''}
+                title={t('Ваша страна') || ''}
                 selected={props.data.country}
                 readonly={props.readOnly}
                 onchange={props.onChangeCountry}
@@ -122,7 +122,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
             <Input
                 className={cls.input}
                 value={props.data.city}
-                placeholder={t('Выш город') || ''}
+                placeholder={t('Ваш город') || ''}
                 readonly={props.readOnly}
                 onChange={props.onChangeCity}
                 placeholdersize={phsize}
@@ -130,7 +130,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
             />
             <CurrencySelect
                 className={cls.input}
-                title={t('Выша валюта') || ''}
+                title={t('Ваша валюта') || ''}
                 readonly={props.readOnly}
                 selected={props.data.currency}
                 onchange={props.onChangeCurrency}
@@ -139,7 +139,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
             <Input
                 className={cls.input}
                 value={props.data.username}
-                placeholder={t('Выш логин') || ''}
+                placeholder={t('Ваш логин') || ''}
                 readonly={props.readOnly}
                 onChange={props.onChangeUserName}
                 placeholdersize={phsize}
@@ -148,7 +148,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
             <Input
                 className={cls.input}
                 value={props.data.avatar}
-                placeholder={t('Выша аватар') || ''}
+                placeholder={t('Ваш аватар') || ''}
                 readonly={props.readOnly}
                 onChange={props.onChangeAvatar}
                 placeholdersize={phsize}

@@ -15,7 +15,7 @@ interface ArticleDetailPageHeaderProps {
 export const ArticleDetailPageHeader: FC<ArticleDetailPageHeaderProps> = (
     props,
 ) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('article');
     const navigate = useNavigate();
     const canEdit = useSelector(getCanEditArticle);
     const article = useSelector(getArticleDetailsData);

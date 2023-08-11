@@ -22,7 +22,7 @@ interface RatingCardProps {
 }
 
 export const RatingCard: FC<RatingCardProps> = (props) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('rating');
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [starsCount, setStarsCount] = useState(props.rate ?? 0);
     const [feedBack, setFeedBack] = useState('');

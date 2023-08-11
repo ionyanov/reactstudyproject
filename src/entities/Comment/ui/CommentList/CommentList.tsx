@@ -14,7 +14,7 @@ interface CommentListProps {
 
 export const CommentList: FC<CommentListProps> = memo(
     (props: CommentListProps) => {
-        const { t } = useTranslation();
+        const { t } = useTranslation('comment');
 
         if (props.isLoading) {
             return (

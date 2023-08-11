@@ -25,7 +25,7 @@ const getSkeletons: (view: ArticleView) => ReactNode = (view: ArticleView) => {
 };
 
 export const ArticleList: FC<ArticleListProps> = (props) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('article');
 
     const renderArticle: (article: Article) => ReactNode = (
         article: Article,
