@@ -6,7 +6,6 @@ import {
     type ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { type AxiosInstance } from 'axios';
-import { type ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
 import { type ArticlesPageSchema } from '@/pages/ArticlesPage';
 import { type PageSchema } from '@/widgets/Page';
 import { type AddCommentCardSchema } from '@/features/AddCommentCard';
@@ -17,6 +16,7 @@ import { type ArticleDetailsSchema } from '@/entities/Article';
 import { type ProfileSchema } from '@/entities/Profile';
 import { type UserSchema } from '@/entities/User';
 import { type rtkAPI } from '@/shared/api/rtkAPI';
+import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage/model/types';
 
 export interface StateSchema {
     user: UserSchema;
