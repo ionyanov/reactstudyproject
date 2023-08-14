@@ -19,6 +19,9 @@
   "Администрирование": "Administration",
   "Профиль": "Profile",
   "Доступ запрещен": "Access denied",
-  "SITE NAME": "SITE NAME",
-  "Новая статья": "New article"
+  "SITE NAME": "React Study Project",
+  "Новая статья": "New article",
+  "Unit tests report example": "Unit tests report example",
+  "Screenshot tests report example": "Screenshot tests report example",
+  "Storybook": "Storybook"
 }

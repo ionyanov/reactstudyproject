@@ -5,7 +5,7 @@ import { Theme } from '@/shared/lib/providers/ThemeProvider';
 import { ArticlePageGreeting } from './ArticlePageGreeting';
 
 const meta: Meta<typeof ArticlePageGreeting> = {
-    title: 'ArticlePageGreeting',
+    title: 'features/article/ArticlePageGreeting',
     component: ArticlePageGreeting,
     decorators: [StoreDecorator({})],
 };

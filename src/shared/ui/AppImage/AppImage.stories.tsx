@@ -5,7 +5,7 @@ import { Theme } from '@/shared/lib/providers/ThemeProvider';
 import { AppImage } from './AppImage';
 
 const meta: Meta<typeof AppImage> = {
-    title: 'AppImage',
+    title: 'shared/AppImage',
     component: AppImage,
     decorators: [StoreDecorator({})],
 };

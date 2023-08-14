@@ -9,6 +9,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/shared/lib/providers/ThemeProvider';
 import ArticleDetailsPage from './ArticleDetailsPage';
+import { setFeatures } from '@/shared/lib/features';
 
 const data: Article = {
     id: 'id',
@@ -44,6 +45,11 @@ const data: Article = {
         },
     ],
 };
+
+setFeatures({
+    isArticleRatingEnabled: true,
+    isArticleRecommendationEnabled: true,
+});
 
 const meta: Meta<typeof ArticleDetailsPage> = {
     title: 'pages/Article/ArticleDetailsPage',
